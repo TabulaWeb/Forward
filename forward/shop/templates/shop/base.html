@@ -3,14 +3,46 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>{% block title %}My shop{% endblock %}</title>
+        <title>{% block title %}Forward{% endblock %}</title>
         <link href="{% static "css/base.css" %}" rel="stylesheet">
+        <script src="https://use.fontawesome.com/148e91bf6b.js"></script>
     </head>
     <body>
+        
         <div id="header">
-            <a href="/" class="logo">My shop</a>
+            <a href="/" class="logo">
+                <img src="{% static "img/header_logo.jpg" %}">
+            </a>
+            <div class="header_info">
+                <p>Аренда и продажа строительного оборудования</p>
+                <p><i class="fa fa-clock-o" aria-hidden="true"></i> Пн-Пт 9:00 - 18:00 Сб, Вс - Выходной</p>
+            </div>
+            <div class="header_contact">
+                <a href="tel:+7-911-920-74-84" class="header_contact-phone"><i class="fa fa-phone-square" aria-hidden="true"></i>+7-911-920-74-84</a>
+                <a href="mailto:oooforward78@mail.ru" class="header_contact-mail"><i class="fa fa-envelope" aria-hidden="true"></i>oooforward78@mail.ru</a>
+                <div class="button">
+                    <a href="#" class="header_contact-button">Заказать звонок</a>
+                </div>
+            </div>
         </div>
         <div id="subheader">
+            <ul class="subheader_nav">
+                <li class="subheader_nav-item">
+                    <a href="#">Наши проекты</a>
+                </li>
+                <li class="subheader_nav-item">
+                    <a href="#">Советы инженера</a>
+                </li>
+                <li class="subheader_nav-item">
+                    <a href="#">Доставка</a>
+                </li>
+                <li class="subheader_nav-item">
+                    <a href="#">Отзывы</a>
+                </li>
+                <li class="subheader_nav-item">
+                    <a href="#">Контакты</a>
+                </li>
+            </ul>
             <div class="cart">
                 {% with total_items=cart|length %}
                     {% if cart|length > 0 %}
@@ -28,5 +60,85 @@
         <div id="content">
             {% block content %}{% endblock %}
         </div>
+
+        <footer>
+            
+        </footer>
     </body>
 </html>
+
+<style>
+    #header{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 4%;
+    }
+    .header_info{
+        text-align: center;
+    }
+    .header_contact{
+        display: flex;
+        flex-direction: column;
+        font-size: 16px;
+        text-align: right;
+    }
+    #subheader{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px 4%;
+        background-color: #414342;
+    }
+    .subheader_nav{
+        display: flex;
+        flex-direction: row;
+        padding-left: 0px;
+        margin: 0px;
+    }
+    .subheader_nav li{
+        list-style: none;
+    }
+    .subheader_nav li a{
+        display: block;
+        color: #fff;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 300;
+        border-right: 1px solid #676a68;
+        padding: 8px 20px;
+        -webkit-transition-duration: .3s;
+        transition-duration: .3s;
+    }
+    .subheader_nav:nth-child(1){
+        border-left: 1px solid #676a68;
+    }
+    #subheader .cart{
+        padding-top: 0px;
+        color: #fff;
+    }
+    .cart{
+        padding: 0px;
+    }
+
+    a.header_contact-phone{
+        color: #333!important;
+        font-size: 21px;
+    }
+    a.header_contact-mail{
+        color: #333
+    }
+    .header_contact-button{
+        display: inline-block;
+        background-color: #414342;
+        color: #fff;
+        padding: 6px 15px;
+        text-decoration: none;
+        border-radius: 20px;
+        margin-top: 10px;
+        -webkit-transition-duration: .3s;
+        transition-duration: .3s;
+    }
+</style>
