@@ -4,7 +4,7 @@
     <head>
         <meta charset="utf-8" />
         <title>{% block title %}Forward{% endblock %}</title>
-        <link href="{% static "css/base.css" %}" rel="stylesheet">
+        <link href="{% static "css/index.css" %}" rel="stylesheet">
         <script src="https://use.fontawesome.com/148e91bf6b.js"></script>
     </head>
     <body>
@@ -27,6 +27,9 @@
         </div>
         <div id="subheader">
             <ul class="subheader_nav">
+                <li class="subheader_nav-item">
+                    <a href="/">Главная</a>
+                </li>
                 <li class="subheader_nav-item">
                     <a href="#">Наши проекты</a>
                 </li>
@@ -141,4 +144,44 @@
         -webkit-transition-duration: .3s;
         transition-duration: .3s;
     }
+    #content{
+        padding: 0px 4%;
+    }
+
+    /* PAGE SHOP_LIST.HTML */
+
+    .block_about h1{
+        text-align: center;
+    }
+
+    .block_about p{
+        text-align: center;
+    }
+
+    .block_advantages h1{
+        text-align: center;
+    }
+    .elements_advantages{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .element_advantages{
+        max-width: 247px;
+        text-align: center;
+        margin: 20px 0;
+    }
+    .element_advantages i{
+        font-size: 70px;
+        color: #414342;
+    }
+
+    .element_advantages h3{
+        font-size: 22px;
+        font-weight: normal;
+        margin: 0;
+        padding: 20px 0;
+    }
+
+
 </style>

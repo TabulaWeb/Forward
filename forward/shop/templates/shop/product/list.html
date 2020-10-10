@@ -7,11 +7,8 @@
 
 {% block content %}
     <div id="sidebar">
-        <h3>Categories</h3>
+        <h3>Каталог</h3>
         <ul>
-            <li {% if not category %}class="selected"{% endif %}>
-                <a href="{% url "shop:product_list" %}">All</a>
-            </li>
             {% for c in categories %}
             <li {% if category.slug == c.slug %}class="selected" {% endif %}>
                 <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
@@ -20,17 +17,58 @@
         </ul>
     </div>
     <div id="main" class="product-list">
-        <h1>{% if category %}{{ category.name }}{% else %}Products{% endif %}</h1>
-        {% for product in products %}
-            <div class="item">
-                <a href="{{ product.get_absolute_url }}">
-                    <img src="{% if product.image %}{{ product.image.url }}{%
-                            else %}{% static "img/no_image.png" %}{% endif %}">
-                </a>
-                <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
-                <br>
-                {{ product.price }} р.
+        {% if category %}
+            <h1>{{ category.name }}</h1>
+            {% for product in products %}
+                <div class="item">
+                    <a href="{{ product.get_absolute_url }}">
+                        <img src="{% if product.image %}{{ product.image.url }}{%
+                                else %}{% static "img/no_image.png" %}{% endif %}">
+                    </a>
+                    <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+                    <br>
+                    {{ product.price }} р.
+                </div>
+            {% endfor %}
+        {% endif %}
+        {% if not category %}
+            <div class="block_slider">
+
             </div>
-        {% endfor %}
+            <div class="block_about">
+                <h1>О КОМПАНИИ</h1>
+                <p>«ФОРВАРД» продает и предоставляет в аренду следующее строительное оборудование: опалубочные системы и<br> комплектующие к ним; строительные леса; балка двутавровая деревянная; фанера ламинированная. На рынке услуг по аренде<br> строительного оборудования компания работает более 6 лет. Основная цель «ФОРВАРД» - обеспечить строительные объекты качественным<br> оборудованием и материалами в установленные сроки. «ФОРВАРД» зарекомендовал себя как надежный поставщик и партнер в монолитном<br> строительстве и ремонте зданий и сооружений.</p>
+            </div>
+            <div class="block_advantages">
+                <h1>НАШИ ПРЕИМУЩЕСТВА</h1>
+                <div class="elements_advantages">
+                    <div class="element_advantages">
+                        <i class="fa fa-cube" aria-hidden="true"></i>
+                        <h3>Наличие оборудования на складе</h3>
+                        <p>Более 5 000 кв.м. опалубки и 2 000 кв.м. строительных лесов</p>
+                    </div>
+                    <div class="element_advantages">
+                        <i class="fa fa-handshake-o" aria-hidden="true"></i>
+                        <h3>Полное сопровождение сделки</h3>
+                        <p>Ведение сделки от первого звонка до ее завершения, техническая и инженерная поддержка 24/7</p>
+                    </div>
+                    <div class="element_advantages">
+                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                        <h3>Шеф-монтаж бесплатно</h3>
+                        <p>Обучим Ваших сотрудников работе с оборудованием на объекте</p>
+                    </div>
+                    <div class="element_advantages">
+                        <i class="fa fa-truck" aria-hidden="true"></i>
+                        <h3>Организация доставки</h3>
+                        <p>Согласуем удобные для Вас транспорт, время загрузки/разгрузки</p>
+                    </div>
+                </div>
+            </div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1991.309635589905!2d30.360270416177286!3d60.05966965929126!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x469634b6868a460d%3A0x1c96e7224bb85d18!2z0JTQvtC80L7RgdGC0YDQvtC40YLQtdC70YzQvdCw0Y8g0YPQuy4sIDQsINCh0LDQvdC60YIt0J_QtdGC0LXRgNCx0YPRgNCzLCAxOTQyOTI!5e0!3m2!1sru!2sru!4v1551690928259" width="100%" height="400" frameborder="0" style="border:0" allowfullscreen=""></iframe>
+        {% endif %}
     </div>
 {% endblock %}
+
+<style>
+    
+</style>
