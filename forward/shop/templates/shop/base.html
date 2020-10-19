@@ -60,17 +60,74 @@
                 {% endwith %}
             </div>
         </div>
+
         <div id="content">
             {% block content %}{% endblock %}
         </div>
-
+        
         <footer>
-            
+            <div class="block_footer">
+                <div class="block_footer-contact">
+                    <h3>Контакты:</h3>
+                    <ul>
+                        <li>
+                            <a href="tel:+7-911-920-74-84">+7-911-920-74-84</a>
+                        </li>
+                        <li>
+                            <a href="mailto:oooforward78@mail.ru">oooforward78@mail.ru</a>
+                        </li>
+                        <li>
+                            <p>194292 г. Санкт-Петербург, ул. Домостроительная д. 4</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="block_footer-links">
+                    <ul>
+                        <li class="footer_nav-item">
+                            <a href="/">Главная</a>
+                        </li>
+                        <li class="footer_nav-item">
+                            <a href="#">Наши проекты</a>
+                        </li>
+                        <li class="footer_nav-item">
+                            <a href="#">Советы инженера</a>
+                        </li>
+                        <li class="footer_nav-item">
+                            <a href="#">Доставка</a>
+                        </li>
+                        <li class="footer_nav-item">
+                            <a href="#">Отзывы</a>
+                        </li>
+                        <li class="footer_nav-item">
+                            <a href="#">Контакты</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </footer>
     </body>
 </html>
 
 <style>
+    #sidebar h3{
+        color: #000000;
+        font-size: 25px;
+        font-weight: 600;
+        margin-top: 0px;
+    }
+    #sidebar ul li{
+        padding: 0px;
+    }
+    #sidebar ul li a{
+        margin: 0;
+        list-style: none;
+        padding: 10px 0px;
+    }
+    #sidebar {
+        width: 220px;
+        padding: 30px 25px 0 4%;
+        float: left;
+    }
     #header{
         display: flex;
         flex-direction: row;
@@ -145,7 +202,8 @@
         transition-duration: .3s;
     }
     #content{
-        padding: 0px 4%;
+        padding: 0px 4% 0px 0px;
+        background: #dadcdb;
     }
 
     /* PAGE SHOP_LIST.HTML */
@@ -183,5 +241,51 @@
         padding: 20px 0;
     }
 
+    footer{
+        background-color: #414342;
+        color: #fff;
+    }
 
+    .block_footer{
+        padding: 20px 4%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .block_footer-contact li{
+        list-style: none;
+    }
+    .block_footer p{
+        margin: 0px;
+    }
+    .block_footer-links ul{
+        display: flex;
+        flex-direction: row;
+    }
+    .block_footer-links li{
+        list-style: none;
+        padding: 0px 15px;
+    }
+    .block_footer-links li:nth-child(1){
+        padding-left: 0px;
+
+    }
+    .block_footer a{
+        color: #ffffff;
+    }
+    .block_advantages{
+        margin-top: 60px;
+    }
+    .block_footer-contact li:nth-child(2){
+        padding: 15px 0px;
+    }
+    .block_form h1{
+        text-align: center;
+    }
+    .block_form{
+        margin-top: 60px;
+    }
+    #main{
+        background: #ffffff;
+    }
 </style>
