@@ -6,6 +6,8 @@
         <title>{% block title %}Forward{% endblock %}</title>
         <link href="{% static "css/index.css" %}" rel="stylesheet">
         <script src="https://use.fontawesome.com/148e91bf6b.js"></script>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     </head>
     <body>
         
@@ -65,7 +67,7 @@
             {% block content %}{% endblock %}
         </div>
         
-        <footer>
+        <footer class="footer">
             <div class="block_footer">
                 <div class="block_footer-contact">
                     <h3>Контакты:</h3>
@@ -105,10 +107,152 @@
                 </div>
             </div>
         </footer>
+        <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+        <script>
+            $(document).ready(function(){
+                $('.your-class').slick();
+            });
+        </script>
+
     </body>
 </html>
 
 <style>
+    *{
+        box-sizing: border-box;
+        outline: none;
+    }
+    .block_button-submit{
+        display: flex;
+        justify-content: flex-end;
+            
+    }
+    .block_button-submit button{
+        display: inline-block;
+        background-color: #414342;
+        color: #fff;
+        padding: 6px 15px;
+        text-decoration: none;
+        border-radius: 20px;
+        -webkit-transition-duration: .3s;
+        transition-duration: .3s;
+        font-size: 21px;
+        margin: 0px 10px;
+    }
+    .form-home__item textarea {
+        border: 0;
+        padding: 10px;
+        width: 98.6%;
+        margin: 10px 7px;
+    }   
+    .block_contact-input{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .block_contact-input input{
+        width: 32%;
+        margin: 0px 7px;
+        padding: 10px 10px;
+        font-size: 15px;
+        font-style: italic;
+        border: 0;
+    }
+    .form-home__item{
+        background-color: #c1c2c2;
+        padding: 10px;
+        position: relative;
+        padding-bottom: 28px;
+    }
+    .block_footer-links a:hover{
+        text-decoration: underline;
+    }
+    .sliders-item-description__title {
+        margin: 0;
+        font-size: 38px;
+        color: #fff;
+        font-weight: 300;
+    }
+    .sliders-item-description {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        padding: 30px;
+        text-align: center;
+    }
+    .block_slider{
+        padding-top: 30px;
+        background-color: #dadcdb;
+        outline: none;
+    }
+    .slide{
+        min-height: 420px;
+        background-image: url({% static "img/one_slide.jpg" %});
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        background-color: #505050;
+        background-blend-mode: multiply;
+    }
+    
+    #sidebar ul li.selected .cub_top:after{
+        content: "∎";
+        color: #fff;
+        position: absolute;
+        right: -4px;
+        top: -24px;
+        font-size: 35px;
+    }
+    #sidebar ul li.selected .cut_cubTop:before{
+        content: "";
+        position: absolute;
+        background-color: #dadcdb;
+        height: 20px;
+        width: 20px;
+        right: 0;
+        top: -20px;
+        border-radius: 0 0 50% 0;
+    }
+    #sidebar ul li.selected .cut_cubBottom:before{
+        content: "";
+        position: absolute;
+        background-color: #dadcdb;
+        height: 20px;
+        width: 20px;
+        right: 0;
+        bottom: -20px;
+        border-radius: 0 50% 0 0;
+        z-index: 2;
+    }
+    #sidebar ul li.selected .cub_bottom:after{
+        content: "∎";
+        color: #fff;
+        position: absolute;
+        right: -4px;
+        bottom: -18px;
+        font-size: 35px;
+        z-index: 1;
+
+    }
     #sidebar h3{
         color: #000000;
         font-size: 25px;
@@ -121,11 +265,18 @@
     #sidebar ul li a{
         margin: 0;
         list-style: none;
-        padding: 10px 0px;
+        padding: 13px 25px 13px 10px;
+        color: black;
+        font-size: 16px;
+        font-weight: 500;
+    }
+    #sidebar ul li a:hover .line_border{
+        background-color: #e6e9e7;
+        border-radius: 15px;
     }
     #sidebar {
         width: 220px;
-        padding: 30px 25px 0 4%;
+        padding: 30px 0px 0 4%;
         float: left;
     }
     #header{
@@ -134,6 +285,9 @@
         justify-content: space-between;
         align-items: center;
         padding: 10px 4%;
+    }
+    .line_border{
+        padding: 10px 8px;
     }
     .header_info{
         text-align: center;
@@ -144,6 +298,20 @@
         font-size: 16px;
         text-align: right;
     }
+    #sidebar ul li.selected {
+        background: #ffffff;
+        border-radius: 0px;
+        border-top-left-radius: 15px;
+        border-bottom-left-radius: 15px;
+        position: relative;
+    }
+    #sidebar ul li.selected a:hover .line_border{
+        background-color: #ffffff;
+        border-radius: 15px;
+    }
+    #sidebar ul li.selected a{
+        color: #000000;
+    }
     #subheader{
         display: flex;
         flex-direction: row;
@@ -151,6 +319,9 @@
         align-items: center;
         padding: 0px 4%;
         background-color: #414342;
+        position: sticky;
+        top: 0px;
+        z-index: 10;
     }
     .subheader_nav{
         display: flex;
@@ -171,6 +342,9 @@
         padding: 8px 20px;
         -webkit-transition-duration: .3s;
         transition-duration: .3s;
+    }
+    .subheader_nav li a:hover{
+        background-color: #343635;
     }
     .subheader_nav:nth-child(1){
         border-left: 1px solid #676a68;
@@ -214,6 +388,7 @@
 
     .block_about p{
         text-align: center;
+        padding: 0px 15px;
     }
 
     .block_advantages h1{
@@ -283,6 +458,7 @@
         text-align: center;
     }
     .block_form{
+        padding: 0px 15px;
         margin-top: 60px;
     }
     #main{
