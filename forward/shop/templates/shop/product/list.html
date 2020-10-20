@@ -12,13 +12,7 @@
             {% for c in categories %}
             <li {% if category.slug == c.slug %}class="selected" {% endif %}>
                 <a href="{{ c.get_absolute_url }}">
-                    <div class="cub_top"></div>
-                    <div class="cut_cubTop"></div>
-                    <div class="line_border">
-                        {{ c.name }}
-                    </div>
-                    <div class="cut_cubBottom"></div>
-                    <div class="cub_bottom"></div>
+                    {{ c.name }}
                 </a>
             </li>
             {% endfor %}

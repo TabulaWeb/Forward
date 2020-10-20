@@ -6,6 +6,7 @@
         <title>{% block title %}Forward{% endblock %}</title>
         <link href="{% static "css/index.css" %}" rel="stylesheet">
         <script src="https://use.fontawesome.com/148e91bf6b.js"></script>
+        <link rel="shortcut icon" href="{% static "img/favicon.ico" %}">
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
     </head>
@@ -51,16 +52,47 @@
             <div class="cart">
                 {% with total_items=cart|length %}
                     {% if cart|length > 0 %}
-                        Your cart:
                         <a href="{% url "cart:cart_detail" %}">
-                            {{ total_items }} item{{ total_items|pluralize }},
-                            {{ cart.get_total_price }} р.
+                            <div class="block_basket">
+                                <div class="block_basket-img">
+                                    <svg class="basket_blank" enable-background="new 0 0 26 26" id="Слой_1" version="1.1" viewBox="0 0 26 26" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M24.25,2.5898438h-2.8359375c-0.0267944,0-0.0495605,0.0125122-0.0756226,0.0152588  c-0.0543823,0.0055542-0.1052246,0.0145874-0.156189,0.0315552c-0.0426636,0.0140991-0.0811768,0.0314941-0.1200562,0.0526123  c-0.0447388,0.024353-0.085083,0.0507813-0.1240845,0.0836792c-0.0358887,0.0301514-0.0663452,0.0622559-0.0960083,0.0984497  c-0.0305786,0.0372925-0.0567017,0.0752563-0.079895,0.1184692c-0.0239868,0.0443726-0.0408325,0.0899048-0.055542,0.1390991  c-0.0079956,0.0266724-0.0252686,0.0480957-0.0303955,0.0761108l-0.4295044,2.3473511L1.8930664,6.625  C1.8227539,6.6201172,1.7607422,6.6303711,1.6821289,6.6376953C1.2744141,6.6748047,0.9716797,7.0322266,1.0019531,7.4404297  c0.0024414,0.0307617,0.0063477,0.0605469,0.012207,0.0898438l1.2788086,6.9746094  c0.2924805,1.081543,1.1933594,2.1733398,2.5483398,2.1733398h13.3695679l-0.2862549,1.5644531H6.6748047  c-1.4243164,0-2.5834961,1.1591797-2.5834961,2.5834961c0,1.4248047,1.1591797,2.5839844,2.5834961,2.5839844  s2.5834961-1.1591797,2.5834961-2.5839844c0-0.3881226-0.0922241-0.7528687-0.2462769-1.0834961h6.9080811  c-0.1540527,0.3306274-0.2462769,0.6953735-0.2462769,1.0834961c0,1.4248047,1.1591797,2.5839844,2.5834961,2.5839844  s2.5834961-1.1591797,2.5834961-2.5839844c0-1.0127563-0.5914307-1.8825073-1.4421387-2.3057861l2.640564-14.430542H24.25  c0.4140625,0,0.75-0.3359375,0.75-0.75S24.6640625,2.5898438,24.25,2.5898438z M19.0220947,12.244812l-3.1782227,0.0499268  l0.1730957-1.8419189l3.3514404-0.1004639L19.0220947,12.244812z M3.1442871,10.8387451l3.1759644-0.0952148l0.2077637,1.6974487  l-3.081543,0.0484009L3.1442871,10.8387451z M7.3235474,10.7134399l3.4909058-0.1046143v1.7648315l-3.281311,0.0515747  L7.3235474,10.7134399z M10.8144531,9.6079102L7.2014771,9.7162476l-0.230835-1.885376l3.843811-0.2247314V9.6079102z   M11.8144531,7.5476685l3.4902344-0.2041016l-0.2006836,2.1357422l-3.2895508,0.0986328V7.5476685z M10.8144531,13.3739014  v1.8043213H7.8701782l-0.2148438-1.7546997L10.8144531,13.3739014z M11.8144531,13.3582153l2.9293823-0.0459595l-0.175354,1.8659668  h-2.7540283V13.3582153z M11.8144531,12.3579712v-1.7791138l3.1952515-0.0958252l-0.1717529,1.8274536L11.8144531,12.3579712z   M19.5525513,9.3459473l-3.4412842,0.1031494l0.2033691-2.1645508l3.6542358-0.2136841L19.5525513,9.3459473z M5.9707642,7.8893433  l0.227356,1.8569336l-3.236145,0.0970459C2.8256226,9.102478,2.717041,8.5267334,2.6245117,8.0849609L5.9707642,7.8893433z   M3.7548828,14.1743164l-0.1258545-0.687561l3.0212402-0.0474243l0.2128906,1.7388916H4.8413086  C4.1987305,15.1782227,3.8408203,14.4819336,3.7548828,14.1743164z M15.572937,15.1782227l0.1768188-1.8817749l3.0888062-0.0485229  l-0.3532104,1.9302979H15.572937z M7.7583008,20.8261719c0,0.5976563-0.4858398,1.0839844-1.0834961,1.0839844  s-1.0834961-0.4863281-1.0834961-1.0839844s0.4858398-1.0834961,1.0834961-1.0834961S7.7583008,20.2285156,7.7583008,20.8261719z   M18.2573242,21.9101563c-0.5976563,0-1.0834961-0.4863281-1.0834961-1.0839844s0.4858398-1.0834961,1.0834961-1.0834961  s1.0834961,0.4858398,1.0834961,1.0834961S18.8549805,21.9101563,18.2573242,21.9101563z" fill="#fff"/></svg>
+                                    <div class="block_basket-quantity">
+                                        <p>{{ total_items }}</p>
+                                    </div>
+                                </div>
+                                <div class="block_basket-text">
+                                    {{ cart.get_total_price }} р.
+                                </div>
+                            </div>
                         </a>
                     {% else %}
-                        Your cart is empty.
+                        <svg class="basket_blank" enable-background="new 0 0 26 26" id="Слой_1" version="1.1" viewBox="0 0 26 26" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M24.25,2.5898438h-2.8359375c-0.0267944,0-0.0495605,0.0125122-0.0756226,0.0152588  c-0.0543823,0.0055542-0.1052246,0.0145874-0.156189,0.0315552c-0.0426636,0.0140991-0.0811768,0.0314941-0.1200562,0.0526123  c-0.0447388,0.024353-0.085083,0.0507813-0.1240845,0.0836792c-0.0358887,0.0301514-0.0663452,0.0622559-0.0960083,0.0984497  c-0.0305786,0.0372925-0.0567017,0.0752563-0.079895,0.1184692c-0.0239868,0.0443726-0.0408325,0.0899048-0.055542,0.1390991  c-0.0079956,0.0266724-0.0252686,0.0480957-0.0303955,0.0761108l-0.4295044,2.3473511L1.8930664,6.625  C1.8227539,6.6201172,1.7607422,6.6303711,1.6821289,6.6376953C1.2744141,6.6748047,0.9716797,7.0322266,1.0019531,7.4404297  c0.0024414,0.0307617,0.0063477,0.0605469,0.012207,0.0898438l1.2788086,6.9746094  c0.2924805,1.081543,1.1933594,2.1733398,2.5483398,2.1733398h13.3695679l-0.2862549,1.5644531H6.6748047  c-1.4243164,0-2.5834961,1.1591797-2.5834961,2.5834961c0,1.4248047,1.1591797,2.5839844,2.5834961,2.5839844  s2.5834961-1.1591797,2.5834961-2.5839844c0-0.3881226-0.0922241-0.7528687-0.2462769-1.0834961h6.9080811  c-0.1540527,0.3306274-0.2462769,0.6953735-0.2462769,1.0834961c0,1.4248047,1.1591797,2.5839844,2.5834961,2.5839844  s2.5834961-1.1591797,2.5834961-2.5839844c0-1.0127563-0.5914307-1.8825073-1.4421387-2.3057861l2.640564-14.430542H24.25  c0.4140625,0,0.75-0.3359375,0.75-0.75S24.6640625,2.5898438,24.25,2.5898438z M19.0220947,12.244812l-3.1782227,0.0499268  l0.1730957-1.8419189l3.3514404-0.1004639L19.0220947,12.244812z M3.1442871,10.8387451l3.1759644-0.0952148l0.2077637,1.6974487  l-3.081543,0.0484009L3.1442871,10.8387451z M7.3235474,10.7134399l3.4909058-0.1046143v1.7648315l-3.281311,0.0515747  L7.3235474,10.7134399z M10.8144531,9.6079102L7.2014771,9.7162476l-0.230835-1.885376l3.843811-0.2247314V9.6079102z   M11.8144531,7.5476685l3.4902344-0.2041016l-0.2006836,2.1357422l-3.2895508,0.0986328V7.5476685z M10.8144531,13.3739014  v1.8043213H7.8701782l-0.2148438-1.7546997L10.8144531,13.3739014z M11.8144531,13.3582153l2.9293823-0.0459595l-0.175354,1.8659668  h-2.7540283V13.3582153z M11.8144531,12.3579712v-1.7791138l3.1952515-0.0958252l-0.1717529,1.8274536L11.8144531,12.3579712z   M19.5525513,9.3459473l-3.4412842,0.1031494l0.2033691-2.1645508l3.6542358-0.2136841L19.5525513,9.3459473z M5.9707642,7.8893433  l0.227356,1.8569336l-3.236145,0.0970459C2.8256226,9.102478,2.717041,8.5267334,2.6245117,8.0849609L5.9707642,7.8893433z   M3.7548828,14.1743164l-0.1258545-0.687561l3.0212402-0.0474243l0.2128906,1.7388916H4.8413086  C4.1987305,15.1782227,3.8408203,14.4819336,3.7548828,14.1743164z M15.572937,15.1782227l0.1768188-1.8817749l3.0888062-0.0485229  l-0.3532104,1.9302979H15.572937z M7.7583008,20.8261719c0,0.5976563-0.4858398,1.0839844-1.0834961,1.0839844  s-1.0834961-0.4863281-1.0834961-1.0839844s0.4858398-1.0834961,1.0834961-1.0834961S7.7583008,20.2285156,7.7583008,20.8261719z   M18.2573242,21.9101563c-0.5976563,0-1.0834961-0.4863281-1.0834961-1.0839844s0.4858398-1.0834961,1.0834961-1.0834961  s1.0834961,0.4858398,1.0834961,1.0834961S18.8549805,21.9101563,18.2573242,21.9101563z" fill="#dadcdb"/></svg>
                     {% endif %}
                 {% endwith %}
             </div>
+        </div>
+
+        <div class="block_basket-mini">
+            {% for item in cart %}
+                {% with product=item.product %}
+                    <div class="basket_mini-product">
+                        <img src="{% if product.image %}{{ product.image.url }}
+                        {% else %}{% static "img/no_image.png" %}{% endif %}">
+                        <p>{{ product.name }}</p>
+                        <a href="{% url "cart:cart_remove" product.id%}"><svg fill="#babac0" class="svg_trash" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path class="cls-1" d="M24,31H8a3,3,0,0,1-3-3V9A1,1,0,0,1,7,9V28a1,1,0,0,0,1,1H24a1,1,0,0,0,1-1V9a1,1,0,0,1,2,0V28A3,3,0,0,1,24,31Z"/><path class="cls-1" d="M28,7H4A1,1,0,0,1,4,5H28a1,1,0,0,1,0,2Z"/><path class="cls-1" d="M20,7a1,1,0,0,1-1-1V3H13V6a1,1,0,0,1-2,0V2a1,1,0,0,1,1-1h8a1,1,0,0,1,1,1V6A1,1,0,0,1,20,7Z"/><path class="cls-1" d="M16,26a1,1,0,0,1-1-1V11a1,1,0,0,1,2,0V25A1,1,0,0,1,16,26Z"/><path class="cls-1" d="M21,24a1,1,0,0,1-1-1V13a1,1,0,0,1,2,0V23A1,1,0,0,1,21,24Z"/><path class="cls-1" d="M11,24a1,1,0,0,1-1-1V13a1,1,0,0,1,2,0V23A1,1,0,0,1,11,24Z"/></g></svg></a>
+                    </div>
+                {% endwith %}
+            {% endfor %}
+                    <div class="basket_mini-results">
+                        <div class="basket_mini-results-text">
+                            Итого:<br>
+                            {{ cart.get_total_price }} р.
+                        </div>
+                        <div class="basket_mini-linkCard">
+                            <a href="{% url "cart:cart_detail" %}">В корьзину</a>
+                        </div>
+                    </div>
+                
         </div>
 
         <div id="content">
@@ -115,6 +147,16 @@
             $(document).ready(function(){
                 $('.your-class').slick();
             });
+            
+                $('.block_basket').hover(
+                    function(){
+                        $('.block_basket-mini').addClass('hover_opacity');
+                    },
+                    function(){
+                        $('.block_basket-mini').removeClass('hover_opacity');
+                    }
+                );
+            
         </script>
 
     </body>
@@ -124,6 +166,108 @@
     *{
         box-sizing: border-box;
         outline: none;
+    }
+    .hover_opacity{
+        opacity: 1!important;
+    }
+    .block_basket-mini::before{
+        width: 1.1rem;
+        height: 1.1rem;
+        content: '';
+        position: absolute;
+        right: calc(50% - 9.2rem);
+        top: -0.49rem;
+        transform: rotate(45deg) skew(10deg,10deg);
+        border-radius: .3rem;
+        box-shadow: 0 0.1rem 2rem rgba(4,6,28,.1);
+        background: inherit;
+    }
+    .svg_trash{
+        width: 23px;
+    }
+    .basket_mini-product a:hover svg{
+        fill: #878792;
+    }
+    .basket_mini-product a{
+        position: absolute;
+        top: 15px;
+        right: 10px;
+    }
+    .basket_mini-product p{ 
+        margin: 0px 10px;
+        display: flex;
+        align-items: center;
+
+    }
+    .basket_mini-product img{
+        width: 80px;
+        height: 80px;
+    }
+    .basket_mini-product{
+        padding: 15px 10px;
+        display: flex;
+        position: relative;
+    }
+    .basket_mini-results{
+        border-top: .1rem solid #dedee2;
+        padding: 1rem 0.7rem;
+        border-bottom-left-radius: .4rem;
+        border-bottom-right-radius: .4rem;
+        position: relative;
+        z-index: 2;
+    }
+    .block_basket-mini{
+        position: absolute;
+        top: 11rem;
+        right: 3.95vw;
+        z-index: 100;
+        background-color: #fff;
+        width: 20rem;
+        opacity: 0;
+    }
+    .block_basket{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+    }
+    .block_basket-quantity p{
+        margin: 0px;
+        position: absolute;
+    }
+    .block_basket-text{
+        color: #fff;
+    }
+    .block_basket-img{
+        position: relative;
+        margin-right: 21px;
+    }
+    .block_basket-quantity{
+        top: 4px;
+        right: -5px;
+        background-color: red;
+        font-weight: bold;
+        position: absolute;
+        background: #ff4d4d;
+        color: #fff;
+        z-index: 10;
+        text-align: center;
+        border-radius: 50%;
+        display: flex;
+        -webkit-box-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        align-items: center;
+        font-size: 13px;
+        width: 15px;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+    .basket_blank{
+        width: 40px;
+        display: flex;
+        transform: scaleX(-1);
     }
     .block_button-submit{
         display: flex;
@@ -213,51 +357,13 @@
         background-color: #505050;
         background-blend-mode: multiply;
     }
-    
-    #sidebar ul li.selected .cub_top:after{
-        content: "∎";
-        color: #fff;
-        position: absolute;
-        right: -4px;
-        top: -24px;
-        font-size: 35px;
-    }
-    #sidebar ul li.selected .cut_cubTop:before{
-        content: "";
-        position: absolute;
-        background-color: #dadcdb;
-        height: 20px;
-        width: 20px;
-        right: 0;
-        top: -20px;
-        border-radius: 0 0 50% 0;
-    }
-    #sidebar ul li.selected .cut_cubBottom:before{
-        content: "";
-        position: absolute;
-        background-color: #dadcdb;
-        height: 20px;
-        width: 20px;
-        right: 0;
-        bottom: -20px;
-        border-radius: 0 50% 0 0;
-        z-index: 2;
-    }
-    #sidebar ul li.selected .cub_bottom:after{
-        content: "∎";
-        color: #fff;
-        position: absolute;
-        right: -4px;
-        bottom: -18px;
-        font-size: 35px;
-        z-index: 1;
-
-    }
     #sidebar h3{
         color: #000000;
         font-size: 25px;
         font-weight: 600;
         margin-top: 0px;
+        margin-bottom: 21px;
+        padding-left: 4vw;
     }
     #sidebar ul li{
         padding: 0px;
@@ -265,18 +371,20 @@
     #sidebar ul li a{
         margin: 0;
         list-style: none;
-        padding: 13px 25px 13px 10px;
+        padding: 13px 25px 13px 4vw;
         color: black;
         font-size: 16px;
         font-weight: 500;
+        height: 44px;
+        display: flex;
+        align-items: center;
     }
-    #sidebar ul li a:hover .line_border{
-        background-color: #e6e9e7;
-        border-radius: 15px;
+    #sidebar ul li a:hover{
+        background-color: #f1f1f1;
     }
     #sidebar {
-        width: 220px;
-        padding: 30px 0px 0 4%;
+        width: 265px;
+        padding: 30px 0px 0 0px;
         float: left;
     }
     #header{
@@ -285,9 +393,6 @@
         justify-content: space-between;
         align-items: center;
         padding: 10px 4%;
-    }
-    .line_border{
-        padding: 10px 8px;
     }
     .header_info{
         text-align: center;
@@ -299,15 +404,8 @@
         text-align: right;
     }
     #sidebar ul li.selected {
-        background: #ffffff;
+        background: #f1f1f1;
         border-radius: 0px;
-        border-top-left-radius: 15px;
-        border-bottom-left-radius: 15px;
-        position: relative;
-    }
-    #sidebar ul li.selected a:hover .line_border{
-        background-color: #ffffff;
-        border-radius: 15px;
     }
     #sidebar ul li.selected a{
         color: #000000;
