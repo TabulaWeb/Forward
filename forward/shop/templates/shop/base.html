@@ -34,19 +34,19 @@
                     <a href="/">Главная</a>
                 </li>
                 <li class="subheader_nav-item">
-                    <a href="#">Наши проекты</a>
+                    <a href="{% url 'shop:our_projects' %}">Наши проекты</a>
                 </li>
                 <li class="subheader_nav-item">
-                    <a href="#">Советы инженера</a>
+                    <a href="{% url 'shop:engineer_tips' %}">Советы инженера</a>
                 </li>
                 <li class="subheader_nav-item">
-                    <a href="#">Доставка</a>
+                    <a href="{% url 'shop:delivery' %}">Доставка</a>
                 </li>
                 <li class="subheader_nav-item">
-                    <a href="#">Отзывы</a>
+                    <a href="{% url 'shop:reviews' %}">Отзывы</a>
                 </li>
                 <li class="subheader_nav-item">
-                    <a href="#">Контакты</a>
+                    <a href="{% url 'shop:contacts' %}">Контакты</a>
                 </li>
             </ul>
             <div class="cart">
@@ -121,19 +121,19 @@
                             <a href="/">Главная</a>
                         </li>
                         <li class="footer_nav-item">
-                            <a href="#">Наши проекты</a>
+                            <a href="{% url 'shop:our_projects' %}">Наши проекты</a>
                         </li>
                         <li class="footer_nav-item">
-                            <a href="#">Советы инженера</a>
+                            <a href="{% url 'shop:engineer_tips' %}">Советы инженера</a>
                         </li>
                         <li class="footer_nav-item">
-                            <a href="#">Доставка</a>
+                            <a href="{% url 'shop:delivery' %}">Доставка</a>
                         </li>
                         <li class="footer_nav-item">
-                            <a href="#">Отзывы</a>
+                            <a href="{% url 'shop:reviews' %}">Отзывы</a>
                         </li>
                         <li class="footer_nav-item">
-                            <a href="#">Контакты</a>
+                            <a href="{% url 'shop:contacts' %}">Контакты</a>
                         </li>
                     </ul>
                 </div>
@@ -167,6 +167,7 @@
         box-sizing: border-box;
         outline: none;
     }
+    /* BLOCK HOME-PAGE */
     .hover_opacity{
         opacity: 1!important;
     }
@@ -562,4 +563,27 @@
     #main{
         background: #ffffff;
     }
+    /* END BLOCK HOME-PAGE */
+
+    /* BLOCK CONTACT-PAGE */
+    .block_contacts{
+        padding-top: 30px;
+        background-color: #dadcdb;
+    }
+    .content_contacts{
+        background-color: #fff;
+    }
+    .block_contacts-title{
+        text-align: center;
+        margin: 0px;
+        margin-bottom: 21px;
+    }
+    .block_contact-contact{
+        padding: 0px 15px;
+    }
+    .block_contact-contactSub{
+        font-weight: 700;
+        margin-right: 5px;
+    }
+    /* END BLOCK CONTACT-PAGE */
 </style>

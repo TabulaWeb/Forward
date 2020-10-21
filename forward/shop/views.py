@@ -20,3 +20,62 @@ def product_detail(request, id, slug):
     return render(request, 'shop/product/detail.html', {'product': product, 'cart_product_form': cart_product_form})
 
 
+def our_projects(request, category_slug=None):
+    category = None
+    categories = Category.objects.all()
+    products = Product.objects.filter(available=True)
+    if category_slug:
+        category = get_object_or_404(Category, slug=category_slug)
+        products = products.filter(category=category)
+    return render(request, 'shop/product/our_projects.html', {'category': category,
+                                                              'categories': categories,
+                                                              'products': products})
+
+
+def engineer_tips(request, category_slug=None):
+    category = None
+    categories = Category.objects.all()
+    products = Product.objects.filter(available=True)
+    if category_slug:
+        category = get_object_or_404(Category, slug=category_slug)
+        products = products.filter(category=category)
+    return render(request, 'shop/product/engineer_tips.html', {'category': category,
+                                                               'categories': categories,
+                                                               'products': products})
+
+
+def delivery(request, category_slug=None):
+    category = None
+    categories = Category.objects.all()
+    products = Product.objects.filter(available=True)
+    if category_slug:
+        category = get_object_or_404(Category, slug=category_slug)
+        products = products.filter(category=category)
+    return render(request, 'shop/product/delivery.html', {'category': category,
+                                                          'categories': categories,
+                                                          'products': products})
+
+
+def reviews(request, category_slug=None):
+    category = None
+    categories = Category.objects.all()
+    products = Product.objects.filter(available=True)
+    if category_slug:
+        category = get_object_or_404(Category, slug=category_slug)
+        products = products.filter(category=category)
+    return render(request, 'shop/product/reviews.html', {'category': category,
+                                                         'categories': categories,
+                                                         'products': products})
+
+
+def contacts(request, category_slug=None):
+    category = None
+    categories = Category.objects.all()
+    products = Product.objects.filter(available=True)
+    if category_slug:
+        category = get_object_or_404(Category, slug=category_slug)
+        products = products.filter(category=category)
+    return render(request, 'shop/product/contacts.html', {'category': category,
+                                                         'categories': categories,
+                                                         'products': products})
+
