@@ -4,52 +4,56 @@
 {% block title %}Your shopping cart{% endblock %}
 
 {% block content %}
-    <h1>Your shopping cart</h1>
-    <table class="cart">
-        <thead>
-            <tr>
-                <th>Image</th>
-                <th>Product</th>
-                <th>Quantity</th>
-                <th>Remove</th>
-                <th>Unit price</th>
-                <th>Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for item in cart %}
-                {% with product=item.product %}
-                <tr>
-                    <td>
-                        <a href="{{ product.get_absolute_url }}">
-                            <img src="{% if product.image %}{{ product.image.url }}
-                                    {% else %}{% static "img/no_image.png" %}{% endif %}">
-                        </a>
-                    </td>
-                    <td>{{ product.name }}</td>
-                    <td>
-                        <form action="{% url "cart:cart_add" product.id %}" method="post">
-                            {{ item.update_quantity_form.quantity }}
-                            {{ item.update_quantity_form.update }}
-                            <input type="submit" value="Update">
-                            {% csrf_token %}
-                        </form>
-                    </td>
-                    <td><a href="{% url "cart:cart_remove" product.id%}">Remove</a></td>
-                    <td class="num">${{ item.price }}</td>
-                    <td class="num">${{ item.total_price }}</td>
-                </tr>
-                {% endwith %}
-            {% endfor %}
-            <tr class="total">
-                <td>Total</td>
-                <td colspan="4"></td>
-                <td class="num">${{ cart.get_total_price }}</td>
-            </tr>
-        </tbody>
-    </table>
-    <p class="text-right">
-        <a href="{% url "shop:product_list" %}" class="button light">Continue shopping</a>
-        <a href="{% url "orders:order_create" %}" class="button">Checkout</a>
-    </p>
+    <div class="page_cart">
+        <h1>Корзина</h1>
+        <div class="blocks_items-cart">
+                {% for item in cart %}
+                    {% with product=item.product %}
+                    <div class="block_item-cart">
+                        <div class="item_cart-img">
+                            <a href="{{ product.get_absolute_url }}">
+                                <img src="{% if product.image %}{{ product.image.url }}
+                                        {% else %}{% static "img/no_image.png" %}{% endif %}">
+                            </a>
+                        </div>
+                        <div class="item_cart-manipul">
+                            <div>
+                                <div class="item_cart-name">{{ product.name }}</div>
+                                <div class="item_cart-remove"><a href="{% url "cart:cart_remove" product.id%}"><svg fill="#babac0" class="svg_trash" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path class="cls-1" d="M24,31H8a3,3,0,0,1-3-3V9A1,1,0,0,1,7,9V28a1,1,0,0,0,1,1H24a1,1,0,0,0,1-1V9a1,1,0,0,1,2,0V28A3,3,0,0,1,24,31Z"/><path class="cls-1" d="M28,7H4A1,1,0,0,1,4,5H28a1,1,0,0,1,0,2Z"/><path class="cls-1" d="M20,7a1,1,0,0,1-1-1V3H13V6a1,1,0,0,1-2,0V2a1,1,0,0,1,1-1h8a1,1,0,0,1,1,1V6A1,1,0,0,1,20,7Z"/><path class="cls-1" d="M16,26a1,1,0,0,1-1-1V11a1,1,0,0,1,2,0V25A1,1,0,0,1,16,26Z"/><path class="cls-1" d="M21,24a1,1,0,0,1-1-1V13a1,1,0,0,1,2,0V23A1,1,0,0,1,21,24Z"/><path class="cls-1" d="M11,24a1,1,0,0,1-1-1V13a1,1,0,0,1,2,0V23A1,1,0,0,1,11,24Z"/></g></svg></a></div>
+                            </div>
+                            <div>
+                                <div class="item_cart-price">
+                                    <div class="item-totalPrice">
+                                        {{ item.total_price }} ₽
+                                    </div>
+                                    <div class="item_price">
+                                        {{ item.quantity }} <span>x</span> {{ item.price }} ₽
+                                    </div>
+                                </div>
+                                <div class="item_cart-quantity">
+                                    <form action="{% url "cart:cart_add" product.id %}" method="post">
+                                        {{ item.update_quantity_form.quantity }}
+                                        {{ item.update_quantity_form.update }}
+                                        <input type="submit" value="Update">
+                                        {% csrf_token %}
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                    {% endwith %}
+                {% endfor %}
+        </div>
+        <div class="orders-list__content">
+            <p>Сумма к оплате <span>{{ cart.get_total_price }} ₽</span></p>
+            <div class="orders-list__button">
+                <a href="{% url "orders:order_create" %}" class="button">Оформить заказ</a>
+                <a href="{% url "shop:product_list" %}" class="button light">Вернуться к покупкам</a>
+            </div>
+        </div>
+        <p class="text-right">
+            
+            
+        </p>
+    </div>
 {% endblock %}
