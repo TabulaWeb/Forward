@@ -24,7 +24,7 @@
                 <a href="tel:+7-911-920-74-84" class="header_contact-phone"><i class="fa fa-phone-square" aria-hidden="true"></i>+7-911-920-74-84</a>
                 <a href="mailto:oooforward78@mail.ru" class="header_contact-mail"><i class="fa fa-envelope" aria-hidden="true"></i>oooforward78@mail.ru</a>
                 <div class="button">
-                    <a href="#" class="header_contact-button">Заказать звонок</a>
+                    <button href="#" class="header_contact-button">Заказать звонок</button>
                 </div>
             </div>
         </div>
@@ -156,7 +156,26 @@
                         $('.block_basket-mini').removeClass('hover_opacity');
                     }
                 );
-            
+
+                 $('.block_basket-mini').hover(
+                     function(){
+                        $('.block_basket-mini').addClass('hover_opacity');
+                    },
+                     function(){
+                        $('.block_basket-mini').removeClass('hover_opacity');
+                    }
+                 )
+
+                $('.header_contact-button').click(
+                    function(){
+                        $('.block_mini-form').addClass('mini_form-block');
+                    },  
+                )
+                $('.close_form-mini').click(
+                     function(){
+                        $('.block_mini-form').removeClass('mini_form-block');
+                    }
+                )
         </script>
 
     </body>
@@ -168,6 +187,79 @@
         outline: none;
     }
     /* BLOCK HOME-PAGE */
+    .close_form-mini{
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        cursor: pointer;
+    }
+    .close_form-mini:hover path{
+        fill: #878792;
+    }
+    .mini_form-block{
+        display: block!important;
+    }
+    .block_mini-form{
+        overflow: auto;
+        margin: auto;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: rgb(119, 119, 119, 0.7);
+        z-index: 10;
+        display: none;
+    }
+    .mini_form{
+        width: 25%;
+        height: min-content;
+        overflow: auto;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: #fff;
+        z-index: 11;
+        padding: 20px 10px;
+    }
+    .content_mini-form h3{
+       font-weight: 300;
+        text-align: center;
+        margin-bottom: 5px;
+        margin-top: 30px;
+    }
+    .content_mini-form button{
+        color: #fff;
+        background-color: #414342;
+        width: min-content;
+        padding: 10px 30px;
+        font-style: normal;
+        font-size: 18px;
+        font-weight: 300;
+        border-radius: 20px;
+        -webkit-transition-duration: .3s;
+        transition-duration: .3s;
+        border: 0px;
+        margin: 6px 0px;
+        display: inline-block;
+        cursor: pointer;
+        margin-left: auto;
+    }
+    .content_mini-form{
+        display: flex;
+        flex-direction: column;
+    }
+    .content_mini-form input{
+        width: 100%;
+        margin: 5px auto;
+        padding: 10px 10px;
+        font-size: 15px;
+        font-style: italic;
+        border: 1px solid grey;
+    }
     .hover_opacity{
         opacity: 1!important;
     }
@@ -227,6 +319,7 @@
         box-shadow: 0 20px 40px 0 rgba(0,0,0,.3);
         opacity: 0;
         z-index: 1;
+        transition: all .3s ease .4s;
     }
     .block_basket{
         display: flex;
@@ -474,6 +567,9 @@
         margin-top: 10px;
         -webkit-transition-duration: .3s;
         transition-duration: .3s;
+        border: 0px;
+        font-size: 19px;
+        cursor: pointer;
     }
     #content{
         padding: 0px 4% 0px 0px;
@@ -563,6 +659,7 @@
     }
     #main{
         background: #ffffff;
+        min-height: 100vh;
     }
     /* END BLOCK HOME-PAGE */
 
