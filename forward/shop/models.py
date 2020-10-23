@@ -1,12 +1,14 @@
 from django.db import models
 from django.urls import reverse
+from django.utils import timezone
+from django.contrib.auth.models import User
+
 
 class Category(models.Model):
-    name = models.CharField(max_length=200, db_index=True)
-    slug = models.SlugField(max_length=200, unique=True)
-
-    def get_absolute_url(self):
-        return reverse('shop:product_list_by_category', args=[self.slug])
+    name = models.CharField(max_length=200,
+                            db_index=True)
+    slug = models.SlugField(max_length=200,
+                            unique=True)
 
     class Meta:
         ordering = ('name',)
@@ -16,13 +18,19 @@ class Category(models.Model):
     def __str__(self):
         return self.name
 
-    
+    def get_absolute_url(self):
+        return reverse('shop:product_list_by_category',
+                       args=[self.slug])
+
 
 class Product(models.Model):
-    category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE)
+    category = models.ForeignKey(Category,
+                                 related_name='products',
+                                 on_delete=models.CASCADE)
     name = models.CharField(max_length=200, db_index=True)
     slug = models.SlugField(max_length=200, db_index=True)
-    image = models.ImageField(upload_to='products/%Y/%m/%d', blank=True)
+    image = models.ImageField(upload_to='products/%Y/%m/%d',
+                              blank=True)
     description = models.TextField(blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     available = models.BooleanField(default=True)
@@ -33,8 +41,38 @@ class Product(models.Model):
         ordering = ('name',)
         index_together = (('id', 'slug'),)
 
-    def get_absolute_url(self):
-        return reverse('shop:product_detail', args=[self.id, self.slug])
-        
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('shop:product_detail',
+                       args=[self.id, self.slug])
+
+class Ourprojects(models.Model):
+    STATUS_CHOICES = (
+        ('draft', 'Draft'),
+    )
+    title = models.CharField(max_length=250) 
+    slug = models.SlugField(max_length=250)
+    image = models.ImageField(upload_to='products/%Y/%m/%d',
+                              blank=True)
+    body = models.TextField() 
+    publish = models.DateTimeField(default=timezone.now) 
+    created = models.DateTimeField(auto_now_add=True) 
+    updated = models.DateTimeField(auto_now=True) 
+
+    def __str__(self): 
+        return self.title
+
+    def get_absolute_url(self):
+        return reverse('shop:ourprojects_detail',
+                       args=[self.publish.year,
+                             self.publish.month,
+                             self.publish.day,
+                             self.slug])
+
+class Engineer_tips(models.Model):
+    title = models.CharField(max_length=250)
+    body = models.TextField()
+
+    

@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-    Советы инженера
+    Наши проекты
 {% endblock %}
 
 {% block content %}
@@ -34,23 +34,15 @@
             {% endfor %}
         {% endif %}
         {% if not category %}
-            <div class="block_engineerTips">
-                <h1>Советы инженера</h1>
-                <section class="faq">
-                    <div class="faq-items">
-                        <ul id="basics" class="faq-group">
-                            {% for engineer_tips in engineertips %}
-                            <li>    
-                                <a class="trigger" href="#0">{{ engineer_tips.title }}</a>
-                                <div class="faq-content">
-                                    <p>{{ engineer_tips.body }}</p>
-                                </div>
-                            </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </section>
-            </div>
+                <div class="block_detailProjects">
+                    <h1>{{ post.title }}</h1>
+                    <img src="{% if post.image %}
+                                        {{ post.image.url }}
+                                    {%else%}
+                                        {% static "img/no_image.png" %}
+                                    {% endif %}" alt="">
+                    {{ post.body|linebreaks }}
+                </div>
         {% endif %}
     </div> 
 {% endblock %}

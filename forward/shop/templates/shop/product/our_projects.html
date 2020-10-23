@@ -34,8 +34,25 @@
             {% endfor %}
         {% endif %}
         {% if not category %}
+        <h1>Наши проекты</h1>
             <div class="block_ourProjects">
-                <h1>Наши проекты</h1>
+                {% for post in posts %}
+                <div class="block_preview">
+                    <div class="project-item_cover">
+                        <a href="{{ post.get_absolute_url }}">
+                        <img src="{% if post.image %}
+                                    {{ post.image.url }}
+                                  {%else%}
+                                    {% static "img/no_image.png" %}
+                                {% endif %}" alt="">
+                        </a>
+                    </div>
+                    <h2>
+                    {{ post.title }}
+                    </h2>
+                    <a href="{{ post.get_absolute_url }}">Подробнее</a>
+                </div>
+                {% endfor %}
             </div>
         {% endif %}
     </div> 

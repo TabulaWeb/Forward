@@ -15,6 +15,9 @@
                 outline: none;
             }
             /* BLOCK HOME-PAGE */
+            .block_footer-links li:last-child{
+                padding-right: 0px;
+            }
             .close_form-mini{
                 position: absolute;
                 right: 10px;
@@ -464,7 +467,7 @@
             }
             .block_footer-links li{
                 list-style: none;
-                padding: 0px 15px;
+                padding: 0px 10px;
             }
             .block_footer-links li:nth-child(1){
                 padding-left: 0px;
@@ -599,6 +602,316 @@
                 padding-left: 4%;
             }
             /* END BLOCK CREATED_ORDER-PAGE */
+
+            /* BLOCK OUR_PROJECTS-PAGE */
+            .block_preview{
+                width: 22.9vw;
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 21px;
+            }
+            .block_ourProjects{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                padding: 0px 15px;
+            }
+            .project-item_cover {
+                border-radius: 18px;
+                height: 0;
+                overflow: hidden;
+                padding-bottom: 75%;
+                position: relative;
+            }
+            .project-item_cover img {
+                bottom: -500px;
+                left: -500px;
+                margin: auto;
+                position: absolute;
+                right: -500px;
+                top: -500px;
+                transition: all 0.6s;
+            }
+            .project-item_cover:hover img{
+                transform: scale(1.1);
+            }
+            .block_preview h2{
+                font-size: 21px;
+                line-height: 21px;
+                margin-top: 7px;
+            }
+            .block_preview a{
+                color: #9e9e9e;
+            }
+            .block_preview a:hover{
+                text-decoration: underline;
+            }
+            .block_detailProjects{
+                padding: 0px 15px;
+            }
+            .block_detailProjects img{
+                min-width: -webkit-fill-available;
+            }
+            /* END BLOCK OUR_PROJECTS-PAGE */
+
+            /* BLOC PAGE FAQ */
+            .faq-items {
+                position: fixed;
+                height: 100%;
+                width: 90%;
+                top: 0;
+                right: 0;
+                background: #ffffff;
+                padding: 0 5% 1em;
+                overflow: auto;
+                -webkit-overflow-scrolling: touch;
+                z-index: 1;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+                -webkit-transform: translateZ(0) translateX(100%);
+                -moz-transform: translateZ(0) translateX(100%);
+                -ms-transform: translateZ(0) translateX(100%);
+                -o-transform: translateZ(0) translateX(100%);
+                transform: translateZ(0) translateX(100%);
+                -webkit-transition: -webkit-transform .3s;
+                -moz-transition: -moz-transform .3s;
+                transition: transform .3s;
+            }
+            .faq-items.slide-in {
+                -webkit-transform: translateZ(0) translateX(0%);
+                -moz-transform: translateZ(0) translateX(0%);
+                -ms-transform: translateZ(0) translateX(0%);
+                -o-transform: translateZ(0) translateX(0%);
+                transform: translateZ(0) translateX(0%);
+            }
+            .no-js .faq-items {
+                position: static;
+                height: auto;
+                width: 100%;
+                -webkit-transform: translateX(0);
+                -moz-transform: translateX(0);
+                -ms-transform: translateX(0);
+                -o-transform: translateX(0);
+                transform: translateX(0);
+            }
+            @media only screen and (min-width: 768px) {
+                .faq-items {
+                    position: static;
+                    height: auto;
+                    width: 78%;
+                    float: right;
+                    overflow: visible;
+                    -webkit-transform: translateZ(0) translateX(0);
+                    -moz-transform: translateZ(0) translateX(0);
+                    -ms-transform: translateZ(0) translateX(0);
+                    -o-transform: translateZ(0) translateX(0);
+                    transform: translateZ(0) translateX(0);
+                    padding: 0;
+                    background: transparent;
+                }
+                }
+            @media only screen and (min-width: 1024px) {
+                .faq-items {
+                    float: none;
+                    width: 100%;
+                }
+                .no-js .faq-items {
+                    padding-left: 0;
+                }
+                }
+
+                .cd-close-panel {
+                position: fixed;
+                top: 5px;
+                right: -100%;
+                display: block;
+                height: 40px;
+                width: 40px;
+                overflow: hidden;
+                text-indent: 100%;
+                white-space: nowrap;
+                z-index: 2;
+                /* Force Hardware Acceleration in WebKit */
+                -webkit-transform: translateZ(0);
+                -moz-transform: translateZ(0);
+                -ms-transform: translateZ(0);
+                -o-transform: translateZ(0);
+                transform: translateZ(0);
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+                -webkit-transition: right 0.4s;
+                -moz-transition: right 0.4s;
+                transition: right 0.4s;
+                }
+                .cd-close-panel::before, .cd-close-panel::after {
+                /* close icon in CSS */
+                position: absolute;
+                top: 16px;
+                left: 12px;
+                display: inline-block;
+                height: 3px;
+                width: 18px;
+                background: #6c7d8e;
+                }
+                .cd-close-panel::before {
+                -webkit-transform: rotate(45deg);
+                -moz-transform: rotate(45deg);
+                -ms-transform: rotate(45deg);
+                -o-transform: rotate(45deg);
+                transform: rotate(45deg);
+                }
+                .cd-close-panel::after {
+                -webkit-transform: rotate(-45deg);
+                -moz-transform: rotate(-45deg);
+                -ms-transform: rotate(-45deg);
+                -o-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+                }
+                .cd-close-panel.move-left {
+                right: 2%;
+                }
+            @media only screen and (min-width: 768px) {
+                .cd-close-panel {
+                    display: none;
+                }
+                }
+
+                .faq-group {
+                /* hide group not selected */
+                display: none;
+                list-style: none;
+                padding-left: 0px;
+                }
+                .faq-group.selected {
+                display: block;
+                }
+                .faq-group .faq-title {
+                background: transparent;
+                box-shadow: none;
+                margin: 1em 0;
+                }
+                .no-touch .faq-group .faq-title:hover {
+                box-shadow: none;
+                }
+                .faq-group .faq-title h2 {
+                text-transform: uppercase;
+                font-size: 12px;
+                font-size: 0.75rem;
+                font-weight: 700;
+                color: #bbbbc7;
+                }
+                .no-js .faq-group {
+                display: block;
+                }
+            @media only screen and (min-width: 768px) {
+                .faq-group {
+                    /* all groups visible */
+                    display: block;
+                }
+                .faq-group > li {
+                    background: #ffffff;
+                    margin-bottom: 6px;
+                    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+                    -webkit-transition: box-shadow 0.2s;
+                    -moz-transition: box-shadow 0.2s;
+                    transition: box-shadow 0.2s;
+                }
+                .no-touch .faq-group > li:hover {
+                    box-shadow: 0 1px 10px rgba(108, 125, 142, 0.3);
+                }
+                .faq-group .faq-title {
+                    margin: 2em 0 1em;
+                }
+                .faq-group:first-child .faq-title {
+                    margin-top: 0;
+                }
+                }
+
+                .trigger {
+                position: relative;
+                display: block;
+                margin: 1.6em 0 .4em;
+                line-height: 1.2;
+                }
+                @media only screen and (min-width: 768px) {
+                .trigger {
+                    font-size: 24px;
+                    font-size: 1.5rem;
+                    font-weight: 300;
+                    margin: 0;
+                    padding: 24px 72px 24px 24px;
+                }
+                .trigger::before, .trigger::after {
+                    /* arrow icon on the right */
+                    position: absolute;
+                    right: 24px;
+                    top: 50%;
+                    height: 2px;
+                    width: 13px;
+                    background: #cfdca0;
+                    -webkit-backface-visibility: hidden;
+                    backface-visibility: hidden;
+                    -webkit-transition-property: -webkit-transform;
+                    -moz-transition-property: -moz-transform;
+                    transition-property: transform;
+                    -webkit-transition-duration: 0.2s;
+                    -moz-transition-duration: 0.2s;
+                    transition-duration: 0.2s;
+                }
+                .trigger::before {
+                    -webkit-transform: rotate(45deg);
+                    -moz-transform: rotate(45deg);
+                    -ms-transform: rotate(45deg);
+                    -o-transform: rotate(45deg);
+                    transform: rotate(45deg);
+                    right: 32px;
+                }
+                .trigger::after {
+                    -webkit-transform: rotate(-45deg);
+                    -moz-transform: rotate(-45deg);
+                    -ms-transform: rotate(-45deg);
+                    -o-transform: rotate(-45deg);
+                    transform: rotate(-45deg);
+                }
+                .content-visible .trigger::before {
+                    -webkit-transform: rotate(-45deg);
+                    -moz-transform: rotate(-45deg);
+                    -ms-transform: rotate(-45deg);
+                    -o-transform: rotate(-45deg);
+                    transform: rotate(-45deg);
+                }
+                .content-visible .trigger::after {
+                    -webkit-transform: rotate(45deg);
+                    -moz-transform: rotate(45deg);
+                    -ms-transform: rotate(45deg);
+                    -o-transform: rotate(45deg);
+                    transform: rotate(45deg);
+                }
+                }
+
+                .faq-content p {
+                font-size: 14px;
+                font-size: 0.875rem;
+                line-height: 1.4;
+                color: #6c7d8e;
+                }
+                @media only screen and (min-width: 768px) {
+                .faq-content {
+                    display: none;
+                    padding: 0 24px 30px;
+                }
+                .faq-content p {
+                    line-height: 1.6;
+                }
+                .no-js .faq-content {
+                    display: block;
+                }
+                }
+                .block_engineerTips{
+                    padding: 0px 15px;
+                }
+            /* END BLOCK PAGE FAQ */
         </style>
     </head>
     <body>
@@ -682,7 +995,7 @@
                         <img src="{% if product.image %}{{ product.image.url }}
                         {% else %}{% static "img/no_image.png" %}{% endif %}">
                         <p>{{ product.name }}</p>
-                        <a href="{% url "cart:cart_remove" product.id%}"><svg fill="#babac0" class="svg_trash" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path class="cls-1" d="M24,31H8a3,3,0,0,1-3-3V9A1,1,0,0,1,7,9V28a1,1,0,0,0,1,1H24a1,1,0,0,0,1-1V9a1,1,0,0,1,2,0V28A3,3,0,0,1,24,31Z"/><path class="cls-1" d="M28,7H4A1,1,0,0,1,4,5H28a1,1,0,0,1,0,2Z"/><path class="cls-1" d="M20,7a1,1,0,0,1-1-1V3H13V6a1,1,0,0,1-2,0V2a1,1,0,0,1,1-1h8a1,1,0,0,1,1,1V6A1,1,0,0,1,20,7Z"/><path class="cls-1" d="M16,26a1,1,0,0,1-1-1V11a1,1,0,0,1,2,0V25A1,1,0,0,1,16,26Z"/><path class="cls-1" d="M21,24a1,1,0,0,1-1-1V13a1,1,0,0,1,2,0V23A1,1,0,0,1,21,24Z"/><path class="cls-1" d="M11,24a1,1,0,0,1-1-1V13a1,1,0,0,1,2,0V23A1,1,0,0,1,11,24Z"/></g></svg></a>
+                        <a href="{% url "cart:cart_remove" product.id %}"><svg fill="#babac0" class="svg_trash" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path class="cls-1" d="M24,31H8a3,3,0,0,1-3-3V9A1,1,0,0,1,7,9V28a1,1,0,0,0,1,1H24a1,1,0,0,0,1-1V9a1,1,0,0,1,2,0V28A3,3,0,0,1,24,31Z"/><path class="cls-1" d="M28,7H4A1,1,0,0,1,4,5H28a1,1,0,0,1,0,2Z"/><path class="cls-1" d="M20,7a1,1,0,0,1-1-1V3H13V6a1,1,0,0,1-2,0V2a1,1,0,0,1,1-1h8a1,1,0,0,1,1,1V6A1,1,0,0,1,20,7Z"/><path class="cls-1" d="M16,26a1,1,0,0,1-1-1V11a1,1,0,0,1,2,0V25A1,1,0,0,1,16,26Z"/><path class="cls-1" d="M21,24a1,1,0,0,1-1-1V13a1,1,0,0,1,2,0V23A1,1,0,0,1,21,24Z"/><path class="cls-1" d="M11,24a1,1,0,0,1-1-1V13a1,1,0,0,1,2,0V23A1,1,0,0,1,11,24Z"/></g></svg></a>
                     </div>
                 {% endwith %}
             {% endfor %}
@@ -779,6 +1092,136 @@
                         $('.block_mini-form').removeClass('mini_form-block');
                     }
                 )
+
+
+
+
+                // BLOCK FAQ
+                jQuery(document).ready(function($){
+
+	var MqM= 768,
+		MqL = 1024;
+
+	var faqsSections = $('.faq-group'),
+		faqTrigger = $('.trigger'),
+		faqsContainer = $('.faq-items'),
+		faqsCategoriesContainer = $('.categories'),
+		faqsCategories = faqsCategoriesContainer.find('a'),
+		closeFaqsContainer = $('.cd-close-panel');
+	
+	//select a faq section 
+	faqsCategories.on('click', function(event){
+		event.preventDefault();
+		var selectedHref = $(this).attr('href'),
+			target= $(selectedHref);
+		if( $(window).width() < MqM) {
+			faqsContainer.scrollTop(0).addClass('slide-in').children('ul').removeClass('selected').end().children(selectedHref).addClass('selected');
+			closeFaqsContainer.addClass('move-left');
+			$('body').addClass('cd-overlay');
+		} else {
+	        $('body,html').animate({ 'scrollTop': target.offset().top - 19}, 200); 
+		}
+	});
+
+	//close faq lateral panel - mobile only
+	$('body').bind('click touchstart', function(event){
+		if( $(event.target).is('body.cd-overlay') || $(event.target).is('.cd-close-panel')) { 
+			closePanel(event);
+		}
+	});
+	faqsContainer.on('swiperight', function(event){
+		closePanel(event);
+	});
+
+
+	faqTrigger.on('click', function(event){
+		event.preventDefault();
+		$(this).next('.faq-content').slideToggle(200).end().parent('li').toggleClass('content-visible');
+	});
+
+	$(window).on('scroll', function(){
+		if ( $(window).width() > MqL ) {
+			(!window.requestAnimationFrame) ? updateCategory() : window.requestAnimationFrame(updateCategory); 
+		}
+	});
+
+	$(window).on('resize', function(){
+		if($(window).width() <= MqL) {
+			faqsCategoriesContainer.removeClass('is-fixed').css({
+				'-moz-transform': 'translateY(0)',
+			    '-webkit-transform': 'translateY(0)',
+				'-ms-transform': 'translateY(0)',
+				'-o-transform': 'translateY(0)',
+				'transform': 'translateY(0)',
+			});
+		}	
+		if( faqsCategoriesContainer.hasClass('is-fixed') ) {
+			faqsCategoriesContainer.css({
+				'left': faqsContainer.offset().left,
+			});
+		}
+	});
+
+	function closePanel(e) {
+		e.preventDefault();
+		faqsContainer.removeClass('slide-in').find('li').show();
+		closeFaqsContainer.removeClass('move-left');
+		$('body').removeClass('cd-overlay');
+	}
+
+	function updateCategory(){
+		updateCategoryPosition();
+		updateSelectedCategory();
+	}
+
+	function updateCategoryPosition() {
+		var top = $('.faq').offset().top,
+			height = jQuery('.faq').height() - jQuery('.categories').height(),
+			margin = 20;
+		if( top - margin <= $(window).scrollTop() && top - margin + height > $(window).scrollTop() ) {
+			var leftValue = faqsCategoriesContainer.offset().left,
+				widthValue = faqsCategoriesContainer.width();
+			faqsCategoriesContainer.addClass('is-fixed').css({
+				'left': leftValue,
+				'top': margin,
+				'-moz-transform': 'translateZ(0)',
+			    '-webkit-transform': 'translateZ(0)',
+				'-ms-transform': 'translateZ(0)',
+				'-o-transform': 'translateZ(0)',
+				'transform': 'translateZ(0)',
+			});
+		} else if( top - margin + height <= $(window).scrollTop()) {
+			var delta = top - margin + height - $(window).scrollTop();
+			faqsCategoriesContainer.css({
+				'-moz-transform': 'translateZ(0) translateY('+delta+'px)',
+			    '-webkit-transform': 'translateZ(0) translateY('+delta+'px)',
+				'-ms-transform': 'translateZ(0) translateY('+delta+'px)',
+				'-o-transform': 'translateZ(0) translateY('+delta+'px)',
+				'transform': 'translateZ(0) translateY('+delta+'px)',
+			});
+		} else { 
+			faqsCategoriesContainer.removeClass('is-fixed').css({
+				'left': 0,
+				'top': 0,
+			});
+		}
+	}
+
+	function updateSelectedCategory() {
+		faqsSections.each(function(){
+			var actual = $(this),
+				margin = parseInt($('.faq-title').eq(1).css('marginTop').replace('px', '')),
+				activeCategory = $('.categories a[href="#'+actual.attr('id')+'"]'),
+				topSection = (activeCategory.parent('li').is(':first-child')) ? 0 : Math.round(actual.offset().top);
+			
+			if ( ( topSection - 20 <= $(window).scrollTop() ) && ( Math.round(actual.offset().top) + actual.height() + margin - 20 > $(window).scrollTop() ) ) {
+				activeCategory.addClass('selected');
+			}else {
+				activeCategory.removeClass('selected');
+			}
+		});
+	}
+});
         </script>
 
     </body>
