@@ -3,6 +3,8 @@ from django.views.decorators.http import require_POST
 from shop.models import Product
 from .cart import Cart
 from .forms import CartAddProductForm
+from shop.forms import MiniForm
+from django.core.mail import send_mail
 
 
 @require_POST
@@ -31,5 +33,20 @@ def cart_detail(request):
         item['update_quantity_form'] = CartAddProductForm(
             initial={'quantity': item['quantity'],
                      'update': True})
-    return render(request, 'cart/detail.html', {'cart': cart})
+
+    sent = False
+    if request.method == 'POST':
+        form = MiniForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            subject = '{} Заказал звонок'.format(
+                cd['name'])
+            message = '{} заказл звонок, его номер - ({})'.format(
+                cd['name'], cd['phome_number'])
+            send_mail(subject, message, 'tabulaweb99@gmail.com',
+                      ['tabulaweb99@gmail.com'])
+            sent = True
+    else:
+        form = MiniForm()
+    return render(request, 'cart/detail.html', {'cart': cart, 'form': form})
 

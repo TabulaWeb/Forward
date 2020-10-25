@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Product, Ourprojects, Engineer_tips
+from .models import Category, Product, Ourprojects, Engineer_tips, Comment
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
@@ -25,3 +25,9 @@ class OurprojectsAdmin(admin.ModelAdmin):
 @admin.register(Engineer_tips)
 class Engineer_tipsAdmin(admin.ModelAdmin):
     list_display = ('title', 'body')
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'created', 'active')
+    list_filter = ('active', 'created', 'updated')
+    search_fields = ('name', 'email', 'body')

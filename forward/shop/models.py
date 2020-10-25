@@ -59,7 +59,17 @@ class Ourprojects(models.Model):
     body = models.TextField() 
     publish = models.DateTimeField(default=timezone.now) 
     created = models.DateTimeField(auto_now_add=True) 
-    updated = models.DateTimeField(auto_now=True) 
+    updated = models.DateTimeField(auto_now=True)
+    one_slide = models.ImageField(upload_to='products/%Y/%m/%d',
+                                  blank=True)
+    two_slide = models.ImageField(upload_to='products/%Y/%m/%d',
+                                  blank=True)
+    three_slide = models.ImageField(upload_to='products/%Y/%m/%d',
+                                    blank=True)
+    four_slide = models.ImageField(upload_to='products/%Y/%m/%d',
+                                   blank=True)
+    five_slide = models.ImageField(upload_to='products/%Y/%m/%d',
+                                   blank=True)
 
     def __str__(self): 
         return self.title
@@ -74,5 +84,19 @@ class Ourprojects(models.Model):
 class Engineer_tips(models.Model):
     title = models.CharField(max_length=250)
     body = models.TextField()
+
+class Comment(models.Model):
+    name = models.CharField(max_length=80, verbose_name='Имя')
+    email = models.EmailField()
+    body = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    active = models.BooleanField(default=True)
+
+    class Meta:
+        ordering = ('created',)
+
+    def __str__(self):
+        return 'Comment by {}'.format(self.name)
 
     

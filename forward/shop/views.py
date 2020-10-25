@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Category, Product, Ourprojects, Engineer_tips
+from .models import Category, Product, Ourprojects, Engineer_tips, Comment
 from cart.forms import CartAddProductForm
-
+from .forms import CommentForm, MiniForm
+from django.core.mail import send_mail
 
 def product_list(request, category_slug=None):
     category = None
@@ -10,14 +11,44 @@ def product_list(request, category_slug=None):
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         products = products.filter(category=category)
+
+    sent = False
+    if request.method == 'POST':
+        form = MiniForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            subject = '{} Заказал звонок'.format(
+                cd['name'])
+            message = '{} заказл звонок, его номер - ({})'.format(
+                cd['name'], cd['phome_number'])
+            send_mail(subject, message, 'tabulaweb99@gmail.com',
+                      ['tabulaweb99@gmail.com'])
+            sent = True
+    else:
+        form = MiniForm()
     return render(request,
                   'shop/product/list.html',
                   {'category': category,
                    'categories': categories,
-                   'products': products})
+                   'products': products,
+                   'form':form,})
 
 
 def product_detail(request, id, slug):
+    sent = False
+    if request.method == 'POST':
+        form = MiniForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            subject = '{} Заказал звонок'.format(
+                cd['name'])
+            message = '{} заказл звонок, его номер - ({})'.format(
+                cd['name'], cd['phome_number'])
+            send_mail(subject, message, 'tabulaweb99@gmail.com',
+                      ['tabulaweb99@gmail.com'])
+            sent = True
+    else:
+        form = MiniForm()
     product = get_object_or_404(Product,
                                 id=id,
                                 slug=slug,
@@ -26,7 +57,8 @@ def product_detail(request, id, slug):
     return render(request,
                   'shop/product/detail.html',
                   {'product': product,
-                   'cart_product_form': cart_product_form})
+                   'cart_product_form': cart_product_form,
+                   'form': form,})
 
 
 def our_projects(request, category_slug=None):
@@ -37,15 +69,54 @@ def our_projects(request, category_slug=None):
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         products = products.filter(category=category)
+    sent = False
+    if request.method == 'POST':
+        form = MiniForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            subject = '{} Заказал звонок'.format(
+                cd['name'])
+            message = '{} заказл звонок, его номер - ({})'.format(
+                cd['name'], cd['phome_number'])
+            send_mail(subject, message, 'tabulaweb99@gmail.com',
+                      ['tabulaweb99@gmail.com'])
+            sent = True
+    else:
+        form = MiniForm()
     return render(request, 'shop/product/our_projects.html', {'category': category,
                                                               'categories': categories,
                                                               'products': products,
-                                                              'posts': posts})
+                                                              'posts': posts,
+                                                              'form': form,})
 
-def ourprojects_detail(request, year, month, day, post):
+def ourprojects_detail(request, year, month, day, post, category_slug=None):
+    category = None
+    categories = Category.objects.all()
+    products = Product.objects.filter(available=True)
     post = get_object_or_404(Ourprojects, slug=post, publish__year=year,
                           publish__month=month, publish__day=day)
-    return render(request, 'shop/product/ourprojects_detail.html', {'post': post})
+    if category_slug:
+        category = get_object_or_404(Category, slug=category_slug)
+        products = products.filter(category=category)
+    sent = False
+    if request.method == 'POST':
+        form = MiniForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            subject = '{} Заказал звонок'.format(
+                cd['name'])
+            message = '{} заказл звонок, его номер - ({})'.format(
+                cd['name'], cd['phome_number'])
+            send_mail(subject, message, 'tabulaweb99@gmail.com',
+                      ['tabulaweb99@gmail.com'])
+            sent = True
+    else:
+        form = MiniForm()
+    return render(request, 'shop/product/ourprojects_detail.html', {'post': post,
+                                                                    'category': category,
+                                                                    'categories': categories,
+                                                                    'products': products,
+                                                                    'form': form,})
 
 def engineer_tips(request, category_slug=None):
     category = None
@@ -55,10 +126,25 @@ def engineer_tips(request, category_slug=None):
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         products = products.filter(category=category)
+    sent = False
+    if request.method == 'POST':
+        form = MiniForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            subject = '{} Заказал звонок'.format(
+                cd['name'])
+            message = '{} заказл звонок, его номер - ({})'.format(
+                cd['name'], cd['phome_number'])
+            send_mail(subject, message, 'tabulaweb99@gmail.com',
+                      ['tabulaweb99@gmail.com'])
+            sent = True
+    else:
+        form = MiniForm()
     return render(request, 'shop/product/engineer_tips.html', {'category': category,
                                                                'categories': categories,
                                                                'products': products,
-                                                               'engineertips': engineertips})
+                                                               'engineertips': engineertips,
+                                                               'form': form,})
 
 
 def delivery(request, category_slug=None):
@@ -68,9 +154,24 @@ def delivery(request, category_slug=None):
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         products = products.filter(category=category)
+    sent = False
+    if request.method == 'POST':
+        form = MiniForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            subject = '{} Заказал звонок'.format(
+                cd['name'])
+            message = '{} заказл звонок, его номер - ({})'.format(
+                cd['name'], cd['phome_number'])
+            send_mail(subject, message, 'tabulaweb99@gmail.com',
+                      ['tabulaweb99@gmail.com'])
+            sent = True
+    else:
+        form = MiniForm()
     return render(request, 'shop/product/delivery.html', {'category': category,
                                                           'categories': categories,
-                                                          'products': products})
+                                                          'products': products,
+                                                          'form': form,})
 
 
 def reviews(request, category_slug=None):
@@ -80,9 +181,37 @@ def reviews(request, category_slug=None):
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         products = products.filter(category=category)
+    comments = Comment.objects.filter(active=True)
+    new_comment = None
+    if request.method == 'POST':
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            new_comment = comment_form.save(commit=False)
+            new_comment.save()
+    else:
+        comment_form = CommentForm()
+
+    sent = False
+    if request.method == 'POST':
+        form = MiniForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            subject = '{} Заказал звонок'.format(
+                cd['name'])
+            message = '{} заказл звонок, его номер - ({})'.format(
+                cd['name'], cd['phome_number'])
+            send_mail(subject, message, 'tabulaweb99@gmail.com',
+                      ['tabulaweb99@gmail.com'])
+            sent = True
+    else:
+        form = MiniForm()
     return render(request, 'shop/product/reviews.html', {'category': category,
                                                          'categories': categories,
-                                                         'products': products})
+                                                         'products': products,
+                                                         'comments': comments,
+                                                         'new_comment': new_comment,
+                                                         'comment_form': comment_form,
+                                                         'form': form,})
 
 
 def contacts(request, category_slug=None):
@@ -92,7 +221,22 @@ def contacts(request, category_slug=None):
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         products = products.filter(category=category)
+    sent = False
+    if request.method == 'POST':
+        form = MiniForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            subject = '{} Заказал звонок'.format(
+                cd['name'])
+            message = '{} заказл звонок, его номер - ({})'.format(
+                cd['name'], cd['phome_number'])
+            send_mail(subject, message, 'tabulaweb99@gmail.com',
+                      ['tabulaweb99@gmail.com'])
+            sent = True
+    else:
+        form = MiniForm()
     return render(request, 'shop/product/contacts.html', {'category': category,
                                                          'categories': categories,
-                                                         'products': products})
+                                                         'products': products,
+                                                         'form':form,})
 
