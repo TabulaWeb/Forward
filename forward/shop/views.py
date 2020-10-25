@@ -1,7 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Category, Product, Ourprojects, Engineer_tips, Comment
 from cart.forms import CartAddProductForm
-from .forms import CommentForm, MiniForm
+from .forms import CommentForm, MiniForm, MessageForm
 from django.core.mail import send_mail
 
 def product_list(request, category_slug=None):
@@ -24,14 +24,32 @@ def product_list(request, category_slug=None):
             send_mail(subject, message, 'tabulaweb99@gmail.com',
                       ['tabulaweb99@gmail.com'])
             sent = True
+            return redirect('/')
     else:
         form = MiniForm()
+
+    sent = False
+    if request.method == 'POST':
+        form_message = MessageForm(request.POST)
+        if form_message.is_valid():
+            cd = form_message.cleaned_data
+            subject = '{} написал вам сообщение'.format(
+                cd['MessageName'])
+            message = 'Вам написал {}, его номер - ({}) и email - {}\n\nТекст Сообщения: {}'.format(
+                cd['MessageName'], cd['MessagePhomenumber'], cd['MessageEmail'], cd['message'])
+            send_mail(subject, message, 'tabulaweb99@gmail.com',
+                      ['tabulaweb99@gmail.com'])
+            sent = True
+            return redirect('/')
+    else:
+        form_message = MessageForm()
     return render(request,
                   'shop/product/list.html',
                   {'category': category,
                    'categories': categories,
                    'products': products,
-                   'form':form,})
+                   'form': form,
+                   'form_message':form_message,})
 
 
 def product_detail(request, id, slug):
@@ -188,6 +206,7 @@ def reviews(request, category_slug=None):
         if comment_form.is_valid():
             new_comment = comment_form.save(commit=False)
             new_comment.save()
+        return redirect('/reviews/')
     else:
         comment_form = CommentForm()
 
@@ -235,8 +254,24 @@ def contacts(request, category_slug=None):
             sent = True
     else:
         form = MiniForm()
+
+    sent = False
+    if request.method == 'POST':
+        form_message = MessageForm(request.POST)
+        if form_message.is_valid():
+            cd = form_message.cleaned_data
+            subject = '{} написал вам сообщение'.format(
+                cd['MessageName'])
+            message = 'Вам написал {}, его номер - ({}) и email - {}\n\nТекст Сообщения: {}'.format(
+                cd['MessageName'], cd['MessagePhomenumber'], cd['MessageEmail'], cd['message'])
+            send_mail(subject, message, 'tabulaweb99@gmail.com',
+                      ['tabulaweb99@gmail.com'])
+            sent = True
+    else:
+        form_message = MessageForm()
     return render(request, 'shop/product/contacts.html', {'category': category,
                                                          'categories': categories,
                                                          'products': products,
-                                                         'form':form,})
+                                                         'form': form,
+                                                         'form_message': form_message})
 

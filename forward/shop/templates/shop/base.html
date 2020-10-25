@@ -299,6 +299,17 @@
             #sidebar ul li{
                 padding: 0px;
             }
+            .block_mini-true{
+
+            }
+            .block_mini-true p {
+                margin: 0px;
+                margin-top: 15px;
+                text-align: center;
+                padding: 5px;
+                border: 1px solid #00d20099;
+                font-weight: bold;
+            }
             #sidebar ul li a{
                 margin: 0;
                 list-style: none;
@@ -503,6 +514,16 @@
                 padding-top: 30px;
                 background-color: #dadcdb;
             }
+            .block_true{
+                text-align: center; 
+                font-weight: bolder; 
+                background-color: #00d20099; 
+                padding: 10px 0px;
+            }
+            .block_true p{
+                color:#fff;
+                margin: 0px;
+            }
             .content_contacts{
                 background-color: #fff;
             }
@@ -517,6 +538,23 @@
             .block_contact-contactSub{
                 font-weight: 700;
                 margin-right: 5px;
+            }
+
+            .block_true{
+                position: relative;
+            }
+            .close_form-message{
+                cursor: pointer;
+                position: absolute;
+                top: 3px;
+                right: 5px;
+                width: 25px;
+            }
+            .block_true-dis{
+                display: none;
+            }
+            .errorlist{
+                display: none;
             }
             /* END BLOCK CONTACT-PAGE */
 
@@ -1112,6 +1150,12 @@
                         $('.block_mini-form').removeClass('mini_form-block');
                     }
                 )
+                $('.close_form-message').click(
+                    function(){
+                        $('.block_true').addClass('block_true-dis')
+                    }
+                )
+
 
 
 
