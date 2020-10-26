@@ -23,6 +23,7 @@ class Category(models.Model):
                        args=[self.slug])
 
 
+
 class Product(models.Model):
     category = models.ForeignKey(Category,
                                  related_name='products',

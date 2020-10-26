@@ -328,6 +328,7 @@
                 width: 265px;
                 padding: 30px 0px 0 0px;
                 float: left;
+                position: relative;
             }
             #header{
                 display: flex;
@@ -423,6 +424,41 @@
             }
 
             /* PAGE SHOP_LIST.HTML */
+            .hover_displayTrue{
+                display: block!important;
+                z-index: 2!important;
+            }
+            .aside-menu-inserted {
+                display: none;
+                width: 800px;
+                height: 97%;
+                padding-top: 14px;
+                position: absolute;
+                top: 30px;
+                right: -800px;
+                background-color: #fff;
+                box-shadow: 0 0 18px rgba(0, 0, 0, 0.36);
+                z-index: 1;
+                transition: all .2s ease .4s;
+            }
+            .aside-menu-inserted .aside-menu {
+                width: 420px;
+                margin-top: 50px;
+            }
+            .aside-menu-inserted .aside-menu__item {
+                margin-left: 50px;
+            }
+            .aside-menu-inserted .aside-menu a {
+                padding-right: 15px;
+                padding-left: 15px;
+                font-size: 14px;
+                line-height: 1.8;
+                color: #000;
+                margin-bottom: 10px;
+            }
+            
+
+
 
             .block_about h1{
                 text-align: center;
@@ -1131,14 +1167,39 @@
                     }
                 );
 
-                 $('.block_basket-mini').hover(
-                     function(){
+                $('.block_basket-mini').hover(
+                    function(){
                         $('.block_basket-mini').addClass('hover_opacity');
                     },
-                     function(){
+                    function(){
                         $('.block_basket-mini').removeClass('hover_opacity');
                     }
-                 )
+                )
+
+
+
+
+
+                $('.hover_subProduct').hover(
+                    function(){
+                        $(this).find('.aside-menu-inserted').addClass('hover_displayTrue');
+                    },
+                    function(){
+                        $(this).find('.aside-menu-inserted').removeClass('hover_displayTrue');
+                    }
+                );
+
+                $('.aside-menu-inserted').hover(
+                    function(){
+                        $(this).find('.aside-menu-inserted').addClass('hover_displayTrue');
+                    },
+                    function(){
+                        $(this).find('.aside-menu-inserted').removeClass('hover_displayTrue');
+                    }
+                )
+
+
+
 
                 $('.header_contact-button').click(
                     function(){
