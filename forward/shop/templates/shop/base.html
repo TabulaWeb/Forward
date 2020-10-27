@@ -4,6 +4,7 @@
     <head>
         <meta charset="utf-8" />
         <title>{% block title %}Forward{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="{% static "css/index.css" %}" rel="stylesheet">
         <script src="https://use.fontawesome.com/148e91bf6b.js"></script>
         <link rel="shortcut icon" href="{% static "img/favicon.ico" %}">
@@ -1056,6 +1057,9 @@
             .subheader_navs-mobile{
                 display: none;
             }
+            .sidebarMobile{
+                display: none;
+            }
             @media (min-width: 992px) and (max-width: 1200px){
                 .header_info p {
                     font-size: 1.5vw;
@@ -1125,6 +1129,9 @@
                 }
             }
             @media (min-width: 768px) and (max-width: 991.98px){
+                .sidebarMobile{
+                    display: block;
+                }
                 .header_info-widthM{
                     display: block;
                     text-align: center;
@@ -1134,6 +1141,7 @@
                 }
                 #header {
                     justify-content: space-around;
+                    margin-top: 35px;
                 }
                 .subheader_nav{
                     display: none;
@@ -1177,6 +1185,615 @@
                 }
                 .mobileMenuVis{
                     display: block!important;
+                }
+                .sidebarDesc{
+                    display: none;
+                }
+                #sidebar{
+                    position: fixed;
+                    top: 0px;
+                    left: 0px;
+                    padding: 0px;
+                    width: 100%;
+                    z-index: 1000;
+                }
+                #content{
+                    padding: 0px 4%;
+                }
+                .button_mobile-header h3{
+                    padding: 0px!important;
+                    text-align: center;
+                }
+                .sidebarMobile a{
+                    padding: 0px!important;
+                }
+                .sidebarMobile{
+                    width: 100%;
+                }
+                .sidebarMobile ul{
+                    display: none;
+                }
+                .button_mobile-header{
+                    background-color: #414342;
+                    padding: 3px 0px;
+                }
+                #sidebar h3{
+                    margin-bottom: 0px;
+                    color: #fff;
+                    letter-spacing: 1.1px;
+                }
+                .sidebarMobile ul{
+                    background-color: #2d2e2e;
+                }
+                .sidebarMobile a{
+                    color: #fff!important;
+                    width: 100%;
+                    padding: 10px 0;
+                    font-size: 17px;
+                    border-bottom: 1px solid #4e504f;
+                    justify-content: center;
+                }
+                #sidebar ul li a:hover {
+                    background-color: initial;
+                }
+                .block_footer-contact ul{
+                    padding-left: 0px;
+                    text-align: center;
+                    max-width: fit-content;
+                }
+                .block_footer p{
+                    font-size: 13px;
+                }
+                .block_footer-links a{
+                    font-size: 13px;
+                }
+                .block_footer-links ul{
+                    min-width: max-content;
+                    padding-left: 0px;
+                }
+                .block_footer-links li {
+                    list-style: none;
+                    padding: 0px 5px;
+                }
+                #content {
+                    padding: 0px 2%;
+                }
+                .block_basket-mini {
+                    top: 18rem;
+                }
+                .block_preview{
+                    width: 29.2vw;
+                }
+                .block_preview h2{
+                    font-size: 18px;
+                }
+                .faq-items{        
+                    width: 100%;
+                    float: initial;
+                }
+                #main{
+                    min-height: inherit;
+                }
+                .block_reviews h2{
+                    text-align: center;
+                }
+                .block_reviews form{
+                    align-items: center;
+                }
+                .orders-list__content {
+                    position: initial;
+                    max-width: max-content;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+                .item_cart-manipul div{
+                    max-width: max-content;
+                }
+            }
+            @media (min-width: 576px) and (max-width: 767.98px){
+                .header_info-widthM{
+                    display: block;
+                    text-align: center;
+                    font-size: 19px;
+                }
+                .elements_advantages {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-around;
+                    flex-direction: column;
+                    align-items: center;
+                }
+                .header_info{
+                    display: none;
+                }
+                .element_advantages {
+                    max-width: 350px;
+                    text-align: center;
+                    margin: 20px 0;
+                }
+                #header {
+                    justify-content: space-around;
+                    margin-top: 35px;
+                    flex-direction: column;
+                }
+                .subheader_nav{
+                    display: none;
+                }
+                #subheader{
+                    justify-content: flex-end;
+                }
+                .block_basket-mini{
+                    top: 16rem;
+                }
+                .subheader_nav-mobile{
+                    display: none;
+                    position: absolute;
+                    list-style: none;
+                    top: 29px;
+                    z-index: 1;
+                    width: 100%;
+                    padding-left: 0px;
+                    margin: 0px;
+                    background-color: #2d2e2e;
+                }
+                .subheader_navs-mobile{
+                    display: flex;
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                }
+                .main-menu-mob__button{
+                    color: #ffF;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+                .subheader_nav-item a{
+                    color: #fff;
+                    width: 100%;
+                    text-align: center;
+                    padding: 10px 0;
+                    font-size: 17px;
+                    border-bottom: 1px solid #4e504f;
+                    display: block;
+                }
+                .mobileMenuVis{
+                    display: block!important;
+                }
+                .sidebarDesc{
+                    display: none;
+                }
+                #sidebar{
+                    position: fixed;
+                    top: 0px;
+                    left: 0px;
+                    padding: 0px;
+                    width: 100%;
+                    z-index: 1000;
+                }
+                #content{
+                    padding: 0px 4%;
+                }
+                .button_mobile-header h3{
+                    padding: 0px!important;
+                    text-align: center;
+                }
+                .sidebarMobile a{
+                    padding: 0px!important;
+                }
+                .sidebarMobile{
+                    width: 100%;
+                }
+                .sidebarMobile ul{
+                    display: none;
+                }
+                .button_mobile-header{
+                    background-color: #414342;
+                    padding: 3px 0px;
+                }
+                #sidebar h3{
+                    margin-bottom: 0px;
+                    color: #fff;
+                    letter-spacing: 1.1px;
+                }
+                .sidebarMobile ul{
+                    background-color: #2d2e2e;
+                }
+                .sidebarMobile a{
+                    color: #fff!important;
+                    width: 100%;
+                    padding: 10px 0;
+                    font-size: 17px;
+                    border-bottom: 1px solid #4e504f;
+                    justify-content: center;
+                }
+                #sidebar ul li a:hover {
+                    background-color: initial;
+                }
+                .block_footer-contact ul{
+                    padding-left: 0px;
+                    text-align: center;
+                    max-width: fit-content;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+                .block_footer p{
+                    font-size: 13px;
+                }
+                .block_footer-links a{
+                    font-size: 15px;
+                }
+                .block_footer-links ul{
+                    min-width: max-content;
+                    padding-left: 0px;
+                    display: flex;
+                    justify-content: center;
+                }
+                .block_footer-links li {
+                    list-style: none;
+                    padding: 0px 5px;
+                }
+                #content {
+                    padding: 0px 2%;
+                }
+                .block_basket-mini {
+                    top: 23rem;
+                }
+                .block_preview{
+                    width: 43.2vw;
+                }
+                .block_preview h2{
+                    font-size: 18px;
+                }
+                .faq-items{        
+                    position: initial;
+                    display: contents;
+                }
+                .faq-group {
+                    display: block;
+                }
+                .faq-group > li {
+                    background: #ffffff;
+                    margin-bottom: 6px;
+                    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+                    -webkit-transition: box-shadow 0.2s;
+                    -moz-transition: box-shadow 0.2s;
+                    transition: box-shadow 0.2s;
+                }
+                .trigger {
+                    font-size: 24px;
+                    font-size: 1.5rem;
+                    font-weight: 300;
+                    margin: 0;
+                    padding: 15px 72px 15px 24px;
+                }
+                .faq-content {
+                    display: none;
+                    padding: 0 24px 10px;
+                }
+                #main{
+                    min-height: inherit;
+                }
+                .block_reviews h2{
+                    text-align: center;
+                }
+                .block_reviews form{
+                    align-items: center;
+                }
+                .orders-list__content {
+                    position: initial;
+                    max-width: max-content;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+                .item_cart-manipul div{
+                    max-width: max-content;
+                }
+                .block_contact-input{
+                    flex-direction: column;
+                }
+                .block_contact-input input {
+                    width: initial;
+                    margin: 0px 0px;
+                    padding: 10px 10px;
+                    font-size: 15px;
+                    font-style: italic;
+                    border: 0;
+                    margin-bottom: 9px;
+                }
+                .form-home__item{
+                    padding-bottom: 15px;
+                }
+                .form-home__item textarea {
+                    border: 0;
+                    padding: 10px;
+                    width: 100%;
+                    margin: 0px 0px;
+                }
+                .block_footer{
+                    flex-direction: column;
+                }
+                .block_footer-contact h3{
+                    text-align: center;
+                    padding-bottom: 5px;
+                }
+                .block_footer-links{
+                    margin-top: 20px;
+                    border-top: 1px solid #4e504f;
+                    padding-top: 5px;
+                }
+                .sidebarMobile {
+                    display: block;
+                }
+            }
+            @media (max-width: 575.98px) {
+                .header_info-widthM{
+                    display: block;
+                    text-align: center;
+                    font-size: 19px;
+                }
+                .elements_advantages {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-around;
+                    flex-direction: column;
+                    align-items: center;
+                }
+                .header_info{
+                    display: none;
+                }
+                .element_advantages {
+                    max-width: 350px;
+                    text-align: center;
+                    margin: 20px 0;
+                }
+                #header {
+                    justify-content: space-around;
+                    margin-top: 35px;
+                    flex-direction: column;
+                }
+                .subheader_nav{
+                    display: none;
+                }
+                #subheader{
+                    justify-content: flex-end;
+                }
+                .block_basket-mini{
+                    top: 16rem;
+                }
+                .subheader_nav-mobile{
+                    display: none;
+                    position: absolute;
+                    list-style: none;
+                    top: 29px;
+                    z-index: 1;
+                    width: 100%;
+                    padding-left: 0px;
+                    margin: 0px;
+                    background-color: #2d2e2e;
+                }
+                .subheader_navs-mobile{
+                    display: flex;
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                }
+                .main-menu-mob__button{
+                    color: #ffF;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+                .subheader_nav-item a{
+                    color: #fff;
+                    width: 100%;
+                    text-align: center;
+                    padding: 10px 0;
+                    font-size: 17px;
+                    border-bottom: 1px solid #4e504f;
+                    display: block;
+                }
+                .mobileMenuVis{
+                    display: block!important;
+                }
+                .sidebarDesc{
+                    display: none;
+                }
+                #sidebar{
+                    position: fixed;
+                    top: 0px;
+                    left: 0px;
+                    padding: 0px;
+                    width: 100%;
+                    z-index: 1000;
+                }
+                #content{
+                    padding: 0px 4%;
+                }
+                .button_mobile-header h3{
+                    padding: 0px!important;
+                    text-align: center;
+                }
+                .sidebarMobile a{
+                    padding: 0px!important;
+                }
+                .sidebarMobile{
+                    width: 100%;
+                }
+                .sidebarMobile ul{
+                    display: none;
+                }
+                .button_mobile-header{
+                    background-color: #414342;
+                    padding: 3px 0px;
+                }
+                #sidebar h3{
+                    margin-bottom: 0px;
+                    color: #fff;
+                    letter-spacing: 1.1px;
+                }
+                .sidebarMobile ul{
+                    background-color: #2d2e2e;
+                }
+                .sidebarMobile a{
+                    color: #fff!important;
+                    width: 100%;
+                    padding: 10px 0;
+                    font-size: 17px;
+                    border-bottom: 1px solid #4e504f;
+                    justify-content: center;
+                }
+                #sidebar ul li a:hover {
+                    background-color: initial;
+                }
+                .block_footer-contact ul{
+                    padding-left: 0px;
+                    text-align: center;
+                    max-width: fit-content;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+                .block_footer p{
+                    font-size: 13px;
+                }
+                .block_footer-links a{
+                    font-size: 15px;
+                }
+                .block_footer-links ul{
+                    padding-left: 0px;
+                    display: flex;
+                    justify-content: center;
+                    flex-wrap: wrap;
+                    margin: 0px;
+                }
+                .block_footer-links li {
+                    list-style: none;
+                    padding: 0px 5px;
+                }
+                #content {
+                    padding: 0px 2%;
+                }
+                .block_basket-mini {
+                    top: 23rem;
+                }
+                .block_preview{
+                    width: 100vw;
+                }
+                .block_preview h2{
+                    font-size: 18px;
+                }
+                .faq-items{        
+                    position: initial;
+                    display: contents;
+                }
+                .faq-group {
+                    display: block;
+                }
+                .faq-group > li {
+                    background: #ffffff;
+                    margin-bottom: 6px;
+                    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+                    -webkit-transition: box-shadow 0.2s;
+                    -moz-transition: box-shadow 0.2s;
+                    transition: box-shadow 0.2s;
+                }
+                .trigger {
+                    font-size: 24px;
+                    font-size: 1.5rem;
+                    font-weight: 300;
+                    margin: 0;
+                    padding: 15px 72px 15px 24px;
+                }
+                .faq-content {
+                    display: none;
+                    padding: 0 24px 10px;
+                }
+                #main{
+                    min-height: inherit;
+                }
+                .block_reviews h2{
+                    text-align: center;
+                }
+                .block_reviews form{
+                    align-items: center;
+                }
+                .orders-list__content {
+                    position: initial;
+                    max-width: max-content;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+                .item_cart-manipul div{
+                    max-width: max-content;
+                }
+                .block_contact-input{
+                    flex-direction: column;
+                }
+                .block_contact-input input {
+                    width: initial;
+                    margin: 0px 0px;
+                    padding: 10px 10px;
+                    font-size: 15px;
+                    font-style: italic;
+                    border: 0;
+                    margin-bottom: 9px;
+                }
+                .form-home__item{
+                    padding-bottom: 15px;
+                }
+                .form-home__item textarea {
+                    border: 0;
+                    padding: 10px;
+                    width: 100%;
+                    margin: 0px 0px;
+                }
+                .block_footer{
+                    flex-direction: column;
+                }
+                .block_footer-contact h3{
+                    text-align: center;
+                    padding-bottom: 5px;
+                }
+                .block_footer-links{
+                    margin-top: 20px;
+                    border-top: 1px solid #4e504f;
+                    padding-top: 5px;
+                }
+                .sidebarMobile {
+                    display: block;
+                }
+                .block_basket-text{
+                    display: none;
+                }
+                .block_basket-img{
+                    margin-right: 0px;
+                }
+                .block_advantages h1{
+                    padding: 0px 15px;
+                }
+                .comment_img img{
+                    width: 100px;
+                }
+                .item_cart-img img {
+                    width: 100px;
+                    height: 100px;
+                }
+                .item_cart-remove {
+                    position: absolute;
+                    top: 0;
+                    right: 0px;
+                }
+                .orders-list__button{
+                    display: flex;
+                    flex-direction: column;
+                    text-align: center;
+                }
+                .orders-list__button a.button{
+                    margin-bottom: 15px;
+                }
+                .orders-list__button a.button:last-child{
+                    margin: 0px;
+                }
+                .orders-list__content{
+                    max-width: initial;
                 }
             }
             /* END MEDIA QUERIES */
@@ -1395,9 +2012,26 @@
 
                 $('.main-menu-mob__button').click(
                     function(){
-                        $('.subheader_nav-mobile').addClass('mobileMenuVis')
-                    }
+                        if($('.subheader_nav-mobile').hasClass('mobileMenuVis')){
+                            $('.subheader_nav-mobile').removeClass('mobileMenuVis')
+                        }else {
+                            $('.subheader_nav-mobile').addClass('mobileMenuVis')
+                        }
+                       
+                    },
                 )
+
+                $('.button_mobile-header').click(
+                    function(){
+                        if($('.sidebarMobile ul').hasClass('mobileMenuVis')){
+                            $('.sidebarMobile ul').removeClass('mobileMenuVis')
+                        }else {
+                            $('.sidebarMobile ul').addClass('mobileMenuVis')
+                        }
+                       
+                    },
+                )
+                
 
 
                 $('.header_contact-button').click(
