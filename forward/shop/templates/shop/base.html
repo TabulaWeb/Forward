@@ -15,6 +15,15 @@
                 outline: none;
             }
             /* BLOCK HOME-PAGE */
+            .product-detail .price{
+                margin-top: 10px;
+                margin-bottom: 16px;
+            }
+            .product-detail img {
+                width: calc(7vw + 208px);
+                float: left;
+                padding: 0 20px 20px 0;
+            }
             .block_footer-links li:last-child{
                 padding-right: 0px;
             }
@@ -126,6 +135,12 @@
                 display: flex;
                 align-items: center;
 
+            }
+            #header .logo{
+                margin-right: 0px;
+            }
+            .product-detail{
+                padding-left: 4%;
             }
             .basket_mini-product img{
                 width: 80px;
@@ -421,6 +436,7 @@
             #content{
                 padding: 0px 4% 0px 0px;
                 background: #dadcdb;
+                min-height: 62.2vh;
             }
 
             /* PAGE SHOP_LIST.HTML */
@@ -687,6 +703,9 @@
                 flex-direction: column;
                 margin-bottom: 21px;
             }
+            #main h1{
+                text-align: center;
+            }
             .block_ourProjects{
                 display: flex;
                 flex-direction: row;
@@ -918,7 +937,7 @@
                     font-size: 1.5rem;
                     font-weight: 300;
                     margin: 0;
-                    padding: 24px 72px 24px 24px;
+                    padding: 15px 72px 15px 24px;
                 }
                 .trigger::before, .trigger::after {
                     /* arrow icon on the right */
@@ -977,7 +996,7 @@
                 @media only screen and (min-width: 768px) {
                 .faq-content {
                     display: none;
-                    padding: 0 24px 30px;
+                    padding: 0 24px 10px;
                 }
                 .faq-content p {
                     line-height: 1.6;
@@ -989,10 +1008,16 @@
                 .block_engineerTips{
                     padding: 0px 15px;
                 }
+                .block_engineerTips h1{
+                    text-align: center;
+                }
             /* END BLOCK PAGE FAQ */
             /* BLOCK PAGE-COMMENT */
             .block_reviews{
                 padding: 0px 15px;
+            }
+            .block_reviews h1{
+                text-align: center;
             }
             .comment_img img{
                 width: 150px;
@@ -1015,6 +1040,146 @@
                 flex-direction: column;
             }
             /* END PAGE-COMMENT */
+            /* BLOCK PAGE-DELIVERY */
+            .block_delivery h1{
+                text-align: center;
+            }
+            /* END BLOCK PAGE-DELIVERY */
+
+            /* MEDIA QUERIES */
+            .header_info-widthM{
+                display: none;
+            }
+            .subheader_nav-mobile{
+                display: none;
+            }
+            .subheader_navs-mobile{
+                display: none;
+            }
+            @media (min-width: 992px) and (max-width: 1200px){
+                .header_info p {
+                    font-size: 1.5vw;
+                }
+                a.header_contact-phone{
+                    font-size: 1.7vw;
+                }
+                a.header_contact-mail{
+                    font-size: 1.3vw;
+                }
+                .header_contact-button{
+                    font-size: 1.55vw;
+                }
+                .subheader_nav li a{
+                    font-size: 1.55vw;
+                    padding: 0.99vw 20px;
+                }
+                .aside-menu-inserted {
+                    width: 500px;
+                    right: -500px;
+                }
+                .block_advantages{
+                    padding: 0px 15px;
+                }
+                .block_footer-links ul {
+                    padding-left: 0px;
+                    min-width: max-content;
+                    font-size: 1.55vw;
+                }
+                .element_advantages{
+                    padding-right: 10px;
+                }
+                .element_advantages:last-child{
+                    padding-right: 0px;
+                }
+                .element_advantages h3{
+                    font-size: 1.79vw;
+                }
+                .element_advantages p{
+                    font-size: 1.46vw;
+                }
+                .block_preview{
+                    width: 20.9vw;
+                }
+                .block_preview h2{
+                    font-size: 1.7vw;
+                    margin-bottom: 7px;
+                }
+                .block_preview a{
+                    font-size: 14px;
+                }
+                .faq-items{
+                    width: 100%;
+                    float: initial;
+                }
+                .comment_img img{
+                    width: 11vw;
+                }
+                .block_basket-mini{
+                    top: 10rem;
+                }
+                .block_button-submit button{
+                    border: none;
+                }
+                .item_cart-manipul div{
+                    max-width: max-content;
+                }
+            }
+            @media (min-width: 768px) and (max-width: 991.98px){
+                .header_info-widthM{
+                    display: block;
+                    text-align: center;
+                }
+                .header_info{
+                    display: none;
+                }
+                #header {
+                    justify-content: space-around;
+                }
+                .subheader_nav{
+                    display: none;
+                }
+                #subheader{
+                    justify-content: flex-end;
+                }
+                .block_basket-mini{
+                    top: 16rem;
+                }
+                .subheader_nav-mobile{
+                    display: none;
+                    position: absolute;
+                    list-style: none;
+                    top: 29px;
+                    z-index: 1;
+                    width: 100%;
+                    padding-left: 0px;
+                    margin: 0px;
+                    background-color: #2d2e2e;
+                }
+                .subheader_navs-mobile{
+                    display: flex;
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                }
+                .main-menu-mob__button{
+                    color: #ffF;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+                .subheader_nav-item a{
+                    color: #fff;
+                    width: 100%;
+                    text-align: center;
+                    padding: 10px 0;
+                    font-size: 17px;
+                    border-bottom: 1px solid #4e504f;
+                    display: block;
+                }
+                .mobileMenuVis{
+                    display: block!important;
+                }
+            }
+            /* END MEDIA QUERIES */
         </style>
     </head>
     <body>
@@ -1034,6 +1199,10 @@
                 </div>
             </div>
         </div>
+        <div class="header_info-widthM">
+                <p>Аренда и продажа строительного оборудования</p>
+                <p><i class="fa fa-clock-o" aria-hidden="true"></i> Пн-Пт 9:00 - 18:00 Сб, Вс - Выходной</p>
+            </div>
         <div id="subheader">
             <ul class="subheader_nav">
                 <li class="subheader_nav-item">
@@ -1055,6 +1224,32 @@
                     <a href="{% url 'shop:contacts' %}">Контакты</a>
                 </li>
             </ul>
+            <div class="subheader_navs-mobile">
+                <div class="main-menu-mob__button">
+                    МЕНЮ
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </div>
+                <ul class="subheader_nav-mobile">
+                    <li class="subheader_nav-item">
+                        <a href="/">Главная</a>
+                    </li>
+                    <li class="subheader_nav-item">
+                        <a href="{% url 'shop:our_projects' %}">Наши проекты</a>
+                    </li>
+                    <li class="subheader_nav-item">
+                        <a href="{% url 'shop:engineer_tips' %}">Советы инженера</a>
+                    </li>
+                    <li class="subheader_nav-item">
+                        <a href="{% url 'shop:delivery' %}">Доставка</a>
+                    </li>
+                    <li class="subheader_nav-item">
+                        <a href="{% url 'shop:reviews' %}">Отзывы</a>
+                    </li>
+                    <li class="subheader_nav-item">
+                        <a href="{% url 'shop:contacts' %}">Контакты</a>
+                    </li>
+                </ul>
+            </div>
             <div class="cart">
                 {% with total_items=cart|length %}
                     {% if cart|length > 0 %}
@@ -1198,7 +1393,11 @@
                     }
                 )
 
-
+                $('.main-menu-mob__button').click(
+                    function(){
+                        $('.subheader_nav-mobile').addClass('mobileMenuVis')
+                    }
+                )
 
 
                 $('.header_contact-button').click(
