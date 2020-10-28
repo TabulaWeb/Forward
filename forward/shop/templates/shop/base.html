@@ -16,6 +16,9 @@
                 outline: none;
             }
             /* BLOCK HOME-PAGE */
+            .product-lists{
+                padding: 0px 15px;
+            }
             .product-detail .price{
                 margin-top: 10px;
                 margin-bottom: 16px;
@@ -618,6 +621,7 @@
                 padding: 0px 15px;
                 padding-bottom: 15px;
                 position: relative;
+                min-height: inherit;
             }
             .item_cart-manipul{
                 display: flex;
@@ -1039,6 +1043,10 @@
             .block_reviews form{
                 display: flex;
                 flex-direction: column;
+                align-items: center;
+            }
+            .block_reviews h2 {
+                text-align: center;
             }
             /* END PAGE-COMMENT */
             /* BLOCK PAGE-DELIVERY */
@@ -1061,6 +1069,9 @@
                 display: none;
             }
             @media (min-width: 992px) and (max-width: 1200px){
+                .mini_form{
+                    width: 35%;
+                }
                 .header_info p {
                     font-size: 1.5vw;
                 }
@@ -1129,6 +1140,9 @@
                 }
             }
             @media (min-width: 768px) and (max-width: 991.98px){
+                .mini_form{
+                    width: 50%;
+                }
                 .sidebarMobile{
                     display: block;
                 }
@@ -1291,6 +1305,9 @@
                 }
             }
             @media (min-width: 576px) and (max-width: 767.98px){
+                .mini_form{
+                    width: 65%;
+                }
                 .header_info-widthM{
                     display: block;
                     text-align: center;
@@ -1526,6 +1543,16 @@
                 }
             }
             @media (max-width: 575.98px) {
+                .product-detail img{
+                    float: initial;
+                    padding: 20px 20px 20px 0;
+                }
+                .product-detail h1{
+                    margin-top: 0px;
+                }
+                .mini_form{
+                    width: 85%;
+                }
                 .header_info-widthM{
                     display: block;
                     text-align: center;
@@ -1778,8 +1805,8 @@
                 }
                 .item_cart-remove {
                     position: absolute;
-                    top: 0;
-                    right: 0px;
+                    top: 75px;
+                    left: 0;
                 }
                 .orders-list__button{
                     display: flex;
