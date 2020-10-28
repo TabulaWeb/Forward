@@ -15,6 +15,11 @@ def order_create(request):
                 OrderItem.objects.create(order=order, product=item['product'], price=item['price'], quantity=item['quantity'])
             # Очищаем корзину.
             cart.clear()
+            # cd = form.cleaned_data
+            # subject = 'Новый заказ'
+            # message = '{} {} заказал у вас\n{} - {}\nСумма заказа = {}\nЕго номер телефона - {}'.format(cd['first_name'], cd['last_name'], item['quantity'], item['product'], item['price'], cd['phone_number'])
+            # send_mail(subject, message, 'tabulaweb99@gmail.com',
+            #           ['tabulaweb99@gmail.com'])
             return render(request, 'orders/order/created.html', {'order': order})
     else:
         form = OrderCreateForm()

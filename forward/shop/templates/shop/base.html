@@ -15,7 +15,25 @@
                 box-sizing: border-box;
                 outline: none;
             }
+            /* PRODUCT DETAIL */
+            .product-detail img{
+                float: initial!important;
+                padding-top: 20px!important;
+            }
+            .block_detail-content p{
+                max-width: 500px;
+            }
+            .product-detail{
+                display: flex;
+            }
+            /* END PRODUCT-DETAIL */
             /* BLOCK HOME-PAGE */
+            label[for=id_quantity]{
+                display: none;
+            }
+            #id_quantity{
+                display: none;
+            }
             .product-lists{
                 padding: 0px 15px;
             }
@@ -1821,6 +1839,20 @@
                 }
                 .orders-list__content{
                     max-width: initial;
+                }
+                .page_cart{
+                    margin-left: 0px;
+                }
+                .block_item-cart {
+                    display: flex;
+                    justify-content: space-between;
+                    margin-bottom: 25px;
+                }
+                .item_cart-manipul {
+                    display: flex;
+                    width: -webkit-fill-available;
+                    position: relative;
+                    justify-content: inherit;
                 }
             }
             /* END MEDIA QUERIES */
