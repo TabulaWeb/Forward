@@ -4,8 +4,12 @@ from cart.forms import CartAddProductForm
 from .forms import CommentForm, MiniForm, MessageForm
 from django.core.mail import send_mail
 
+def mail_ready(request):
+    return render(request, 'shop/product/mail_true.html')
+
 def product_list(request, category_slug=None):
     category = None
+    sent = False
     categories = Category.objects.all()
     products = Product.objects.filter(available=True)
     cart_product_form = CartAddProductForm()
@@ -13,7 +17,7 @@ def product_list(request, category_slug=None):
         category = get_object_or_404(Category, slug=category_slug)
         products = products.filter(category=category)
 
-    sent = False
+    
     if request.method == 'POST':
         form = MiniForm(request.POST)
         if form.is_valid():
@@ -25,11 +29,11 @@ def product_list(request, category_slug=None):
             send_mail(subject, message, 'tabulaweb99@gmail.com',
                       ['tabulaweb99@gmail.com'])
             sent = True
-            return redirect('/')
+            return redirect('shop:mail_ready')
+            
     else:
         form = MiniForm()
 
-    sent = False
     if request.method == 'POST':
         form_message = MessageForm(request.POST)
         if form_message.is_valid():
@@ -41,7 +45,7 @@ def product_list(request, category_slug=None):
             send_mail(subject, message, 'tabulaweb99@gmail.com',
                       ['tabulaweb99@gmail.com'])
             sent = True
-            return redirect('/')
+            return redirect('shop:mail_ready')
     else:
         form_message = MessageForm()
     return render(request,
@@ -51,6 +55,7 @@ def product_list(request, category_slug=None):
                    'categories': categories,
                    'products': products,
                    'form': form,
+                   'sent': sent,
                    'form_message':form_message,})
 
 
@@ -67,6 +72,7 @@ def product_detail(request, id, slug, category_slug=None):
             send_mail(subject, message, 'tabulaweb99@gmail.com',
                       ['tabulaweb99@gmail.com'])
             sent = True
+            return redirect('shop:mail_ready')
     else:
         form = MiniForm()
     product = get_object_or_404(Product,
@@ -110,6 +116,7 @@ def our_projects(request, category_slug=None):
             send_mail(subject, message, 'tabulaweb99@gmail.com',
                       ['tabulaweb99@gmail.com'])
             sent = True
+            return redirect('shop:mail_ready')
     else:
         form = MiniForm()
     return render(request, 'shop/product/our_projects.html', {'category': category,
@@ -139,6 +146,7 @@ def ourprojects_detail(request, year, month, day, post, category_slug=None):
             send_mail(subject, message, 'tabulaweb99@gmail.com',
                       ['tabulaweb99@gmail.com'])
             sent = True
+            return redirect('shop:mail_ready')
     else:
         form = MiniForm()
     return render(request, 'shop/product/ourprojects_detail.html', {'post': post,
@@ -167,6 +175,7 @@ def engineer_tips(request, category_slug=None):
             send_mail(subject, message, 'tabulaweb99@gmail.com',
                       ['tabulaweb99@gmail.com'])
             sent = True
+            return redirect('shop:mail_ready')
     else:
         form = MiniForm()
     return render(request, 'shop/product/engineer_tips.html', {'category': category,
@@ -195,6 +204,7 @@ def delivery(request, category_slug=None):
             send_mail(subject, message, 'tabulaweb99@gmail.com',
                       ['tabulaweb99@gmail.com'])
             sent = True
+            return redirect('shop:mail_ready')
     else:
         form = MiniForm()
     return render(request, 'shop/product/delivery.html', {'category': category,
@@ -233,6 +243,7 @@ def reviews(request, category_slug=None):
             send_mail(subject, message, 'tabulaweb99@gmail.com',
                       ['tabulaweb99@gmail.com'])
             sent = True
+            return redirect('shop:mail_ready')
     else:
         form = MiniForm()
     return render(request, 'shop/product/reviews.html', {'category': category,
@@ -263,6 +274,7 @@ def contacts(request, category_slug=None):
             send_mail(subject, message, 'tabulaweb99@gmail.com',
                       ['tabulaweb99@gmail.com'])
             sent = True
+            return redirect('shop:mail_ready')
     else:
         form = MiniForm()
 
@@ -278,6 +290,7 @@ def contacts(request, category_slug=None):
             send_mail(subject, message, 'tabulaweb99@gmail.com',
                       ['tabulaweb99@gmail.com'])
             sent = True
+            return redirect('shop:mail_ready')
     else:
         form_message = MessageForm()
     return render(request, 'shop/product/contacts.html', {'category': category,

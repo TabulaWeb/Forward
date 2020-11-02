@@ -46,6 +46,7 @@ def cart_detail(request):
             send_mail(subject, message, 'tabulaweb99@gmail.com',
                       ['tabulaweb99@gmail.com'])
             sent = True
+            return redirect('shop:mail_ready')
     else:
         form = MiniForm()
     return render(request, 'cart/detail.html', {'cart': cart, 'form': form})

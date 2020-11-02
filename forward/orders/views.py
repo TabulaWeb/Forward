@@ -3,6 +3,7 @@ from .models import OrderItem
 from .forms import OrderCreateForm
 from cart.cart import Cart
 from shop.forms import MiniForm
+from decimal import Decimal
 from django.core.mail import send_mail
 
 def order_create(request):
@@ -16,10 +17,13 @@ def order_create(request):
             # Очищаем корзину.
             
             cd = form.cleaned_data
-            subject = 'Новый заказ'
+            subject = 'Новый заказ от {} {}, его номер - {}'.format(cd['first_name'], cd['last_name'], cd['phone_number'])
+            m = []
             for item in cart:
-                message = '{} {} заказал у вас\n{} - {}\nСумма заказа = {}\nЕго номер телефона - {}'.format(cd['first_name'], cd['last_name'], item['quantity'], item['product'], item['total_price'], cd['phone_number'])
-                send_mail(subject, message, 'tabulaweb99@gmail.com', ['tabulaweb99@gmail.com'])
+                mess = '{} - {}\nСумма заказа = {}\n\n'.format(item['quantity'], item['product'], item['total_price'])
+                m.append(mess)
+            message = ' '.join(m)
+            send_mail(subject, message, 'tabulaweb99@gmail.com', ['tabulaweb99@gmail.com'])
             cart.clear()
             return render(request, 'orders/order/created.html', {'order': order})
     else:
@@ -36,6 +40,7 @@ def order_create(request):
             send_mail(subject, message, 'tabulaweb99@gmail.com',
                       ['tabulaweb99@gmail.com'])
             sent = True
+            return redirect('shop:mail_ready')
     else:
         form_mini = MiniForm()
     return render(request, 'orders/order/create.html', {'cart': cart, 'form':form, 'form_mini':form_mini})
