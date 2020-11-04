@@ -15,6 +15,9 @@
                 box-sizing: border-box;
                 outline: none;
             }
+            .block_mobile-menu{
+                display: none;
+            }
             /* PRODUCT DETAIL */
             .product-detail img{
                 float: initial!important;
@@ -1290,6 +1293,7 @@
                 }
                 #content {
                     padding: 0px 2%;
+                    min-height: max-content;
                 }
                 .block_basket-mini {
                     top: 18rem;
@@ -1327,6 +1331,23 @@
                 .mini_form{
                     width: 65%;
                 }
+                .disable_scroll{
+                    overflow-y: hidden;
+                }
+                .text_disable-rent{
+                    margin: 0px;
+                    font-size: 20px;
+                    font-weight: 600;
+                    height: 50px;
+                    border-bottom: 1px solid #4e504f;
+                    color: #fff!important;
+                    align-items: center;
+                    display: flex;
+                    background: #414342;
+                    padding: 0px 2%;
+                    cursor: pointer;
+                    justify-content: space-between;
+                }
                 .header_info-widthM{
                     display: block;
                     text-align: center;
@@ -1349,7 +1370,6 @@
                 }
                 #header {
                     justify-content: space-around;
-                    margin-top: 35px;
                     flex-direction: column;
                 }
                 .subheader_nav{
@@ -1357,6 +1377,7 @@
                 }
                 #subheader{
                     justify-content: flex-end;
+                    height: 40px;
                 }
                 .block_basket-mini{
                     top: 16rem;
@@ -1394,6 +1415,8 @@
                 }
                 .mobileMenuVis{
                     display: block!important;
+                    min-height: -webkit-fill-available;
+                    height: 100vh;
                 }
                 .sidebarDesc{
                     display: none;
@@ -1470,6 +1493,7 @@
                 }
                 #content {
                     padding: 0px 2%;
+                    min-height: max-content;
                 }
                 .block_basket-mini {
                     top: 23rem;
@@ -1547,6 +1571,7 @@
                 }
                 .block_footer{
                     flex-direction: column;
+                    padding-bottom: 18vw;
                 }
                 .block_footer-contact h3{
                     text-align: center;
@@ -1559,12 +1584,90 @@
                 }
                 .sidebarMobile {
                     display: block;
+                    overflow-y: auto;
                 }
+                /* BLOCK mobile menu */
+                .block_mobile-menu{
+                    display: flex;
+                    position: fixed;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    background: #414342;
+                    justify-content: space-around;
+                    flex-grow: 1;
+                    flex-shrink: 1;
+                    z-index: 10000;
+                }
+                .mobile_menu-link{
+                    position: relative;
+                    font-size: 3.5vw;
+                    padding: 3vw 2vw;
+                    text-decoration: none!important;
+                    text-align: center;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    color: #fff!important;
+                    line-height: 1em;
+                    width: 25%;
+                    -webkit-tap-highlight-color: transparent;
+                    cursor: pointer;
+                }
+                .block_mobile-menu svg{
+                    width: 40px;
+                    height: 40px;
+                }
+                .block_basket-img{
+                    margin-right: 0px;
+                }
+                #subheader .cart{
+                    display: none;
+                }
+                #subheader .mobileMenuVis{
+                    height: max-content;
+                }
+                .text_disable-catalog{
+                    margin: 0px;
+                    font-size: 20px;
+                    font-weight: 600;
+                    height: 50px;
+                    border-bottom: 1px solid #4e504f;
+                    color: #fff!important;
+                    align-items: center;
+                    display: flex;
+                    background: #414342;
+                    padding: 0px 2%;
+                    cursor: pointer;
+                    justify-content: space-between;
+                }
+                .sidebarMobile-rent{
+                    background-color: #2d2e2e;
+                }
+                .text_disable-rent{
+                    margin: 0px;
+                }
+                /*  */
             }
             @media (max-width: 575.98px) {
                 .product-detail img{
                     float: initial;
                     padding: 20px 20px 20px 0;
+                }
+                .text_disable-rent{
+                    margin: 0px;
+                    font-size: 20px;
+                    font-weight: 600;
+                    height: 50px;
+                    border-bottom: 1px solid #4e504f;
+                    color: #fff!important;
+                    align-items: center;
+                    display: flex;
+                    background: #414342;
+                    padding: 0px 2%;
+                    cursor: pointer;
+                    justify-content: space-between;
                 }
                 .product-detail h1{
                     margin-top: 0px;
@@ -1594,7 +1697,6 @@
                 }
                 #header {
                     justify-content: space-around;
-                    margin-top: 35px;
                     flex-direction: column;
                 }
                 .subheader_nav{
@@ -1602,6 +1704,7 @@
                 }
                 #subheader{
                     justify-content: flex-end;
+                    height: 40px;
                 }
                 .block_basket-mini{
                     top: 16rem;
@@ -1639,6 +1742,8 @@
                 }
                 .mobileMenuVis{
                     display: block!important;
+                    min-height: -webkit-fill-available;
+                    height: 100vh;
                 }
                 .sidebarDesc{
                     display: none;
@@ -1716,6 +1821,7 @@
                 }
                 #content {
                     padding: 0px 2%;
+                    min-height: max-content;
                 }
                 .block_basket-mini {
                     top: 23rem;
@@ -1793,6 +1899,7 @@
                 }
                 .block_footer{
                     flex-direction: column;
+                    padding-bottom: 18.5vw;
                 }
                 .block_footer-contact h3{
                     text-align: center;
@@ -1805,6 +1912,7 @@
                 }
                 .sidebarMobile {
                     display: block;
+                    overflow-y: auto;
                 }
                 .block_basket-text{
                     display: none;
@@ -1854,6 +1962,60 @@
                     width: -webkit-fill-available;
                     position: relative;
                     justify-content: inherit;
+                }
+                .block_mobile-menu{
+                    display: flex;
+                    position: fixed;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    background: #414342;
+                    justify-content: space-around;
+                    flex-grow: 1;
+                    flex-shrink: 1;
+                    z-index: 10000;
+                }
+                .mobile_menu-link{
+                    position: relative;
+                    font-size: 3.5vw;
+                    padding: 3vw 2vw;
+                    text-decoration: none!important;
+                    text-align: center;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    color: #fff!important;
+                    line-height: 1em;
+                    width: 25%;
+                    -webkit-tap-highlight-color: transparent;
+                }
+                .block_mobile-menu svg{
+                    width: 8vw;
+                    height: 8vw;
+                }
+                #subheader .cart{
+                    display: none;
+                }
+                .text_disable-catalog {
+                    margin: 0px;
+                    font-size: 20px;
+                    font-weight: 600;
+                    height: 50px;
+                    border-bottom: 1px solid #4e504f;
+                    color: #fff!important;
+                    align-items: center;
+                    display: flex;
+                    background: #414342;
+                    padding: 0px 2%;
+                    cursor: pointer;
+                    justify-content: space-between;
+                }
+                .disable_scroll{
+                    overflow-y: hidden;
+                }
+                #subheader .mobileMenuVis{
+                    height: max-content;
                 }
             }
             /* END MEDIA QUERIES */
@@ -2070,7 +2232,7 @@
                     }
                 )
 
-                $('.main-menu-mob__button').click(
+                $('#subheader').click(
                     function(){
                         if($('.subheader_nav-mobile').hasClass('mobileMenuVis')){
                             $('.subheader_nav-mobile').removeClass('mobileMenuVis')
@@ -2081,15 +2243,44 @@
                     },
                 )
 
-                $('.button_mobile-header').click(
+                $('.button_catalog').click(
                     function(){
-                        if($('.sidebarMobile ul').hasClass('mobileMenuVis')){
-                            $('.sidebarMobile ul').removeClass('mobileMenuVis')
+                        if($('.sidebarMobile .sidebarMobile-catalog ul').hasClass('mobileMenuVis')){
+                            $('.sidebarMobile .sidebarMobile-catalog ul').removeClass('mobileMenuVis')
+                            $('body').removeClass('disable_scroll')
                         }else {
-                            $('.sidebarMobile ul').addClass('mobileMenuVis')
+                            $('.sidebarMobile .sidebarMobile-catalog ul').addClass('mobileMenuVis')
+                            $('body').addClass('disable_scroll')
                         }
                        
                     },
+                )
+
+                $('.disable_catalog').click(
+                    function(){
+                        $('.sidebarMobile .sidebarMobile-catalog ul').removeClass('mobileMenuVis')
+                        $('body').removeClass('disable_scroll')
+                    }
+                )
+
+                $('.button_rent').click(
+                    function(){
+                        if($('.sidebarMobile .sidebarMobile-rent ul').hasClass('mobileMenuVis')){
+                            $('.sidebarMobile .sidebarMobile-rent ul').removeClass('mobileMenuVis')
+                            $('body').removeClass('disable_scroll')
+                        }else {
+                            $('.sidebarMobile .sidebarMobile-rent ul').addClass('mobileMenuVis')
+                            $('body').addClass('disable_scroll')
+                        }
+                       
+                    },
+                )
+
+                $('.disable_rent').click(
+                    function(){
+                        $('.sidebarMobile .sidebarMobile-rent ul').removeClass('mobileMenuVis')
+                        $('body').removeClass('disable_scroll')
+                    }
                 )
                 
 
