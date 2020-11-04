@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.http import require_POST
-from shop.models import Product
+from shop.models import Product, Category
 from .cart import Cart
 from .forms import CartAddProductForm
 from shop.forms import MiniForm
@@ -27,7 +27,13 @@ def cart_remove(request, product_id):
     return redirect('cart:cart_detail')
 
 
-def cart_detail(request):
+def cart_detail(request, category_slug=None):
+    category = None
+    categories = Category.objects.all()
+    products = Product.objects.filter(available=True)
+    if category_slug:
+        category = get_object_or_404(Category, slug=category_slug)
+        products = products.filter(category=category)
     cart = Cart(request)
     for item in cart:
         item['update_quantity_form'] = CartAddProductForm(
@@ -49,5 +55,9 @@ def cart_detail(request):
             return redirect('shop:mail_ready')
     else:
         form = MiniForm()
-    return render(request, 'cart/detail.html', {'cart': cart, 'form': form})
+    return render(request, 'cart/detail.html', {'cart': cart,
+                                                'form': form,
+                                                'categories': categories,
+                                                'products': products,
+                                                'category': category, })
 
