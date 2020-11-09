@@ -1,12 +1,20 @@
 from django.shortcuts import render
 from .models import OrderItem
+from shop.models import Product, Category
 from .forms import OrderCreateForm
 from cart.cart import Cart
 from shop.forms import MiniForm
 from decimal import Decimal
 from django.core.mail import send_mail
 
-def order_create(request):
+
+def order_create(request, category_slug=None):
+    category = None
+    categories = Category.objects.all()
+    products = Product.objects.filter(available=True)
+    if category_slug:
+        category = get_object_or_404(Category, slug=category_slug)
+        products = products.filter(category=category)
     cart = Cart(request)
     if request.method == 'POST':
         form = OrderCreateForm(request.POST)
@@ -43,5 +51,5 @@ def order_create(request):
             return redirect('shop:mail_ready')
     else:
         form_mini = MiniForm()
-    return render(request, 'orders/order/create.html', {'cart': cart, 'form':form, 'form_mini':form_mini})
+    return render(request, 'orders/order/create.html', {'cart': cart, 'form': form, 'form_mini': form_mini, 'category': category, 'categories': categories, 'products': products, })
 

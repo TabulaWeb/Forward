@@ -32,7 +32,40 @@
                         Корзина</a>
                 {% endwith %}
             </div>
-            <div class="sidebarMobile">
+                <div id="sidebar">
+        <div class="sidebarDesc">
+        <h3>Каталог</h3>
+        <ul>
+            {% for c in categories %}
+            <li {% for product in products %}
+                        {% if c.slug == product.category.slug %}
+                            class="hover_subProduct"
+                        {% endif %}
+                    {% endfor %} 
+                    {% if category.slug == c.slug %}class="selected" {% endif %}>
+                <a 
+                    href="{{ c.get_absolute_url }}">
+                    {{ c.name }}
+                </a>
+                <div class="aside-menu-inserted">
+                    <ul class="aside-menu">
+                        {% for product in products %}
+                            <li class="aside-menu__item">
+                                {% if c.slug == product.category.slug %}
+                                   <a href="{{ product.get_absolute_url }}">{{ product.name }}</a> 
+                                {% endif %}
+                            </li>
+                            
+                        {% endfor %}
+                    </ul>
+                </div>
+            </li>
+            
+            {% endfor %}
+        </ul>
+        <h3 class="title_sidebar-rent">Аренда</h3>
+        </div>
+        <div class="sidebarMobile">
         <div class="sidebarMobile-catalog">
             <ul>
                 <li class="disable_catalog">
@@ -73,5 +106,6 @@
             </ul>
         </div>
         </div>
+    </div>
     <h1 style="text-align: center;">Сообщение отправлено</h1>
 {% endblock %}

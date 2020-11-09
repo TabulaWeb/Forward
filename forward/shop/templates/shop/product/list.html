@@ -81,6 +81,7 @@
             
             {% endfor %}
         </ul>
+        <h3 class="title_sidebar-rent">Аренда</h3>
         </div>
         <div class="sidebarMobile">
         <div class="sidebarMobile-catalog">
@@ -129,7 +130,9 @@
         {% if category %}
         <div class="product-lists">
             <h1>{{ category.name }}</h1>
+            <div class="items-catalog">
             {% for product in products %}
+            
                 <div class="item">
                     <a href="{{ product.get_absolute_url }}">
                         <img src="{% if product.image %}
@@ -147,7 +150,9 @@
                         <input type="submit" value="В корзину">
                     </form>
                 </div>
+            
             {% endfor %}
+            </div>
         </div>
         {% endif %}
         

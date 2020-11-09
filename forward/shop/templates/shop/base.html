@@ -15,6 +15,40 @@
                 box-sizing: border-box;
                 outline: none;
             }
+            
+            .product-list .item {
+                width: 25%;
+                padding: 10px 20px 10px 0;
+                float: left;
+                text-align: center;
+                line-height: 1.2;
+                display: flex;
+                flex-direction: column;
+                height: 275px;
+                justify-content: space-between;
+            }
+            .product-list .item img {
+                width: 100%;
+                margin-bottom: 8px;
+                object-fit: contain;
+                max-height: 118.55px;
+                min-height: 118.55px;
+                background-color: #fff;
+            }
+            .basket_mini-linkCard a{
+                background-color: #5993bb;
+                color: #fff;
+                border-radius: 15px;
+                padding: 5px 20px;
+                font-size: 22px;
+            }
+            .basket_mini-results-text{
+                font-weight: 600;
+                font-size: 19px;
+            }
+            .title_sidebar-rent{
+                margin-top: 25px!important;
+            }
             .block_mobile-menu{
                 display: none;
             }
@@ -172,6 +206,7 @@
             .basket_mini-product img{
                 width: 80px;
                 height: 80px;
+                object-fit: contain;
             }
             .basket_mini-product{
                 padding: 15px 10px;
@@ -185,6 +220,9 @@
                 border-bottom-right-radius: .4rem;
                 position: relative;
                 z-index: 2;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
             }
             .block_basket-mini{
                 position: absolute;
@@ -197,6 +235,14 @@
                 opacity: 0;
                 z-index: -1;
                 transition: all .2s ease .4s;
+            }
+            .svg_trash path{
+                fill: #babac0;
+                stroke-width: 0px;
+            }
+            .basket_mini-product a:hover .svg_trash path{
+                fill: #000;
+                stroke-width: 0px;
             }
             .block_basket{
                 display: flex;
@@ -639,12 +685,11 @@
 
             /* BLOCK CART-PAGE */
             .page_cart{
-                margin-left: 4%;
                 background-color: #fff;
-                padding: 0px 15px;
-                padding-bottom: 15px;
                 position: relative;
                 min-height: inherit;
+                overflow: hidden;
+                padding-left: 15px;
             }
             .item_cart-manipul{
                 display: flex;
@@ -1090,9 +1135,21 @@
             .sidebarMobile{
                 display: none;
             }
+            @media screen and (max-width: 1430px){
+                    .orders-list__content {
+                    padding: 15px;
+                    background-color: #414342;
+                    padding-bottom: 25px;
+                    margin-right: 15px;
+                    position: initial;
+                }
+            }
             @media (min-width: 992px) and (max-width: 1200px){
                 .mini_form{
                     width: 35%;
+                }
+                .block_item-cart{
+                    margin-right: 15px;
                 }
                 .header_info p {
                     font-size: 1.5vw;
@@ -1157,8 +1214,11 @@
                 .block_button-submit button{
                     border: none;
                 }
-                .item_cart-manipul div{
-                    max-width: max-content;
+                .item_cart-remove{
+                    bottom: 0px;
+                    left: 0px;
+                    top: initial;
+                    right: initial;
                 }
             }
             @media (min-width: 768px) and (max-width: 991.98px){
@@ -1328,6 +1388,13 @@
                 }
             }
             @media (min-width: 576px) and (max-width: 767.98px){
+                .items-catalog{
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr 1fr;
+                }
+                .product-list .item{
+                    width: 100%;
+                }
                 .mini_form{
                     width: 65%;
                 }
@@ -1651,9 +1718,16 @@
                 /*  */
             }
             @media (max-width: 575.98px) {
+                .items-catalog{
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                }
                 .product-detail img{
                     float: initial;
                     padding: 20px 20px 20px 0;
+                }
+                .product-list .item{
+                    width: 100%;
                 }
                 .text_disable-rent{
                     margin: 0px;

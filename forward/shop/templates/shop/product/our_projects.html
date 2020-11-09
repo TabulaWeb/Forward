@@ -100,6 +100,7 @@
             
             {% endfor %}
         </ul>
+        <h3 class="title_sidebar-rent">Аренда</h3>
         </div>
         <div class="sidebarMobile">
         <div class="sidebarMobile-catalog">
@@ -147,6 +148,7 @@
         {% if category %}
             <h1>{{ category.name }}</h1>
             {% for product in products %}
+            
                 <div class="item">
                     <a href="{{ product.get_absolute_url }}">
                         <img src="{% if product.image %}{{ product.image.url }}{%
@@ -156,6 +158,7 @@
                     <br>
                     {{ product.price }} р.
                 </div>
+            
             {% endfor %}
         {% endif %}
         {% if not category %}
