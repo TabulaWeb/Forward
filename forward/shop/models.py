@@ -9,6 +9,7 @@ class Category(models.Model):
                             db_index=True)
     slug = models.SlugField(max_length=200,
                             unique=True)
+    arenda = models.BooleanField(default=False)
 
     class Meta:
         ordering = ('name',)
@@ -33,6 +34,7 @@ class Product(models.Model):
     image = models.ImageField(upload_to='products/%Y/%m/%d',
                               blank=True)
     description = models.TextField(blank=True)
+    arenda = models.BooleanField(default=False)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     available = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)

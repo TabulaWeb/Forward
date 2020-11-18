@@ -3,8 +3,10 @@ from .models import Category, Product, Ourprojects, Engineer_tips, Comment
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ['name', 'slug']
+    list_display = ['name', 'slug', 'arenda']
     prepopulated_fields = {'slug': ('name',)}
+    list_filter = ['arenda']
+    list_editable = ['arenda']
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):

@@ -18,7 +18,13 @@
                 Каталог
             </div>
             <div class="mobile_menu-link button_rent">
-                <svg fill="#fff" enable-background="new 0 0 48 48" height="48px" version="1.1" viewBox="0 0 48 48" width="48px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Expanded"><g><g><path d="M44,40H4c-2.206,0-4-1.794-4-4V12c0-2.206,1.794-4,4-4h40c2.206,0,4,1.794,4,4v24C48,38.206,46.206,40,44,40z M4,10     c-1.103,0-2,0.897-2,2v24c0,1.103,0.897,2,2,2h40c1.103,0,2-0.897,2-2V12c0-1.103-0.897-2-2-2H4z"/></g><g><path d="M24,29.191L6.457,17.84c-0.464-0.301-0.597-0.919-0.297-1.383s0.919-0.596,1.383-0.297L24,26.809L40.457,16.16     c0.464-0.299,1.083-0.167,1.383,0.297s0.167,1.082-0.297,1.383L24,29.191z"/></g><g><path d="M6.001,34c-0.323,0-0.641-0.156-0.833-0.445c-0.307-0.46-0.183-1.08,0.277-1.387l9-6c0.46-0.307,1.081-0.183,1.387,0.277     c0.307,0.46,0.183,1.08-0.277,1.387l-9,6C6.384,33.945,6.191,34,6.001,34z"/></g><g><path d="M41.999,34c-0.19,0-0.383-0.055-0.554-0.168l-9-6c-0.46-0.307-0.584-0.927-0.277-1.387     c0.306-0.46,0.926-0.584,1.387-0.277l9,6c0.46,0.307,0.584,0.927,0.277,1.387C42.64,33.844,42.322,34,41.999,34z"/></g></g></g></svg>
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.56621 27.3403C9.42794 27.0297 9.10581 26.8427 8.76834 26.8836C8.28783 26.9419 7.96486 27.4282 8.15911 27.8715C10.5102 33.2378 15.9864 37 22.3667 37C30.8911 37 37.8016 30.2843 37.8016 22C37.8016 13.7157 30.8911 7 22.3667 7C21.8862 7 21.5672 7.4822 21.7003 7.94391C21.7067 7.96605 21.713 7.98821 21.7193 8.01039C21.8012 8.29948 22.0662 8.5 22.3667 8.5C30.1034 8.5 36.3016 14.5843 36.3016 22C36.3016 29.4157 30.1034 35.5 22.3667 35.5C16.6051 35.5 11.6969 32.1258 9.56621 27.3403Z" fill="white"/>
+                <path d="M22.0881 12V22" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M22.0922 22L16.9318 30.5656" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="8.5" cy="13.5" r="1.75" stroke="white" stroke-width="1.5"/>
+                <path d="M0.75 9.75H16.25V17.25H0.75V9.75Z" stroke="white" stroke-width="1.5"/>
+                </svg>
                 Аренда
             </div>
             
@@ -37,38 +43,143 @@
                         Корзина</a>
                 {% endwith %}
             </div>
+    <div class="button-catalogLaptop">
+        <div class="menu">
+            <span class="menu-global menu-top"></span>
+            <span class="menu-global menu-middle"></span>
+            <span class="menu-global menu-bottom"></span>
+        </div>
+        <p>Каталог</p>
+    </div>
 <div id="sidebar">
         <div class="sidebarDesc">
         <h3>Каталог</h3>
         <ul>
             {% for c in categories %}
-            <li {% for product in products %}
-                        {% if c.slug == product.category.slug %}
-                            class="hover_subProduct"
-                        {% endif %}
-                    {% endfor %} 
-                    {% if category.slug == c.slug %}class="selected" {% endif %}>
-                <a 
-                    href="{{ c.get_absolute_url }}">
-                    {{ c.name }}
-                </a>
-                <div class="aside-menu-inserted">
-                    <ul class="aside-menu">
-                        {% for product in products %}
-                            <li class="aside-menu__item">
+                {% if not c.arenda %}
+                    <li {% for product in products %}
                                 {% if c.slug == product.category.slug %}
-                                   <a href="{{ product.get_absolute_url }}">{{ product.name }}</a> 
+                                    class="hover_subProduct"
                                 {% endif %}
-                            </li>
-                            
-                        {% endfor %}
-                    </ul>
-                </div>
-            </li>
-            
+                            {% endfor %} 
+                            {% if category.slug == c.slug %}class="selected" {% endif %}>
+                        <a 
+                            href="{{ c.get_absolute_url }}">
+                            {{ c.name }}
+                        </a>
+                        <div class="aside-menu-inserted">
+                            <ul class="aside-menu">
+                                {% for product in products %}
+                                    <li class="aside-menu__item">
+                                        {% if c.slug == product.category.slug %}
+                                        <a href="{{ product.get_absolute_url }}">{{ product.name }}</a> 
+                                        {% endif %}
+                                    </li>
+                                    
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </li>
+                {% endif %}
             {% endfor %}
         </ul>
         <h3 class="title_sidebar-rent">Аренда</h3>
+        <ul>
+            {% for c in categories %}
+                {% if c.arenda %}
+                    <li {% for product in products %}
+                                {% if c.slug == product.category.slug %}
+                                    class="hover_subProduct"
+                                {% endif %}
+                            {% endfor %} 
+                            {% if category.slug == c.slug %}class="selected" {% endif %}>
+                        <a 
+                            href="{{ c.get_absolute_url }}">
+                            {{ c.name }}
+                        </a>
+                        <div class="aside-menu-inserted">
+                            <ul class="aside-menu">
+                                {% for product in products %}
+                                    <li class="aside-menu__item">
+                                        {% if c.slug == product.category.slug %}
+                                        <a href="{{ product.get_absolute_url }}">{{ product.name }}</a> 
+                                        {% endif %}
+                                    </li>
+                                    
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+        </div>
+        <div class="sidebarTablet">
+            <ul>
+                <li class="disable_catalog">
+                    <p class="text_disable-catalog">Каталог стройматериалов</p>
+                </li>
+                {% for c in categories %}
+                {% if not c.arenda %}
+                    <li {% for product in products %}
+                                {% if c.slug == product.category.slug %}
+                                    class="hover_subProduct"
+                                {% endif %}
+                            {% endfor %} 
+                            {% if category.slug == c.slug %}class="selected" {% endif %}>
+                        <a 
+                            href="{{ c.get_absolute_url }}">
+                            {{ c.name }}
+                        </a>
+                        <div class="aside-menu-inserted">
+                            <ul class="aside-menu">
+                                {% for product in products %}
+                                    <li class="aside-menu__item">
+                                        {% if c.slug == product.category.slug %}
+                                        <a href="{{ product.get_absolute_url }}">{{ product.name }}</a> 
+                                        {% endif %}
+                                    </li>
+                                    
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+            <ul>
+                <li class="disable_rent">
+                    <p class="text_disable-rent">Аренда стройматериалов</p>
+                </li>
+                {% for c in categories %}
+                {% if c.arenda %}
+                    <li {% for product in products %}
+                                {% if c.slug == product.category.slug %}
+                                    class="hover_subProduct"
+                                {% endif %}
+                            {% endfor %} 
+                            {% if category.slug == c.slug %}class="selected" {% endif %}>
+                        <a 
+                            href="{{ c.get_absolute_url }}">
+                            {{ c.name }}
+                        </a>
+                        <div class="aside-menu-inserted">
+                            <ul class="aside-menu">
+                                {% for product in products %}
+                                    <li class="aside-menu__item">
+                                        {% if c.slug == product.category.slug %}
+                                        <a href="{{ product.get_absolute_url }}">{{ product.name }}</a> 
+                                        {% endif %}
+                                    </li>
+                                    
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+            
         </div>
         <div class="sidebarMobile">
         <div class="sidebarMobile-catalog">
@@ -77,30 +188,32 @@
                     <p class="text_disable-catalog">Каталог стройматериалов <svg fill="#fff" width="30px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1{fill:#fff;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;}</style></defs><title/><g id="cross"><line class="cls-1" x1="7" x2="25" y1="7" y2="25"/><line class="cls-1" x1="7" x2="25" y1="25" y2="7"/></g></svg></p>
                 </li>
                 {% for c in categories %}
-                <li {% for product in products %}
-                            {% if c.slug == product.category.slug %}
-                                class="hover_subProduct"
-                            {% endif %}
-                        {% endfor %} 
-                        {% if category.slug == c.slug %}class="selected" {% endif %}>
-                    <a 
-                        href="{{ c.get_absolute_url }}">
-                        {{ c.name }}
-                    </a>
-                    <div class="aside-menu-inserted">
-                        <ul class="aside-menu">
-                            {% for product in products %}
-                                <li class="aside-menu__item">
-                                    {% if c.slug == product.category.slug %}
-                                    <a href="{{ product.get_absolute_url }}">{{ product.name }}</a> 
-                                    {% endif %}
-                                </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </li>
-                
-                {% endfor %}
+                {% if not c.arenda %}
+                    <li {% for product in products %}
+                                {% if c.slug == product.category.slug %}
+                                    class="hover_subProduct"
+                                {% endif %}
+                            {% endfor %} 
+                            {% if category.slug == c.slug %}class="selected" {% endif %}>
+                        <a 
+                            href="{{ c.get_absolute_url }}">
+                            {{ c.name }}
+                        </a>
+                        <div class="aside-menu-inserted">
+                            <ul class="aside-menu">
+                                {% for product in products %}
+                                    <li class="aside-menu__item">
+                                        {% if c.slug == product.category.slug %}
+                                        <a href="{{ product.get_absolute_url }}">{{ product.name }}</a> 
+                                        {% endif %}
+                                    </li>
+                                    
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </li>
+                {% endif %}
+            {% endfor %}
             </ul>
         </div>
         <div class="sidebarMobile-rent">
@@ -108,6 +221,33 @@
                 <li class="disable_rent">
                     <p class="text_disable-rent">Аренда стройматериалов <svg fill="#fff" width="30px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1{fill:#fff;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;}</style></defs><title/><g id="cross"><line class="cls-1" x1="7" x2="25" y1="7" y2="25"/><line class="cls-1" x1="7" x2="25" y1="25" y2="7"/></g></svg></p>
                 </li>
+                {% for c in categories %}
+                {% if c.arenda %}
+                    <li {% for product in products %}
+                                {% if c.slug == product.category.slug %}
+                                    class="hover_subProduct"
+                                {% endif %}
+                            {% endfor %} 
+                            {% if category.slug == c.slug %}class="selected" {% endif %}>
+                        <a 
+                            href="{{ c.get_absolute_url }}">
+                            {{ c.name }}
+                        </a>
+                        <div class="aside-menu-inserted">
+                            <ul class="aside-menu">
+                                {% for product in products %}
+                                    <li class="aside-menu__item">
+                                        {% if c.slug == product.category.slug %}
+                                        <a href="{{ product.get_absolute_url }}">{{ product.name }}</a> 
+                                        {% endif %}
+                                    </li>
+                                    
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </li>
+                {% endif %}
+            {% endfor %}
             </ul>
         </div>
         </div>

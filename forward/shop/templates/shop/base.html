@@ -15,7 +15,71 @@
                 box-sizing: border-box;
                 outline: none;
             }
-            
+            .button_rent svg{
+                width: 50px!important;
+            }
+            .sidebarTablet{
+                display: none;
+                position: absolute;
+                left: -50%;
+                width: 50%;
+                transition: all 300ms;
+            }
+            .active{
+                display: block;
+                transition: all 300ms;
+                width: 100%;
+                left: 0;
+            }
+            .button-catalogLaptop{
+                display: none;
+                margin-top: 30px;
+                align-items: center;
+                cursor: pointer;
+            }
+            .button-catalogLaptop p{
+                font-size: 23px;
+                margin: 0px;
+                margin-left: 5px;
+            }
+            .menu {
+                cursor: pointer;
+                position: relative;
+                width: 30px;
+                height: 20px;
+            }
+            .menu-global {
+                backface-visibility: hidden;
+                position: absolute;
+                left: 0;
+                border-top: 3px solid #000;
+                width: 100%;
+                transition: 0.55s;
+            }
+            .menu-top {
+                top: 0;
+            }
+            .menu-middle {
+                top: 8px;
+            }
+            .menu-bottom {
+                top: 16px;
+            }
+            .menu-top-click {
+                backface-visibility: hidden;
+                top: 8px;
+                transform: rotate(50deg);
+                transition: 0.45s 0.4s;
+            }
+            .menu-middle-click {
+                opacity: 0;
+            }
+            .menu-bottom-click {
+                backface-visibility: hidden;
+                top: 8px;
+                transform: rotate(-410deg);
+                transition: 0.45s 0.4s;
+            }
             .product-list .item {
                 width: 25%;
                 padding: 10px 20px 10px 0;
@@ -1228,12 +1292,18 @@
                 .sidebarMobile{
                     display: block;
                 }
+                .button-catalogLaptop{
+                    display: flex;
+                }
                 .header_info-widthM{
                     display: block;
                     text-align: center;
                 }
                 .header_info{
                     display: none;
+                }
+                .sidebarTablet{
+                    display: block;
                 }
                 #header {
                     justify-content: space-around;
@@ -1286,15 +1356,59 @@
                     display: none;
                 }
                 #sidebar{
-                    position: fixed;
-                    top: 0px;
+                    position: absolute;
+                    top: 86px;
                     left: 0px;
-                    padding: 0px;
                     width: 100%;
                     z-index: 1000;
+                    padding: 0;
+                }
+                .text_disable-catalog {
+                    margin: 0px;
+                    font-size: 20px;
+                    font-weight: 600;
+                    height: 50px;
+                    border-bottom: 1px solid #4e504f;
+                    color: #fff!important;
+                    align-items: center;
+                    display: flex;
+                    background: #414342;
+                    padding: 0px 2%;
+                    cursor: pointer;
+                    justify-content: space-between;
+                }
+                .text_disable-rent {
+                    margin: 0px;
+                    font-size: 20px;
+                    font-weight: 600;
+                    height: 50px;
+                    border-bottom: 1px solid #4e504f;
+                    color: #fff!important;
+                    align-items: center;
+                    display: flex;
+                    background: #414342;
+                    padding: 0px 2%;
+                    cursor: pointer;
+                    justify-content: space-between;
+                }
+                #sidebar ul li a {
+                    margin: 0;
+                    list-style: none;
+                    padding: 13px 25px 13px 4vw;
+                    font-size: 16px;
+                    font-weight: 500;
+                    height: 44px;
+                    display: flex;
+                    align-items: center;
+                    color: #fff!important;
+                    border-bottom: 1px solid #4e504f;
+                }
+                #sidebar ul{
+                    background-color: #2d2e2e;
                 }
                 #content{
                     padding: 0px 4%;
+                    position: relative;
                 }
                 .button_mobile-header h3{
                     padding: 0px!important;
@@ -1386,6 +1500,7 @@
                 .item_cart-manipul div{
                     max-width: max-content;
                 }
+
             }
             @media (min-width: 576px) and (max-width: 767.98px){
                 .items-catalog{
@@ -1684,7 +1799,7 @@
                 }
                 .block_mobile-menu svg{
                     width: 40px;
-                    height: 40px;
+                    height: 50px;
                 }
                 .block_basket-img{
                     margin-right: 0px;
@@ -2066,7 +2181,11 @@
                 }
                 .block_mobile-menu svg{
                     width: 8vw;
-                    height: 8vw;
+                    height: 9vw;
+                }
+                .button_rent svg{
+                    width: 8vw;
+                    height: 9vw;
                 }
                 #subheader .cart{
                     display: none;
@@ -2318,15 +2437,71 @@
                     function(){
                         if($('.subheader_nav-mobile').hasClass('mobileMenuVis')){
                             $('.subheader_nav-mobile').removeClass('mobileMenuVis')
+                            
                         }else {
                             $('.subheader_nav-mobile').addClass('mobileMenuVis')
+                            
                         }
                        
                     },
                 )
                 });
+                var Menu = {
+  
+                    el: {
+                        ham: $('.menu'),
+                        menuTop: $('.menu-top'),
+                        menuMiddle: $('.menu-middle'),
+                        menuBottom: $('.menu-bottom'),
+                        activator: $('.button-catalogLaptop')
+                    },
+                    
+                    init: function() {
+                        Menu.bindUIactions();
+                    },
+                    
+                    bindUIactions: function() {
+                        Menu.el.activator
+                            .on(
+                            'click',
+                            function(event) {
+                            Menu.activateMenu(event);
+                            event.preventDefault();
+                        }
+                        );
+                    },
+                    
+                    activateMenu: function() {
+                        Menu.el.menuTop.toggleClass('menu-top-click');
+                        Menu.el.menuMiddle.toggleClass('menu-middle-click');
+                        Menu.el.menuBottom.toggleClass('menu-bottom-click'); 
+                    }
+                    };
 
-                
+                    Menu.init();
+
+
+                jQuery(function($){
+                $(document).mouseup(function (e){ 
+                    var div = $(".button-catalogLaptop"); 
+                    if (!div.is(e.target) 
+                        && div.has(e.target).length === 0) { 
+                    $('.sidebarTablet').removeClass('active');
+                    $('.menu-top').removeClass('menu-top-click');
+                    $('.menu-middle').removeClass('menu-middle-click');
+                    $('.menu-bottom').removeClass('menu-bottom-click');
+                    }
+                });    
+                $('.button-catalogLaptop').click(
+                    function(){
+                        if($('.sidebarTablet').hasClass('active')){
+                            $('.sidebarTablet').removeClass('active')
+                        } else {
+                            $('.sidebarTablet').addClass('active')
+                        }
+                    },
+                )
+                });
 
                 $('.button_catalog').click(
                     function(){
