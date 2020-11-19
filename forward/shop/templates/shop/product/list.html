@@ -271,30 +271,19 @@
         <div class="product-lists">
             <h1>{{ category.name }}</h1>
             <div class="items-catalog">
-            {% for product in products %}
-            
-                <div class="item">
-                    <a href="{{ product.get_absolute_url }}">
-                        <img src="{% if product.image %}
-                                    {{ product.image.url }}
-                                  {% else %}
-                                    {% static "img/no_image.png" %}
-                                  {% endif %}">
-                    </a>
-                    <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
-                    <br>
-                    {{ product.price }} р.
-                    <form action="{% url "cart:cart_add" product.id %}" method="post">
-                        {{ cart_product_form }}
-                        {% csrf_token %}
-                        <input type="submit" value="В корзину">
-                    </form>
-                </div>
-            
+            {% for subcategory in subcategories %}
+                {% if subcategory.categorychange == category %}
+                    <div class="item-subcategory">
+                        <a href="{{ subcategory.get_absolute_url }}">
+                            {{ subcategory.name }}
+                        </a>
+                    </div>
+                {% endif %}
             {% endfor %}
             </div>
         </div>
         {% endif %}
+            
         
         {% if not category %}
             <div class="block_slider">

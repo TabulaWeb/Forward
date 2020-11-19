@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Category, Product, Ourprojects, Engineer_tips, Comment
+from .models import Category, SubCategory, Product, Ourprojects, Engineer_tips, Comment
 from cart.forms import CartAddProductForm
 from .forms import CommentForm, MiniForm, MessageForm
 from django.core.mail import send_mail
@@ -11,13 +11,12 @@ def product_list(request, category_slug=None):
     category = None
     sent = False
     categories = Category.objects.all()
+    subcategories = SubCategory.objects.all()
     products = Product.objects.filter(available=True)
     cart_product_form = CartAddProductForm()
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
-        products = products.filter(category=category)
-
-    
+        # subcategories = subcategories.filter(category=category)
     if request.method == 'POST':
         form = MiniForm(request.POST)
         if form.is_valid():
@@ -51,6 +50,7 @@ def product_list(request, category_slug=None):
     return render(request,
                   'shop/product/list.html',
                   {'category': category,
+                  'subcategories': subcategories,
                    'cart_product_form': cart_product_form,
                    'categories': categories,
                    'products': products,
@@ -58,6 +58,11 @@ def product_list(request, category_slug=None):
                    'sent': sent,
                    'form_message':form_message,})
 
+def product_subcategory(request, id, slug):
+    subcategory = get_object_or_404(SubCategory, id=id, slug=slug)
+    products = Product.objects.filter(available=True)
+    return render(request, 'shop/product/subcategory.html', {'subcategory': subcategory,
+                                                             'products': products,})
 
 def product_detail(request, id, slug, category_slug=None):
     sent = False
