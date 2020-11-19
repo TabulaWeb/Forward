@@ -31,6 +31,8 @@ class SubCategory(models.Model):
                             db_index=True)
     slug = models.SlugField(max_length=200,
                             unique=True)
+    image = models.ImageField(upload_to='products/%Y/%m/%d',
+                              blank=True)
 
     class Meta:
         ordering = ('name',)
@@ -68,7 +70,7 @@ class Product(models.Model):
 
     def get_absolute_url(self):
         return reverse('shop:product_detail',
-                       args=[self.id, self.slug])
+                       args=[self.slug, self.id])
 
 class Ourprojects(models.Model):
     STATUS_CHOICES = (

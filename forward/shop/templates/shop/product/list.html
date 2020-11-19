@@ -273,11 +273,20 @@
             <div class="items-catalog">
             {% for subcategory in subcategories %}
                 {% if subcategory.categorychange == category %}
+                
                     <div class="item-subcategory">
-                        <a href="{{ subcategory.get_absolute_url }}">
-                            {{ subcategory.name }}
-                        </a>
+                        <div class="item-subcategory__img">
+                            <a href="{{ subcategory.get_absolute_url }}">
+                                <img src="{% if subcategory.image %}{{ subcategory.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+                            </a>
+                        </div>
+                        <div class="item-subcategory__link">
+                            <a href="{{ subcategory.get_absolute_url }}">
+                                {{ subcategory.name }}
+                            </a>
+                        </div>
                     </div>
+                
                 {% endif %}
             {% endfor %}
             </div>

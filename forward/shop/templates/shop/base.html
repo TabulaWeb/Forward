@@ -1208,9 +1208,51 @@
                     position: initial;
                 }
             }
+
+            .items-catalog{
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            .item-subcategory{
+                width: 22.9vw;
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 21px;
+            }
+
+            .item-subcategory__img{
+                border-radius: 18px;
+                height: 0;
+                overflow: hidden;
+                padding-bottom: 75%;
+                position: relative;
+            }
+
+            .item-subcategory__img img{
+                bottom: -500px;
+                left: -500px;
+                margin: auto;
+                position: absolute;
+                right: -500px;
+                top: -500px;
+                transition: all 0.6s
+            }
+
+            .item-subcategory__img:hover img{
+                transform: scale(1.1);
+            }
+            
+
+
             @media (min-width: 992px) and (max-width: 1200px){
                 .mini_form{
                     width: 35%;
+                }
+                .item-subcategory{
+                    width: 20.9vw;
                 }
                 .block_item-cart{
                     margin-right: 15px;
@@ -1288,6 +1330,9 @@
             @media (min-width: 768px) and (max-width: 991.98px){
                 .mini_form{
                     width: 50%;
+                }
+                .item-subcategory{
+                    width: 29.2vw;
                 }
                 .sidebarMobile{
                     display: block;
@@ -1503,9 +1548,8 @@
 
             }
             @media (min-width: 576px) and (max-width: 767.98px){
-                .items-catalog{
-                    display: grid;
-                    grid-template-columns: 1fr 1fr 1fr 1fr;
+                .item-subcategory{
+                    width: 43.2vw;
                 }
                 .product-list .item{
                     width: 100%;
@@ -1833,9 +1877,8 @@
                 /*  */
             }
             @media (max-width: 575.98px) {
-                .items-catalog{
-                    display: grid;
-                    grid-template-columns: 1fr 1fr;
+                .item-subcategory{
+                    width: 100vw;
                 }
                 .product-detail img{
                     float: initial;
