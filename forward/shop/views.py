@@ -58,11 +58,33 @@ def product_list(request, category_slug=None):
                    'sent': sent,
                    'form_message':form_message,})
 
+
 def product_subcategory(request, id, slug):
+    sent = False
+    if request.method == 'POST':
+        form = MiniForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            subject = '{} Заказал звонок'.format(
+                cd['name'])
+            message = '{} заказл звонок, его номер - ({})'.format(
+                cd['name'], cd['phome_number'])
+            send_mail(subject, message, 'tabulaweb99@gmail.com',
+                      ['tabulaweb99@gmail.com'])
+            sent = True
+            return redirect('shop:mail_ready')
+    else:
+        form = MiniForm()
     subcategory = get_object_or_404(SubCategory, id=id, slug=slug)
+    cart_product_form = CartAddProductForm()
+    
+    categories = Category.objects.all()
     products = Product.objects.filter(available=True)
     return render(request, 'shop/product/subcategory.html', {'subcategory': subcategory,
-                                                             'products': products,})
+                                                             'products': products,
+                                                             'categories': categories,
+                                                             'cart_product_form': cart_product_form,
+                                                             'form': form, })
 
 def product_detail(request, id, slug, category_slug=None):
     sent = False

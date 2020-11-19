@@ -6,31 +6,319 @@
 {% endblock %}
 
 {% block content %}
+<div class="block_mobile-menu">
+            <a href="/" class="mobile_menu-link">
+                <svg fill="#fff" id="Layer_1" style="enable-background:new 0 0 100 100;" version="1.1" viewBox="0 0 100 100" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><style type="text/css">
+	.st0{fill:#FFFFFF;}
+	.st1{fill:none;stroke:#000000;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+</style><path d="M93.9,46.4L51.4,12.5c-0.9-0.7-2.2-0.7-3.1,0L5.8,46.4c-1.1,0.9-1.3,2.4-0.4,3.5c0.5,0.6,1.2,0.9,2,0.9  c0.5,0,1.1-0.2,1.6-0.5l40.9-32.6l40.9,32.6c1.1,0.9,2.7,0.7,3.5-0.4C95.1,48.9,95,47.3,93.9,46.4z"/><path d="M78.1,48.1c-1.4,0-2.5,1.1-2.5,2.5v31.2H62.9V68.3c0-7.2-5.9-13.1-13.1-13.1c-7.2,0-13.1,5.9-13.1,13.1v13.5H24.1V50.6  c0-1.4-1.1-2.5-2.5-2.5s-2.5,1.1-2.5,2.5v33.7c0,1.4,1.1,2.5,2.5,2.5h17.6c1.4,0,2.5-1.1,2.5-2.5v-16c0-4.5,3.6-8.1,8.1-8.1  s8.1,3.6,8.1,8.1v16c0,1.4,1.1,2.5,2.5,2.5h17.7c1.4,0,2.5-1.1,2.5-2.5V50.6C80.6,49.2,79.4,48.1,78.1,48.1z"/></svg>
+                Главная</a>
+            <div class="mobile_menu-link button_catalog">
+                <svg fill="#fff" enable-background="new 0 0 64 64" id="Outline__x28_Expanded_x2B_Unite_x29_" version="1.1" viewBox="0 0 64 64" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M59,60h-1V9V5V3c0-0.552-0.448-1-1-1s-1,0.448-1,1v1H8V3c0-0.552-0.448-1-1-1S6,2.448,6,3v2v4v51H5  c-0.552,0-1,0.448-1,1s0.448,1,1,1h4c0.552,0,1-0.448,1-1s-0.448-1-1-1H8v-3.568l24-22.56l24,22.56V60h-1c-0.552,0-1,0.448-1,1  s0.448,1,1,1h4c0.552,0,1-0.448,1-1S59.552,60,59,60z M14,19v8H8v-8H14z M8,17v-5.688l6,5.64V17H8z M14,29v8H8v-8H14z M9.524,10H14  v4.208L9.524,10z M8,39h6v7c0,0.551-0.449,1-1,1H8V39z M16,10h31v7.028l-15,14.1l-16-15.04V10z M54.476,10L49,15.148V10H54.476z   M56,27h-7v-8h7V27z M49,29h7v8h-7V29z M56,17h-6.051L56,11.313V17z M49,46v-7h7v8h-6C49.449,47,49,46.551,49,46z M56,6v2H8V6H56z   M8,49h4.987L8,53.688V49z M15.981,46.185C15.985,46.123,16,46.063,16,46V18.832L30.54,32.5L15.981,46.185z M47,19.772v25.455  L33.46,32.5L47,19.772z M51.013,49H56v4.688L51.013,49z" id="scaffolding_1_"/></svg>
+                Каталог
+            </div>
+            <div class="mobile_menu-link button_rent">
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.56621 27.3403C9.42794 27.0297 9.10581 26.8427 8.76834 26.8836C8.28783 26.9419 7.96486 27.4282 8.15911 27.8715C10.5102 33.2378 15.9864 37 22.3667 37C30.8911 37 37.8016 30.2843 37.8016 22C37.8016 13.7157 30.8911 7 22.3667 7C21.8862 7 21.5672 7.4822 21.7003 7.94391C21.7067 7.96605 21.713 7.98821 21.7193 8.01039C21.8012 8.29948 22.0662 8.5 22.3667 8.5C30.1034 8.5 36.3016 14.5843 36.3016 22C36.3016 29.4157 30.1034 35.5 22.3667 35.5C16.6051 35.5 11.6969 32.1258 9.56621 27.3403Z" fill="white"/>
+                    <path d="M22.0881 12V22" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22.0922 22L16.9318 30.5656" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                    <circle cx="8.5" cy="13.5" r="1.75" stroke="white" stroke-width="1.5"/>
+                    <path d="M0.75 9.75H16.25V17.25H0.75V9.75Z" stroke="white" stroke-width="1.5"/>
+                </svg>
+                Аренда
+            </div>
+            
+                {% with total_items=cart|length %}
+                        <a class="mobile_menu-link" href="{% url "cart:cart_detail" %}">
+                            <div class="block_basket">
+                                <div class="block_basket-img">
+                                    <svg class="basket_blank" enable-background="new 0 0 26 26" id="Слой_1" version="1.1" viewBox="0 0 26 26" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M24.25,2.5898438h-2.8359375c-0.0267944,0-0.0495605,0.0125122-0.0756226,0.0152588  c-0.0543823,0.0055542-0.1052246,0.0145874-0.156189,0.0315552c-0.0426636,0.0140991-0.0811768,0.0314941-0.1200562,0.0526123  c-0.0447388,0.024353-0.085083,0.0507813-0.1240845,0.0836792c-0.0358887,0.0301514-0.0663452,0.0622559-0.0960083,0.0984497  c-0.0305786,0.0372925-0.0567017,0.0752563-0.079895,0.1184692c-0.0239868,0.0443726-0.0408325,0.0899048-0.055542,0.1390991  c-0.0079956,0.0266724-0.0252686,0.0480957-0.0303955,0.0761108l-0.4295044,2.3473511L1.8930664,6.625  C1.8227539,6.6201172,1.7607422,6.6303711,1.6821289,6.6376953C1.2744141,6.6748047,0.9716797,7.0322266,1.0019531,7.4404297  c0.0024414,0.0307617,0.0063477,0.0605469,0.012207,0.0898438l1.2788086,6.9746094  c0.2924805,1.081543,1.1933594,2.1733398,2.5483398,2.1733398h13.3695679l-0.2862549,1.5644531H6.6748047  c-1.4243164,0-2.5834961,1.1591797-2.5834961,2.5834961c0,1.4248047,1.1591797,2.5839844,2.5834961,2.5839844  s2.5834961-1.1591797,2.5834961-2.5839844c0-0.3881226-0.0922241-0.7528687-0.2462769-1.0834961h6.9080811  c-0.1540527,0.3306274-0.2462769,0.6953735-0.2462769,1.0834961c0,1.4248047,1.1591797,2.5839844,2.5834961,2.5839844  s2.5834961-1.1591797,2.5834961-2.5839844c0-1.0127563-0.5914307-1.8825073-1.4421387-2.3057861l2.640564-14.430542H24.25  c0.4140625,0,0.75-0.3359375,0.75-0.75S24.6640625,2.5898438,24.25,2.5898438z M19.0220947,12.244812l-3.1782227,0.0499268  l0.1730957-1.8419189l3.3514404-0.1004639L19.0220947,12.244812z M3.1442871,10.8387451l3.1759644-0.0952148l0.2077637,1.6974487  l-3.081543,0.0484009L3.1442871,10.8387451z M7.3235474,10.7134399l3.4909058-0.1046143v1.7648315l-3.281311,0.0515747  L7.3235474,10.7134399z M10.8144531,9.6079102L7.2014771,9.7162476l-0.230835-1.885376l3.843811-0.2247314V9.6079102z   M11.8144531,7.5476685l3.4902344-0.2041016l-0.2006836,2.1357422l-3.2895508,0.0986328V7.5476685z M10.8144531,13.3739014  v1.8043213H7.8701782l-0.2148438-1.7546997L10.8144531,13.3739014z M11.8144531,13.3582153l2.9293823-0.0459595l-0.175354,1.8659668  h-2.7540283V13.3582153z M11.8144531,12.3579712v-1.7791138l3.1952515-0.0958252l-0.1717529,1.8274536L11.8144531,12.3579712z   M19.5525513,9.3459473l-3.4412842,0.1031494l0.2033691-2.1645508l3.6542358-0.2136841L19.5525513,9.3459473z M5.9707642,7.8893433  l0.227356,1.8569336l-3.236145,0.0970459C2.8256226,9.102478,2.717041,8.5267334,2.6245117,8.0849609L5.9707642,7.8893433z   M3.7548828,14.1743164l-0.1258545-0.687561l3.0212402-0.0474243l0.2128906,1.7388916H4.8413086  C4.1987305,15.1782227,3.8408203,14.4819336,3.7548828,14.1743164z M15.572937,15.1782227l0.1768188-1.8817749l3.0888062-0.0485229  l-0.3532104,1.9302979H15.572937z M7.7583008,20.8261719c0,0.5976563-0.4858398,1.0839844-1.0834961,1.0839844  s-1.0834961-0.4863281-1.0834961-1.0839844s0.4858398-1.0834961,1.0834961-1.0834961S7.7583008,20.2285156,7.7583008,20.8261719z   M18.2573242,21.9101563c-0.5976563,0-1.0834961-0.4863281-1.0834961-1.0839844s0.4858398-1.0834961,1.0834961-1.0834961  s1.0834961,0.4858398,1.0834961,1.0834961S18.8549805,21.9101563,18.2573242,21.9101563z" fill="#fff"/></svg>
+                                    {% if cart|length > 0 %}
+                                        <div class="block_basket-quantity">
+                                            <p>{{ total_items }}</p>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        Корзина</a>
+                {% endwith %}
+            </div>
+        {% if sent == true %}
+        <div class="block_mini-form">
+            <div class="reg_mini-form">
+                <form class="mini_form" method="post">
+                    <div class="content_mini-form">
+                        <svg class="close_form-mini" fill="#babac0" enable-background="new 0 0 32 32" height="32px" id="Слой_1" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Cancel"><path clip-rule="evenodd" d="M16,0C7.163,0,0,7.163,0,16c0,8.836,7.163,16,16,16   c8.836,0,16-7.163,16-16C32,7.163,24.836,0,16,0z M16,30C8.268,30,2,23.732,2,16C2,8.268,8.268,2,16,2s14,6.268,14,14   C30,23.732,23.732,30,16,30z" fill="#babac0" fill-rule="evenodd"/><path clip-rule="evenodd" d="M22.729,21.271l-5.268-5.269l5.238-5.195   c0.395-0.391,0.395-1.024,0-1.414c-0.394-0.39-1.034-0.39-1.428,0l-5.231,5.188l-5.309-5.31c-0.394-0.396-1.034-0.396-1.428,0   c-0.394,0.395-0.394,1.037,0,1.432l5.301,5.302l-5.331,5.287c-0.394,0.391-0.394,1.024,0,1.414c0.394,0.391,1.034,0.391,1.429,0   l5.324-5.28l5.276,5.276c0.394,0.396,1.034,0.396,1.428,0C23.123,22.308,23.123,21.667,22.729,21.271z" fill="#babac0" fill-rule="evenodd"/></g><g/><g/><g/><g/><g/><g/></svg>
+                        <h3>Заполните форму и мы Вам перезвоним</h3>
+                        {% csrf_token %}
+                        {{ form }}
+                        <button type="submit">Отправить</button>
+
+                        <div class="block_mini-true">
+                            <p>Сообщение успешно отправлено</p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        {% else %}
+        <div class="block_mini-form">
+            <div class="reg_mini-form">
+                <form class="mini_form" method="post">
+                    <div class="content_mini-form">
+                        <svg class="close_form-mini" fill="#babac0" enable-background="new 0 0 32 32" height="32px" id="Слой_1" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Cancel"><path clip-rule="evenodd" d="M16,0C7.163,0,0,7.163,0,16c0,8.836,7.163,16,16,16   c8.836,0,16-7.163,16-16C32,7.163,24.836,0,16,0z M16,30C8.268,30,2,23.732,2,16C2,8.268,8.268,2,16,2s14,6.268,14,14   C30,23.732,23.732,30,16,30z" fill="#babac0" fill-rule="evenodd"/><path clip-rule="evenodd" d="M22.729,21.271l-5.268-5.269l5.238-5.195   c0.395-0.391,0.395-1.024,0-1.414c-0.394-0.39-1.034-0.39-1.428,0l-5.231,5.188l-5.309-5.31c-0.394-0.396-1.034-0.396-1.428,0   c-0.394,0.395-0.394,1.037,0,1.432l5.301,5.302l-5.331,5.287c-0.394,0.391-0.394,1.024,0,1.414c0.394,0.391,1.034,0.391,1.429,0   l5.324-5.28l5.276,5.276c0.394,0.396,1.034,0.396,1.428,0C23.123,22.308,23.123,21.667,22.729,21.271z" fill="#babac0" fill-rule="evenodd"/></g><g/><g/><g/><g/><g/><g/></svg>
+                        <h3>Заполните форму и мы Вам перезвоним</h3>
+                        {% csrf_token %}
+                        {{ form }}
+                        <button type="submit">Отправить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        {% endif %}
+
+    <div class="button-catalogLaptop">
+        <div class="menu">
+            <span class="menu-global menu-top"></span>
+            <span class="menu-global menu-middle"></span>
+            <span class="menu-global menu-bottom"></span>
+        </div>
+        <p>Каталог</p>
+    </div>
+<div id="sidebar">
+        <div class="sidebarDesc">
+        <h3>Каталог</h3>
+        <ul>
+            {% for c in categories %}
+                {% if not c.arenda %}
+                    <li {% for product in products %}
+                                {% if c.slug == product.category.slug %}
+                                    class="hover_subProduct"
+                                {% endif %}
+                            {% endfor %} 
+                            {% if category.slug == c.slug %}class="selected" {% endif %}>
+                        <a 
+                            href="{{ c.get_absolute_url }}">
+                            {{ c.name }}
+                        </a>
+                        <div class="aside-menu-inserted">
+                            <ul class="aside-menu">
+                                {% for product in products %}
+                                    <li class="aside-menu__item">
+                                        {% if c.slug == product.category.slug %}
+                                        <a href="{{ product.get_absolute_url }}">{{ product.name }}</a> 
+                                        {% endif %}
+                                    </li>
+                                    
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+        <h3 class="title_sidebar-rent">Аренда</h3>
+        <ul>
+            {% for c in categories %}
+                {% if c.arenda %}
+                    <li {% for product in products %}
+                                {% if c.slug == product.category.slug %}
+                                    class="hover_subProduct"
+                                {% endif %}
+                            {% endfor %} 
+                            {% if category.slug == c.slug %}class="selected" {% endif %}>
+                        <a 
+                            href="{{ c.get_absolute_url }}">
+                            {{ c.name }}
+                        </a>
+                        <div class="aside-menu-inserted">
+                            <ul class="aside-menu">
+                                {% for product in products %}
+                                    <li class="aside-menu__item">
+                                        {% if c.slug == product.category.slug %}
+                                        <a href="{{ product.get_absolute_url }}">{{ product.name }}</a> 
+                                        {% endif %}
+                                    </li>
+                                    
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+        </div>
+        <div class="sidebarTablet">
+            <ul>
+                <li class="disable_catalog">
+                    <p class="text_disable-catalog">Каталог стройматериалов</p>
+                </li>
+                {% for c in categories %}
+                {% if not c.arenda %}
+                    <li {% for product in products %}
+                                {% if c.slug == product.category.slug %}
+                                    class="hover_subProduct"
+                                {% endif %}
+                            {% endfor %} 
+                            {% if category.slug == c.slug %}class="selected" {% endif %}>
+                        <a 
+                            href="{{ c.get_absolute_url }}">
+                            {{ c.name }}
+                        </a>
+                        <div class="aside-menu-inserted">
+                            <ul class="aside-menu">
+                                {% for product in products %}
+                                    <li class="aside-menu__item">
+                                        {% if c.slug == product.category.slug %}
+                                        <a href="{{ product.get_absolute_url }}">{{ product.name }}</a> 
+                                        {% endif %}
+                                    </li>
+                                    
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+            <ul>
+                <li class="disable_rent">
+                    <p class="text_disable-rent">Аренда стройматериалов</p>
+                </li>
+                {% for c in categories %}
+                {% if c.arenda %}
+                    <li {% for product in products %}
+                                {% if c.slug == product.category.slug %}
+                                    class="hover_subProduct"
+                                {% endif %}
+                            {% endfor %} 
+                            {% if category.slug == c.slug %}class="selected" {% endif %}>
+                        <a 
+                            href="{{ c.get_absolute_url }}">
+                            {{ c.name }}
+                        </a>
+                        <div class="aside-menu-inserted">
+                            <ul class="aside-menu">
+                                {% for product in products %}
+                                    <li class="aside-menu__item">
+                                        {% if c.slug == product.category.slug %}
+                                        <a href="{{ product.get_absolute_url }}">{{ product.name }}</a> 
+                                        {% endif %}
+                                    </li>
+                                    
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+            
+        </div>
+        <div class="sidebarMobile">
+        <div class="sidebarMobile-catalog">
+            <ul>
+                <li class="disable_catalog">
+                    <p class="text_disable-catalog">Каталог стройматериалов <svg fill="#fff" width="30px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1{fill:#fff;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;}</style></defs><title/><g id="cross"><line class="cls-1" x1="7" x2="25" y1="7" y2="25"/><line class="cls-1" x1="7" x2="25" y1="25" y2="7"/></g></svg></p>
+                </li>
+                {% for c in categories %}
+                {% if not c.arenda %}
+                    <li {% for product in products %}
+                                {% if c.slug == product.category.slug %}
+                                    class="hover_subProduct"
+                                {% endif %}
+                            {% endfor %} 
+                            {% if category.slug == c.slug %}class="selected" {% endif %}>
+                        <a 
+                            href="{{ c.get_absolute_url }}">
+                            {{ c.name }}
+                        </a>
+                        <div class="aside-menu-inserted">
+                            <ul class="aside-menu">
+                                {% for product in products %}
+                                    <li class="aside-menu__item">
+                                        {% if c.slug == product.category.slug %}
+                                        <a href="{{ product.get_absolute_url }}">{{ product.name }}</a> 
+                                        {% endif %}
+                                    </li>
+                                    
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+        </div>
+        <div class="sidebarMobile-rent">
+            <ul>
+                <li class="disable_rent">
+                    <p class="text_disable-rent">Аренда стройматериалов <svg fill="#fff" width="30px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><defs><style>.cls-1{fill:#fff;stroke:#fff;stroke-linecap:round;stroke-linejoin:round;stroke-width:2px;}</style></defs><title/><g id="cross"><line class="cls-1" x1="7" x2="25" y1="7" y2="25"/><line class="cls-1" x1="7" x2="25" y1="25" y2="7"/></g></svg></p>
+                </li>
+                {% for c in categories %}
+                {% if c.arenda %}
+                    <li {% for product in products %}
+                                {% if c.slug == product.category.slug %}
+                                    class="hover_subProduct"
+                                {% endif %}
+                            {% endfor %} 
+                            {% if category.slug == c.slug %}class="selected" {% endif %}>
+                        <a 
+                            href="{{ c.get_absolute_url }}">
+                            {{ c.name }}
+                        </a>
+                        <div class="aside-menu-inserted">
+                            <ul class="aside-menu">
+                                {% for product in products %}
+                                    <li class="aside-menu__item">
+                                        {% if c.slug == product.category.slug %}
+                                        <a href="{{ product.get_absolute_url }}">{{ product.name }}</a> 
+                                        {% endif %}
+                                    </li>
+                                    
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+        </div>
+        </div>
+    </div>
+    <div id="main">
+        <h1>{{ subcategory.name }}</h1>
+        <div class="items-catalog">
+        <div class="subcat-product__content">
             <div class="product-lists">
-            <h1>{{ subcategory.name }}</h1>
-            <div class="items-catalog">
             {% for product in products %}
             {% if product.category == subcategory %}
                 <div class="item">
-                    <a href="{{ product.get_absolute_url }}">
-                        <img src="{% if product.image %}
-                                    {{ product.image.url }}
-                                  {% else %}
-                                    {% static "img/no_image.png" %}
-                                  {% endif %}">
-                    </a>
-                    <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
-                    <br>
-                    {{ product.price }} р.
-                    <form action="{% url "cart:cart_add" product.id %}" method="post">
-                        {{ cart_product_form }}
-                        {% csrf_token %}
-                        <input type="submit" value="В корзину">
-                    </form>
+                    <div class="subcat-product__title"> 
+                        <a href="{{ product.get_absolute_url }}">
+                            <img src="{% if product.image %}
+                                        {{ product.image.url }}
+                                    {% else %}
+                                        {% static "img/no_image.png" %}
+                                    {% endif %}">
+                        </a>
+                        <a href="{{ product.get_absolute_url }}">{{ product.name }}</a><br>
+                        <p>{{ product.price }} р.</p>
+                    </div>
+                    <div class="subcat-product__buybutton">
+                        <form action="{% url "cart:cart_add" product.id %}" method="post">
+                            {{ cart_product_form }}
+                            {% csrf_token %}
+                            <input type="submit" value="В корзину">
+                        </form>
+                    </div>
                 </div>
                 {% endif %}
             {% endfor %}
             </div>
         </div>
+        </div>
+    </div>
+            
         
 {% endblock %}
