@@ -23,10 +23,25 @@ class Category(models.Model):
         return reverse('shop:product_list_by_category',
                        args=[self.slug])
 
+class SubCategory(models.Model):
+    categorychange = models.ForeignKey(Category,
+                                       related_name='SubCategory',
+                                       on_delete=models.CASCADE)
+    name = models.CharField(max_length=200,
+                            db_index=True)
+    slug = models.SlugField(max_length=200,
+                            unique=True)
 
+    class Meta:
+        ordering = ('name',)
+        verbose_name = 'subcategory'
+        verbose_name_plural = 'subcategories'
+
+    def __str__(self):
+        return self.name
 
 class Product(models.Model):
-    category = models.ForeignKey(Category,
+    category = models.ForeignKey(SubCategory,
                                  related_name='products',
                                  on_delete=models.CASCADE)
     name = models.CharField(max_length=200, db_index=True)
