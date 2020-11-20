@@ -310,7 +310,7 @@
                                     </div>
                                 </div>
                                 <div class="item_cart-quantity">
-                                    <form action="{% url "cart:cart_add" product.id %}" method="post">
+                                    <form action="{% url "cart:cart_adddd" product.id %}" method="post">
                                         {{ item.update_quantity_form.quantity }}
                                         {{ item.update_quantity_form.update }}
                                         <input type="submit" value="Update">

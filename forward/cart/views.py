@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.http import require_POST
-from shop.models import Product, Category
+from shop.models import Product, Category, SubCategory
 from .cart import Cart
 from .forms import CartAddProductForm
 from shop.forms import MiniForm
@@ -17,8 +17,34 @@ def cart_add(request, product_id):
         cart.add(product=product,
                  quantity=cd['quantity'],
                  update_quantity=cd['update'])
-    return redirect('cart:cart_detail')
+    return redirect(f'/{product.slug}/{product.id}')
 
+
+@require_POST
+def cart_addd(request, product_id):
+    cart = Cart(request)
+    product = get_object_or_404(Product, id=product_id)
+    subcategory = get_object_or_404(SubCategory, name=product.category)
+    form = CartAddProductForm(request.POST)
+    if form.is_valid():
+        cd = form.cleaned_data
+        cart.add(product=product,
+                 quantity=cd['quantity'],
+                 update_quantity=cd['update'])
+    return redirect(f'/{subcategory.id}/{subcategory.slug}')
+
+
+@require_POST
+def cart_adddd(request, product_id):
+    cart = Cart(request)
+    product = get_object_or_404(Product, id=product_id)
+    form = CartAddProductForm(request.POST)
+    if form.is_valid():
+        cd = form.cleaned_data
+        cart.add(product=product,
+                 quantity=cd['quantity'],
+                 update_quantity=cd['update'])
+    return redirect('cart:cart_detail')
 
 def cart_remove(request, product_id):
     cart = Cart(request)
@@ -60,4 +86,3 @@ def cart_detail(request, category_slug=None):
                                                 'categories': categories,
                                                 'products': products,
                                                 'category': category, })
-

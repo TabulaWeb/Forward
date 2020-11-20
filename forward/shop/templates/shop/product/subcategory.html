@@ -306,7 +306,7 @@
                         <p>{{ product.price }} р.</p>
                     </div>
                     <div class="subcat-product__buybutton">
-                        <form action="{% url "cart:cart_add" product.id %}" method="post">
+                        <form action="{% url "cart:cart_addd" product.id %}" method="post">
                             {{ cart_product_form }}
                             {% csrf_token %}
                             <input type="submit" value="В корзину">
