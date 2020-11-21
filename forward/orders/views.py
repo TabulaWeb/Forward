@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import OrderItem
-from shop.models import Product, Category
+from shop.models import Product, Category, SubCategory
 from .forms import OrderCreateForm
 from cart.cart import Cart
 from shop.forms import MiniForm
@@ -12,6 +12,7 @@ def order_create(request, category_slug=None):
     category = None
     categories = Category.objects.all()
     products = Product.objects.filter(available=True)
+    subcategories = SubCategory.objects.all()
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         products = products.filter(category=category)
@@ -51,5 +52,5 @@ def order_create(request, category_slug=None):
             return redirect('shop:mail_ready')
     else:
         form_mini = MiniForm()
-    return render(request, 'orders/order/create.html', {'cart': cart, 'form': form, 'form_mini': form_mini, 'category': category, 'categories': categories, 'products': products, })
+    return render(request, 'orders/order/create.html', {'cart': cart, 'subcategories': subcategories, 'form': form, 'form_mini': form_mini, 'category': category, 'categories': categories, 'products': products, })
 

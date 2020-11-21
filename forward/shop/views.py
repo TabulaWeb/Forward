@@ -109,6 +109,7 @@ def product_detail(request, id, slug, category_slug=None):
     cart_product_form = CartAddProductForm()
     category = None
     categories = Category.objects.all()
+    subcategories = SubCategory.objects.all()
     products = Product.objects.filter(available=True)
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
@@ -119,6 +120,7 @@ def product_detail(request, id, slug, category_slug=None):
                    'category': category,
                    'categories': categories,
                    'products': products,
+                   'subcategories': subcategories,
                    'cart_product_form': cart_product_form,
                    'form': form,})
 
@@ -128,6 +130,7 @@ def our_projects(request, category_slug=None):
     posts = Ourprojects.objects.all()
     categories = Category.objects.all()
     products = Product.objects.filter(available=True)
+    subcategories = SubCategory.objects.all()
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         products = products.filter(category=category)
@@ -150,12 +153,14 @@ def our_projects(request, category_slug=None):
                                                               'categories': categories,
                                                               'products': products,
                                                               'posts': posts,
+                                                              'subcategories': subcategories,
                                                               'form': form,})
 
 def ourprojects_detail(request, year, month, day, post, category_slug=None):
     category = None
     categories = Category.objects.all()
     products = Product.objects.filter(available=True)
+    subcategories = SubCategory.objects.all()
     post = get_object_or_404(Ourprojects, slug=post, publish__year=year,
                           publish__month=month, publish__day=day)
     if category_slug:
@@ -180,6 +185,7 @@ def ourprojects_detail(request, year, month, day, post, category_slug=None):
                                                                     'category': category,
                                                                     'categories': categories,
                                                                     'products': products,
+                                                                    'subcategories': subcategories,
                                                                     'form': form,})
 
 def engineer_tips(request, category_slug=None):
@@ -187,6 +193,7 @@ def engineer_tips(request, category_slug=None):
     engineertips = Engineer_tips.objects.all()
     categories = Category.objects.all()
     products = Product.objects.filter(available=True)
+    subcategories = SubCategory.objects.all()
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         products = products.filter(category=category)
@@ -208,6 +215,7 @@ def engineer_tips(request, category_slug=None):
     return render(request, 'shop/product/engineer_tips.html', {'category': category,
                                                                'categories': categories,
                                                                'products': products,
+                                                               'subcategories': subcategories,
                                                                'engineertips': engineertips,
                                                                'form': form,})
 
@@ -216,6 +224,7 @@ def delivery(request, category_slug=None):
     category = None
     categories = Category.objects.all()
     products = Product.objects.filter(available=True)
+    subcategories = SubCategory.objects.all()
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         products = products.filter(category=category)
@@ -237,6 +246,7 @@ def delivery(request, category_slug=None):
     return render(request, 'shop/product/delivery.html', {'category': category,
                                                           'categories': categories,
                                                           'products': products,
+                                                          'subcategories': subcategories,
                                                           'form': form,})
 
 
@@ -244,6 +254,7 @@ def reviews(request, category_slug=None):
     category = None
     categories = Category.objects.all()
     products = Product.objects.filter(available=True)
+    subcategories = SubCategory.objects.all()
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         products = products.filter(category=category)
@@ -277,6 +288,7 @@ def reviews(request, category_slug=None):
                                                          'categories': categories,
                                                          'products': products,
                                                          'comments': comments,
+                                                         'subcategories': subcategories,
                                                          'new_comment': new_comment,
                                                          'comment_form': comment_form,
                                                          'form': form,})
@@ -286,6 +298,7 @@ def contacts(request, category_slug=None):
     category = None
     categories = Category.objects.all()
     products = Product.objects.filter(available=True)
+    subcategories = SubCategory.objects.all()
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
         products = products.filter(category=category)
@@ -324,5 +337,6 @@ def contacts(request, category_slug=None):
                                                          'categories': categories,
                                                          'products': products,
                                                          'form': form,
+                                                         'subcategories': subcategories,
                                                          'form_message': form_message})
 

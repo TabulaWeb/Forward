@@ -56,6 +56,7 @@ def cart_remove(request, product_id):
 def cart_detail(request, category_slug=None):
     category = None
     categories = Category.objects.all()
+    subcategories = SubCategory.objects.all()
     products = Product.objects.filter(available=True)
     if category_slug:
         category = get_object_or_404(Category, slug=category_slug)
@@ -85,4 +86,5 @@ def cart_detail(request, category_slug=None):
                                                 'form': form,
                                                 'categories': categories,
                                                 'products': products,
+                                                'subcategories': subcategories,
                                                 'category': category, })

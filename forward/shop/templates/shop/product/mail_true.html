@@ -52,8 +52,8 @@
         <ul>
             {% for c in categories %}
                 {% if not c.arenda %}
-                    <li {% for product in products %}
-                                {% if c.slug == product.category.slug %}
+                    <li {% for subcategory in subcategories %}
+                                {% if c.slug == subcategory.categorychange.slug %}
                                     class="hover_subProduct"
                                 {% endif %}
                             {% endfor %} 
@@ -64,10 +64,10 @@
                         </a>
                         <div class="aside-menu-inserted">
                             <ul class="aside-menu">
-                                {% for product in products %}
+                                {% for subcategory in subcategories %}
                                     <li class="aside-menu__item">
-                                        {% if c.slug == product.category.slug %}
-                                        <a href="{{ product.get_absolute_url }}">{{ product.name }}</a> 
+                                        {% if c.slug == subcategory.categorychange.slug %}
+                                            <a href="{{ subcategory.get_absolute_url }}">{{ subcategory.name }}</a> 
                                         {% endif %}
                                     </li>
                                     
@@ -184,8 +184,8 @@
                 </li>
                 {% for c in categories %}
                 {% if not c.arenda %}
-                    <li {% for product in products %}
-                                {% if c.slug == product.category.slug %}
+                    <li {% for subcategory in subcategories %}
+                                {% if c.slug == subcategory.categorychange.slug %}
                                     class="hover_subProduct"
                                 {% endif %}
                             {% endfor %} 
