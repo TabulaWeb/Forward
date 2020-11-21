@@ -287,6 +287,26 @@
         </div>
     </div>
     <div id="main">
+        <div class="popup-keepBuying">
+            <div class="popup-keepBuying__content">
+                <svg class="close_form-success" fill="#babac0" enable-background="new 0 0 32 32" height="32px" id="Слой_1" version="1.1" viewBox="0 0 32 32" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g id="Cancel"><path clip-rule="evenodd" d="M16,0C7.163,0,0,7.163,0,16c0,8.836,7.163,16,16,16   c8.836,0,16-7.163,16-16C32,7.163,24.836,0,16,0z M16,30C8.268,30,2,23.732,2,16C2,8.268,8.268,2,16,2s14,6.268,14,14   C30,23.732,23.732,30,16,30z" fill="#babac0" fill-rule="evenodd"/><path clip-rule="evenodd" d="M22.729,21.271l-5.268-5.269l5.238-5.195   c0.395-0.391,0.395-1.024,0-1.414c-0.394-0.39-1.034-0.39-1.428,0l-5.231,5.188l-5.309-5.31c-0.394-0.396-1.034-0.396-1.428,0   c-0.394,0.395-0.394,1.037,0,1.432l5.301,5.302l-5.331,5.287c-0.394,0.391-0.394,1.024,0,1.414c0.394,0.391,1.034,0.391,1.429,0   l5.324-5.28l5.276,5.276c0.394,0.396,1.034,0.396,1.428,0C23.123,22.308,23.123,21.667,22.729,21.271z" fill="#babac0" fill-rule="evenodd"/></g><g/><g/><g/><g/><g/><g/></svg>
+                <div class="popup-keepBuying__title">
+                    <h1>
+                        Товар добавлен в корзину
+                    </h1>
+                    <svg height="50px" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd" viewBox="0 0 21.0001 21.0001" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><style type="text/css">
+                    <![CDATA[
+                        .fil0 {fill:none}
+                        .fil1 {fill:#00BA00}
+                    ]]>
+                    </style></defs><g id="图层_x0020_1"><rect class="fil0" height="21.0001" width="21.0001"/><path class="fil1" d="M10.5038 1.31775c5.07328,0 9.1876,4.11432 9.1876,9.1876 0,5.07328 -4.11432,9.1876 -9.1876,9.1876 -5.07328,0 -9.1876,-4.11432 -9.1876,-9.1876 0,-5.07328 4.11432,-9.1876 9.1876,-9.1876zm-1.90792 12.1718l-2.24935 -2.25121c-0.38321,-0.38344 -0.38329,-1.00872 0,-1.39208l0 0c0.38337,-0.38329 1.01143,-0.38089 1.39201,0l1.58578 1.58702 3.94488 -3.94488c0.38337,-0.38337 1.00872,-0.38337 1.39201,0l0 0c0.38337,0.38329 0.38282,1.00918 0,1.39201l-4.64201 4.64201c-0.38282,0.38282 -1.00872,0.38337 -1.39201,0l0 0c-0.01077,-0.01077 -0.02116,-0.0217 -0.03131,-0.03286l0 -1e-005z"/></g></svg>
+                </div>
+                <div class="popup-keepBuying__link">
+                    <p class="close_form-success_text">Вурнуться к покупкам</p>
+                    <a href="{% url "cart:cart_detail" %}">Перейти в корзину</a>
+                </div>
+            </div>
+        </div>
         <h1>{{ subcategory.name }}</h1>
         <div class="items-catalog">
         <div class="subcat-product__content">
@@ -309,7 +329,7 @@
                         <form action="{% url "cart:cart_addd" product.id %}" method="post">
                             {{ cart_product_form }}
                             {% csrf_token %}
-                            <input type="submit" value="В корзину">
+                            <input type="submit" value="В корзину" id="addCardSub">
                         </form>
                     </div>
                 </div>
