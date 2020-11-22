@@ -2700,16 +2700,18 @@
                     }
                 )
 
-                $('#addCardSub').click(function() {
-                    $('.popup-keepBuying').addClass('active');
-                    localStorage.ClassName = 'active'
-                })
-                $(document).ready(function() {
-                    SetClass();
-                });
-                function SetClass() {
-                    $(".popup-keepBuying").addClass(localStorage.ClassName);
-                }
+                // var script = document.createElement('script');
+                // script.onload = function() {
+                //     $('.popup-keepBuying').addClass('active');
+                // };
+                // script.src = "../../static/script.js";
+                // document.getElementsByTagName('head')[0].appendChild(script);
+
+                // $('#addCardSub').click(function() {
+                //     if($(window).bind){
+                //         $('.popup-keepBuying').addClass('active');
+                //     }
+                // })
 
                 $('.close_form-success').click(function(){
                     $('.popup-keepBuying').removeClass('active');
