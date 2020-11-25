@@ -1,5 +1,5 @@
 from django.db import models
-from shop.models import Product
+from shop.models import Product, Category
 
 class Order(models.Model):
     first_name = models.CharField(max_length=50, verbose_name='Имя')

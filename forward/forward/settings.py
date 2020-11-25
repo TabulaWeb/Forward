@@ -96,7 +96,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'tabulaweb99@gmail.com'
-EMAIL_HOST_PASSWORD = 'Frdfcnhjq1999'
+EMAIL_HOST_PASSWORD = 'pskovhacklove'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 

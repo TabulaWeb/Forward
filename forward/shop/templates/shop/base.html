@@ -213,6 +213,8 @@
                 width: calc(7vw + 208px);
                 float: left;
                 padding: 0 20px 20px 0;
+                max-height: 300px;
+                object-fit: contain;
             }
             .block_footer-links li:last-child{
                 padding-right: 0px;
@@ -897,6 +899,7 @@
                 background-color: #fff;
                 min-height: inherit;
                 padding-right: 15px;
+                overflow: hidden;
             }
             /* END BLOCK CREATE_ORDER-PAGE */
 
@@ -1985,6 +1988,35 @@
                 /*  */
             }
             @media (max-width: 575.98px) {
+                .subcat-product__title p{
+                    margin-top: 5px;
+                }
+                .block_detail-content{
+                    margin-bottom: 25px;
+                }
+                a.button, input[value="Обновить"] {
+                    color: #fff;
+                    background: #5993bb;
+                    border-radius: 4px;
+                    padding: 10px 10px;
+                    font-size: 14px;
+                    border: 0;
+                }
+                .item_cart-manipul{
+                    flex-direction: column;
+                }
+                .item_cart-name{
+                    margin-left: 0px!important;
+                }
+                .item_cart-price{
+                    margin-left: 0px!important;
+                }
+                .item_cart-remove{
+                    bottom: 0;
+                    right: 0;
+                    top: initial!important;
+                    left: initial!important;
+                }
                 .item-subcategory{
                     width: 100vw;
                 }
@@ -2385,6 +2417,21 @@
             @media screen and (max-width: 450px){
                 .subcat-product__content .item{
                     max-width: 100%;
+                }
+            }
+            @media screen and (max-width: 400px){
+                .order-info{
+                    float: inherit;
+                    width: 100%;
+                }
+                .order-info p{
+                    float: inherit;
+                }
+                .order-form{
+                    float: inherit;
+                }
+                .page_createOrder form p input{
+                    width: 100%!important;
                 }
             }
             /* END MEDIA QUERIES */

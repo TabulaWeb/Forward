@@ -22,7 +22,8 @@ def order_create(request, category_slug=None):
         if form.is_valid():
             order = form.save()
             for item in cart:
-                OrderItem.objects.create(order=order, product=item['product'], price=item['price'], quantity=item['quantity'])
+                OrderItem.objects.create(
+                    order=order, product=item['product'], price=item['price'], quantity=item['quantity'])
             # Очищаем корзину.
             
             cd = form.cleaned_data
