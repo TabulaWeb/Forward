@@ -60,6 +60,7 @@ def product_list(request, category_slug=None):
 
 
 def product_subcategory(request, id, slug):
+    subcategories = SubCategory.objects.all()
     sent = False
     if request.method == 'POST':
         form = MiniForm(request.POST)
@@ -77,10 +78,11 @@ def product_subcategory(request, id, slug):
         form = MiniForm()
     subcategory = get_object_or_404(SubCategory, id=id, slug=slug)
     cart_product_form = CartAddProductForm()
-    
+
     categories = Category.objects.all()
     products = Product.objects.filter(available=True)
     return render(request, 'shop/product/subcategory.html', {'subcategory': subcategory,
+                                                             'subcategories': subcategories,
                                                              'products': products,
                                                              'categories': categories,
                                                              'cart_product_form': cart_product_form,

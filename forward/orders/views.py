@@ -30,8 +30,12 @@ def order_create(request, category_slug=None):
             subject = 'Новый заказ от {} {}, его номер - {}'.format(cd['first_name'], cd['last_name'], cd['phone_number'])
             m = []
             for item in cart:
-                mess = '{} - {}\nСумма заказа = {}\n\n'.format(item['quantity'], item['product'], item['total_price'])
-                m.append(mess)
+                if (item['product'].arenda == True):
+                    mess = 'АРЕНДА\nКол-во товара:{} - Товар:{}\nСумма заказа = {}\n\n'.format(item['quantity'], item['product'], item['total_price'])
+                    m.append(mess)
+                else:
+                    mess = 'ПОКУПКА\nКол-во товара:{}\nТовар:{}\nСумма заказа = {}\n\n'.format(item['quantity'], item['product'], item['total_price'])
+                    m.append(mess)
             message = ' '.join(m)
             send_mail(subject, message, 'tabulaweb99@gmail.com', ['tabulaweb99@gmail.com'])
             cart.clear()
