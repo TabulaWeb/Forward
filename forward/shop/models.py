@@ -112,10 +112,10 @@ class Engineer_tips(models.Model):
 class Comment(models.Model):
     name = models.CharField(max_length=80, verbose_name='Имя')
     email = models.EmailField()
-    body = models.TextField()
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
-    active = models.BooleanField(default=False)
+    body = models.TextField(verbose_name='Текст')
+    created = models.DateTimeField(auto_now_add=True, verbose_name='Дата')
+    updated = models.DateTimeField(auto_now=True, verbose_name='Обновление')
+    active = models.BooleanField(default=False, verbose_name='Статус')
 
     class Meta:
         ordering = ('created',)

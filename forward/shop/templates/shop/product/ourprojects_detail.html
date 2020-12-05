@@ -120,22 +120,25 @@
         <ul>
             {% for c in categories %}
                 {% if c.arenda %}
-                    <li {% for product in products %}
-                                {% if c.slug == product.category.slug %}
-                                    class="hover_subProduct"
+                    <li {% for subcategory in subcategories %}
+                                {% if c.slug == subcategory.categorychange.slug %}
+                                    class="hoverCatalogArenda"
                                 {% endif %}
-                            {% endfor %} 
+                            {% endfor %}
                             {% if category.slug == c.slug %}class="selected" {% endif %}>
                         <a 
+                        {% if c.arenda %}
+                                class="catalog_arenda"
+                            {% endif %}
                             href="{{ c.get_absolute_url }}">
                             {{ c.name }}
                         </a>
-                        <div class="aside-menu-inserted">
+                        <div class="aside-menu-insertedd">
                             <ul class="aside-menu">
-                                {% for product in products %}
+                                {% for subcategory in subcategories %}
                                     <li class="aside-menu__item">
-                                        {% if c.slug == product.category.slug %}
-                                        <a href="{{ product.get_absolute_url }}">{{ product.name }}</a> 
+                                        {% if c.slug == subcategory.categorychange.slug %}
+                                        <a href="{{ subcategory.get_absolute_url }}">{{ subcategory.name }}</a> 
                                         {% endif %}
                                     </li>
                                     
@@ -303,32 +306,43 @@
         {% if not category %}
                 <div class="block_detailProjects">
                     <h1>{{ post.title }}</h1>
-                    <img src="{% if post.image %}
+                    <div class="block_detailProjects-text">
+                        <img src="{% if post.image %}
                                         {{ post.image.url }}
                                     {%else%}
                                         {% static "img/no_image.png" %}
                                     {% endif %}" alt="">
-                    {{ post.body|linebreaks }}
+                        {{ post.body|linebreaks }}
+                    </div>
                 </div>
 
                 <div class="block_slider-projects">
-                    <div class="slider-detail">
-                        <div class="slid">
-                            <img src="{% if post.one_slide %}{{ post.one_slide.url }}{%else%}{% static "img/no_image.png" %}{% endif %}" alt="">
-                        </div>
-                        <div class="slid">
-                            <img src="{% if post.one_slide %}{{ post.two_slide.url }}{%else%}{% static "img/no_image.png" %}{% endif %}" alt="">
-                        </div>
-                        <div class="slid">
-                            <img src="{% if post.one_slide %}{{ post.three_slide.url }}{%else%}{% static "img/no_image.png" %}{% endif %}" alt="">
-                        </div>
-                        <div class="slid">
-                            <img src="{% if post.one_slide %}{{ post.four_slide.url }}{%else%}{% static "img/no_image.png" %}{% endif %}" alt="">
-                        </div>
-                        <div class="slid">
-                            <img src="{% if post.one_slide %}{{ post.five_slide.url }}{%else%}{% static "img/no_image.png" %}{% endif %}" alt="">
-                        </div>
-                    </div>
+                    {% if post.one_slide %}
+                        <img src="{{ post.one_slide.url }}" alt="">
+                    {% else %}
+                        <p></p>
+                    {% endif %}
+
+                    {% if post.two_slide %}
+                        <img src="{{ post.two_slide.url }}" alt="">
+                    {% else %}
+                        <p></p>
+                    {% endif %}
+                    {% if post.three_slide %}
+                        <img src="{{ post.three_slide.url }}" alt="">
+                    {%else%}
+                        <p></p>
+                    {% endif %}
+                    {% if post.four_slide %}
+                        <img src="{{ post.four_slide.url }}" alt="">
+                    {%else%}
+                        <p></p>
+                    {% endif %}
+                    {% if post.five_slide %}
+                        <img src="{{ post.five_slide.url }}" alt="">
+                    {%else%}
+                        <p></p>
+                    {% endif %}
                 </div>
         {% endif %}
     </div> 

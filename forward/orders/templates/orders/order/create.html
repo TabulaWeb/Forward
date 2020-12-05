@@ -50,15 +50,18 @@
                 {% if c.arenda %}
                     <li {% for subcategory in subcategories %}
                                 {% if c.slug == subcategory.categorychange.slug %}
-                                    class="hover_subProduct"
+                                    class="hoverCatalogArenda"
                                 {% endif %}
-                            {% endfor %} 
+                            {% endfor %}
                             {% if category.slug == c.slug %}class="selected" {% endif %}>
                         <a 
+                        {% if c.arenda %}
+                                class="catalog_arenda"
+                            {% endif %}
                             href="{{ c.get_absolute_url }}">
                             {{ c.name }}
                         </a>
-                        <div class="aside-menu-inserted">
+                        <div class="aside-menu-insertedd">
                             <ul class="aside-menu">
                                 {% for subcategory in subcategories %}
                                     <li class="aside-menu__item">
